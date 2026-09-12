@@ -48,12 +48,12 @@
       "Earth is still there. It's just not somewhere anyone lives — magnetosphere gone, radiation punishing by day, continents barely visible from orbit under a thin haze. You can land, salvage, and build outposts on the birthplace of the species. Nobody's stopping you. Nobody's helping you either.",
       "Mars fares better, in the sense that Cydonia exists: a UC mining settlement sealed entirely underground in a maze of tunnels, because the surface still isn't an option. It's the largest mining operation the UC runs, guarded by its own Marine barracks, and about as far from New Atlantis's polish as the core worlds get."
     ],
-    "related": ["uc", "deimos-staryard"]
+    "related": ["uc", "deimos-staryard", "nova-galactic-shipyard", "new-homestead"]
   },
   {
     "id": "deimos-staryard",
     "type": "location",
-    "subtype": "frontier",
+    "subtype": "shipyard",
     "name": "Deimos Staryard",
     "system": "Sol",
     "planet": "Deimos (orbit)",
@@ -63,9 +63,42 @@
     "summary": "A civilian-accessible shipyard orbiting Mars's moon Deimos — HQ of the ship manufacturer of the same name.",
     "body": [
       "An orbital shipyard around Deimos, the smaller and closer of Mars's two moons, and the headquarters of Deimos Staryards Inc — one of the best-known starship manufacturers in the settled systems, with a product line leaning military and UC-adjacent, though anyone's credits spend the same. Dock and you can buy ships and parts straight from Deimos staff, or pick up local jobs.",
-      "The company's footprint extends down to Cydonia too, where its engineering block, corporate office, and miner quarters sit alongside the rest of Mars's underground sprawl."
+      "The company's footprint extends down to Cydonia too, where its engineering block, corporate office, and miner quarters sit alongside the rest of Mars's underground sprawl. Deimos is one of only a handful of manufacturers with its own dedicated shipyard — a generic Ship Services Technician in any major city will install and repair parts, but Deimos's own exclusive components only come from here."
     ],
     "related": ["earth-cydonia"]
+  },
+  {
+    "id": "nova-galactic-shipyard",
+    "type": "location",
+    "subtype": "shipyard",
+    "name": "Nova Galactic Shipyard",
+    "system": "Sol",
+    "planet": "Luna (orbit)",
+    "faction": "independent",
+    "era": "base",
+    "tags": ["shipyard", "sol-system", "manufacturer"],
+    "summary": "Nova Galactic's own orbital shipyard, around Earth's moon — though most pilots meet the brand at New Homestead instead.",
+    "body": [
+      "Nova Galactic's dedicated staryard sits in orbit around Luna, Earth's moon, in the Sol system — the formal source of the brand's ships and parts. In practice, though, most players never dock here at all: New Homestead, the company's settlement out on Titan, has its own Nova Galactic technician stocking the same exclusive gear and is a far easier stop to make.",
+      "The brand's signature is scale and structure — some of the largest habs and cockpits in the game, and among the strongest landing gear available, at the cost of a distinctly utilitarian look."
+    ],
+    "related": ["earth-cydonia", "new-homestead"]
+  },
+  {
+    "id": "new-homestead",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "New Homestead",
+    "system": "Sol",
+    "planet": "Titan",
+    "faction": "independent",
+    "era": "base",
+    "tags": ["settlement", "sol-system", "ship-parts"],
+    "summary": "A settlement on Saturn's moon Titan, and the easiest place to actually buy Nova Galactic's exclusive ship parts.",
+    "body": [
+      "A small settlement on Titan, Saturn's largest moon — worth the detour for one reason above all: its Ship Services Technician, parked by the landing pad next to the Trade Authority kiosk, sells Nova Galactic's full exclusive range without needing to track down the company's own orbital shipyard around Luna."
+    ],
+    "related": ["nova-galactic-shipyard", "earth-cydonia"]
   },
   {
     "id": "akila-city",
@@ -97,7 +130,24 @@
     "body": [
       "Built on top of an old fishing platform, after someone noticed the local fish produced a rather profitable psychotropic compound. That compound is Aurora, and Neon is the city it built: casinos, corporate towers, and a lot of very bright light hiding a lot of very murky business. Ryujin Industries runs it, more or less openly, from Neon Core."
     ],
-    "related": ["ryujin", "trade-authority"]
+    "related": ["ryujin", "trade-authority", "taiyo-astroneering"]
+  },
+  {
+    "id": "taiyo-astroneering",
+    "type": "location",
+    "subtype": "shipyard",
+    "name": "Taiyo Astroneering Showroom",
+    "system": "Volii",
+    "planet": "Volii Alpha",
+    "faction": null,
+    "era": "base",
+    "tags": ["shipyard", "showroom", "neon", "manufacturer"],
+    "summary": "A ship-parts showroom inside Neon's Ryujin Tower — Taiyo's own sleek, high-tech aesthetic, sold by Veronica Young.",
+    "body": [
+      "Not an orbital staryard like the others — Taiyo's showroom is a shop inside Ryujin Tower itself, reached by the elevator from the lobby. Vendor Veronica Young sells the full exclusive range: bays, cockpits, dockers, habs and structural pieces, all in Taiyo's distinctly sleek, futuristic house style.",
+      "Worth knowing precisely because it's easy to miss: it's tucked inside another company's tower, in a city most players are already visiting for entirely different reasons."
+    ],
+    "related": ["neon"]
   },
   {
     "id": "vectera-kreet",
@@ -113,7 +163,24 @@
     "body": [
       "Anselon's two moons, and where it all begins: a mining contract on Vectera, an artifact nobody expected, and a detour past Kreet on the way to New Atlantis."
     ],
-    "related": ["new-atlantis", "the-artifacts"]
+    "related": ["new-atlantis", "the-artifacts", "stroud-eklund-staryard"]
+  },
+  {
+    "id": "stroud-eklund-staryard",
+    "type": "location",
+    "subtype": "shipyard",
+    "name": "Stroud-Eklund Staryard",
+    "system": "Narion",
+    "planet": "Dalvik (moon of Deepala)",
+    "faction": "independent",
+    "era": "base",
+    "tags": ["shipyard", "narion-system", "manufacturer", "roaming"],
+    "summary": "A roaming staryard in the same system as Vectera and Kreet — fly to it and dock, rather than land on it.",
+    "body": [
+      "One of the four manufacturers with its own dedicated shipyard, found orbiting Dalvik, a moon of Deepala in the Narion system — the same system as Vectera and Kreet, so it's rarely far out of the way early on. It's a roaming ship rather than a fixed station: you fly toward it and dock, rather than land.",
+      "Stroud-Eklund's specialty is structural parts, hab and docker modules, cockpits, and landing bays and gear — a more traditional aerospace look than Deimos's military bulk or Taiyo's showroom sheen."
+    ],
+    "related": ["vectera-kreet"]
   },
   {
     "id": "the-key",
@@ -193,7 +260,24 @@
     "body": [
       "A settlement on Polvo built by industrialist Ron Hope, better known for the HopeTech shipyard than the town around it. Also home to the Freestar Rangers' headquarters, if you're after both a ship refit and a badge."
     ],
-    "related": ["freestar"]
+    "related": ["freestar", "hopetech-shipyard"]
+  },
+  {
+    "id": "hopetech-shipyard",
+    "type": "location",
+    "subtype": "shipyard",
+    "name": "HopeTech Shipyard",
+    "system": "Valo",
+    "planet": "Polvo",
+    "faction": "independent",
+    "era": "base",
+    "tags": ["shipyard", "manufacturer", "hopetown"],
+    "summary": "HopeTown's own shipyard — unique cockpits with ladder access and no hab needed behind them, plus distinctive fuselage-shaped habs.",
+    "body": [
+      "Land at HopeTown and talk to the Ship Technician next to the town's Trade Authority kiosk for HopeTech's exclusive range: cockpits, dockers, landing gear, structural pieces, and a wide choice of habs.",
+      "The standout is the cockpit design — HopeTech's can be entered from a ladder underneath, so one can sit right at the top of a ship with nothing behind it, which most other manufacturers' cockpits can't do. Its 'fuselage'-shaped habs are similarly distinctive if you want a less boxy-looking ship."
+    ],
+    "related": ["hopetown"]
   },
   {
     "id": "the-den",

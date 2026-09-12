@@ -34,7 +34,7 @@ All content lives in `data/*.json` — nothing is hand-typed into `index.html` i
 | File | Facets used for filtering | Notes |
 |---|---|---|
 | `factions.json` | `system`, `era` (faction itself is the facet elsewhere) | `color` is a CSS variable name (e.g. `--f-ry`) picked from the palette already defined in `index.html` |
-| `locations.json` | `faction`, `system`, `era` | `subtype` is `"core-world"` or `"frontier"` — controls which section it renders in |
+| `locations.json` | `faction`, `system`, `era` | `subtype` is `"core-world"`, `"shipyard"`, or `"frontier"` — controls which Type filter it falls under |
 | `cosmology.json` | `era` | `spoiler: true` adds the spoiler tag |
 | `updates.json` | — | Rendered newest-first by `date` (ISO `YYYY-MM-DD`) |
 | `fieldnotes.json` | — | Simple numbered list, no cross-linking |

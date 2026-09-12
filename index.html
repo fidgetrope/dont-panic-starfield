@@ -813,7 +813,7 @@
     "base":"Base game","shattered-space":"Shattered Space","terran-armada":"Terran Armada"
   };
   var TYPE_LABELS = {
-    "faction":"Faction","core-world":"Core World","frontier":"Frontier","cosmology":"Cosmology"
+    "faction":"Faction","core-world":"Core World","shipyard":"Shipyard","frontier":"Frontier","cosmology":"Cosmology"
   };
   // A handful of well-known entries to surface right on the Home tab.
   var QUICK_LOOKUP_IDS = ["constellation","uc","new-atlantis","neon","crimson","the-artifacts","dazra"];
@@ -866,7 +866,7 @@
     state.notes = res[4];
     state.links = res[5];
 
-    var kindOrder = { "faction":0, "core-world":1, "frontier":2, "cosmology":3 };
+    var kindOrder = { "faction":0, "core-world":1, "shipyard":2, "frontier":3, "cosmology":4 };
     state.browsable = state.factions.concat(state.locations, state.cosmology).sort(function(a,b){
       var ka = kindOrder[entryKind(a)], kb = kindOrder[entryKind(b)];
       if (ka !== kb) return ka - kb;
@@ -912,7 +912,7 @@
   // ---------- render: type chips (faction / core-world / frontier / cosmology) ----------
   function renderTypeChips(){
     var wrap = document.getElementById("typeChips");
-    var opts = [["all","All"],["faction","Factions"],["core-world","Core Worlds"],["frontier","Frontier"],["cosmology","Cosmology"]];
+    var opts = [["all","All"],["faction","Factions"],["core-world","Core Worlds"],["shipyard","Shipyards"],["frontier","Frontier"],["cosmology","Cosmology"]];
     opts.forEach(function(o){
       var b = el("button", "chip", o[1]);
       b.setAttribute("data-filter", o[0]);
