@@ -377,6 +377,22 @@
     cursor:pointer;
     white-space:nowrap;
   }
+  .facet-panel-select button{
+    display:block;
+    width:100%;
+    text-align:left;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    color:var(--ink);
+    background:none;
+    border:none;
+    border-radius:3px;
+    padding:6px 8px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .facet-panel-select button:hover{ background:var(--surface); }
+  .facet-panel-select button[aria-pressed="true"]{ color:var(--gold); font-weight:600; }
   .clear-filters{
     font-family:"IBM Plex Mono", monospace;
     font-size:11px;
@@ -738,10 +754,10 @@
           <div class="chips" id="typeChips" role="group" aria-label="Filter by type"></div>
         </div>
         <div class="filter-line">
-          <span class="filter-label">Faction</span>
-          <div class="chips" id="chips" role="group" aria-label="Filter by faction"></div>
-        </div>
-        <div class="filter-line">
+          <div class="facet">
+            <button class="facet-btn" id="factionFacetBtn" aria-haspopup="true" aria-expanded="false">Faction ▾</button>
+            <div class="facet-panel facet-panel-select" id="factionFacetPanel"></div>
+          </div>
           <div class="facet">
             <button class="facet-btn" id="systemFacetBtn" aria-haspopup="true" aria-expanded="false">System ▾</button>
             <div class="facet-panel" id="systemFacetPanel"></div>
@@ -929,23 +945,18 @@
     });
   }
 
-  // ---------- render: faction chips (single-select) ----------
+  // ---------- render: faction dropdown (single-select) ----------
   function renderFactionChips(){
-    var wrap = document.getElementById("chips");
-    var allB = el("button", "chip", "All");
-    allB.setAttribute("data-filter", "all");
-    allB.setAttribute("aria-pressed", "true");
-    wrap.appendChild(allB);
-    state.factions.forEach(function(f){
-      var b = el("button", "chip", esc(f.name));
-      b.setAttribute("data-filter", f.id);
-      b.setAttribute("aria-pressed", "false");
+    var wrap = document.getElementById("factionFacetPanel");
+    var opts = [["all","All factions"]];
+    state.factions.forEach(function(f){ opts.push([f.id, f.name]); });
+    opts.push(["independent","Independent"]);
+    opts.forEach(function(o){
+      var b = el("button", "", esc(o[1]));
+      b.setAttribute("data-filter", o[0]);
+      b.setAttribute("aria-pressed", o[0] === "all" ? "true" : "false");
       wrap.appendChild(b);
     });
-    var indB = el("button", "chip", "Independent");
-    indB.setAttribute("data-filter", "independent");
-    indB.setAttribute("aria-pressed", "false");
-    wrap.appendChild(indB);
   }
 
   // ---------- render: system / era facet panels ----------
@@ -1148,8 +1159,8 @@
     });
 
     wireChipGroup("typeChips", function(val){ state.activeType = val; }, function(){ return state.activeType; });
-    wireChipGroup("chips", function(val){ state.activeFaction = val; }, function(){ return state.activeFaction; });
 
+    setupSingleSelectFacet("factionFacetBtn", "factionFacetPanel", function(val){ state.activeFaction = val; }, function(){ return state.activeFaction; });
     setupFacetDropdown("systemFacetBtn", "systemFacetPanel", "data-system", state.activeSystems);
     setupFacetDropdown("eraFacetBtn", "eraFacetPanel", "data-era", state.activeEras);
 
@@ -1169,7 +1180,7 @@
       state.activeEras = new Set();
       document.getElementById("q").value = "";
       setChipPressed("typeChips", "all");
-      setChipPressed("chips", "all");
+      setSingleSelectPressed("factionFacetPanel", "all");
       document.querySelectorAll(".facet-panel input[type=checkbox]").forEach(function(cb){ cb.checked = false; });
       updateFacetBtnState();
       apply();
@@ -1231,7 +1242,40 @@
     });
   }
 
+  function setupSingleSelectFacet(btnId, panelId, setter, getter){
+    var btn = document.getElementById(btnId);
+    var panel = document.getElementById(panelId);
+    btn.addEventListener("click", function(e){
+      e.stopPropagation();
+      var willOpen = !panel.classList.contains("open");
+      document.querySelectorAll(".facet-panel").forEach(function(p){ p.classList.remove("open"); });
+      panel.classList.toggle("open", willOpen);
+    });
+    panel.addEventListener("click", function(e){ e.stopPropagation(); });
+    panel.querySelectorAll("button").forEach(function(b){
+      b.addEventListener("click", function(){
+        setter(b.getAttribute("data-filter"));
+        setSingleSelectPressed(panelId, b.getAttribute("data-filter"));
+        panel.classList.remove("open");
+        updateFacetBtnState();
+        apply();
+      });
+    });
+    setSingleSelectPressed(panelId, getter());
+  }
+
+  function setSingleSelectPressed(panelId, val){
+    document.querySelectorAll("#" + panelId + " button").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-filter") === val ? "true" : "false");
+    });
+  }
+
   function updateFacetBtnState(){
+    var factionLabel = state.activeFaction === "all" ? null :
+      (FACTION_LABELS[state.activeFaction] || state.activeFaction);
+    document.getElementById("factionFacetBtn").setAttribute("data-active", state.activeFaction !== "all");
+    document.getElementById("factionFacetBtn").textContent = factionLabel ? factionLabel + " ▾" : "Faction ▾";
+
     document.getElementById("systemFacetBtn").setAttribute("data-active", state.activeSystems.size > 0);
     document.getElementById("eraFacetBtn").setAttribute("data-active", state.activeEras.size > 0);
     document.getElementById("systemFacetBtn").textContent = state.activeSystems.size
