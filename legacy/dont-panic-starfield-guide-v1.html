@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don't Panic! — A Pocket Guide to the Settled Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d101a;
+    --bg-cream:#f3eddc;
+    --ink-on-cream:#17181c;
+    --surface:#161b2b;
+    --surface-2:#1e2438;
+    --ink:#eae6d8;
+    --ink-dim:#9498ab;
+    --gold:#d7a13c;
+    --gold-ink:#1a1206;
+    --teal:#4fb8c4;
+    --line:#2a3149;
+    --line-cream:#ded2a8;
+
+    --f-uc:#6f9bf2;
+    --f-fs:#e2925a;
+    --f-cf:#e2635c;
+    --f-ry:#e874b8;
+    --f-va:#a58bec;
+    --f-ec:#9aa0ac;
+    --f-co:#4fb8c4;
+    --f-ind:#c9b978;
+    --f-ta:#ff6b4a;
+
+    --shadow: 0 1px 0 rgba(0,0,0,0.35), 0 14px 34px -16px rgba(0,0,0,0.6);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
+  /* ambient starfield texture, fixed across the whole page */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    opacity:.5;
+    background-image:
+      radial-gradient(1px 1px at 8% 12%, rgba(234,230,216,.5), transparent 60%),
+      radial-gradient(1px 1px at 22% 68%, rgba(234,230,216,.35), transparent 60%),
+      radial-gradient(1.5px 1.5px at 41% 24%, rgba(234,230,216,.4), transparent 60%),
+      radial-gradient(1px 1px at 58% 82%, rgba(234,230,216,.3), transparent 60%),
+      radial-gradient(1.5px 1.5px at 76% 15%, rgba(234,230,216,.4), transparent 60%),
+      radial-gradient(1px 1px at 88% 55%, rgba(234,230,216,.35), transparent 60%),
+      radial-gradient(1px 1px at 33% 92%, rgba(234,230,216,.3), transparent 60%),
+      radial-gradient(1.5px 1.5px at 65% 40%, rgba(234,230,216,.3), transparent 60%);
+    background-size: 900px 900px;
+  }
+  .ring-deco{
+    position:absolute;
+    border:1px solid rgba(234,230,216,.09);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  h1,h2,h3,h4{
+    font-family:"Barlow", "Arial Narrow", sans-serif;
+    text-transform:uppercase;
+    font-weight:700;
+    text-wrap:balance;
+    margin:0;
+    color:var(--ink);
+    letter-spacing:0.01em;
+  }
+  .display{
+    font-family:"Anton", "Barlow", sans-serif;
+    text-transform:uppercase;
+    font-weight:400;
+    letter-spacing:0.01em;
+  }
+  .mono{ font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; }
+  a{color:var(--teal);}
+  .wrap{ max-width:860px; margin:0 auto; padding-inline:20px; position:relative; z-index:1; }
+  .wide{ max-width:1020px; }
+
+  /* ---------- IDENT BAR ---------- */
+  .identbar{
+    background:#080a10;
+    border-bottom:1px solid var(--line);
+    padding-block:12px;
+  }
+  .identbar .wrap{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .brandmark{
+    font-family:"Barlow", sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+  }
+  .brandmark b{ color:var(--gold); }
+  .identbar .edition{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    color:var(--ink-dim);
+    letter-spacing:0.05em;
+  }
+
+  /* ---------- STICKY TOOLBAR ---------- */
+  .toolbar{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--bg-cream);
+    border-bottom:1px solid var(--line-cream);
+  }
+  .toolbar-nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2px 22px;
+    padding-block:14px 10px;
+  }
+  .toolbar-nav a{
+    font-family:"Barlow", sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-on-cream);
+    text-decoration:none;
+    opacity:.75;
+  }
+  .toolbar-nav a:hover{ opacity:1; color:#8a5a10; }
+  .toolbar-controls{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+    padding-block:0 14px;
+  }
+  .search-box{
+    position:relative;
+    flex:1 1 220px;
+    min-width:180px;
+  }
+  .search-box input{
+    width:100%;
+    font-family:"Source Serif 4", serif;
+    font-size:15px;
+    padding:9px 12px 9px 32px;
+    border:1px solid var(--line-cream);
+    border-radius:3px;
+    background:#fffdf6;
+    color:var(--ink-on-cream);
+  }
+  .search-box input:focus{ outline:2px solid var(--gold); outline-offset:1px; }
+  .search-box svg{
+    position:absolute;
+    left:9px; top:50%;
+    transform:translateY(-50%);
+    width:15px; height:15px;
+    opacity:.5;
+    pointer-events:none;
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    flex:2 1 420px;
+  }
+  .chip{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    padding:6px 10px;
+    border-radius:3px;
+    border:1px solid var(--line-cream);
+    background:transparent;
+    color:var(--ink-on-cream);
+    cursor:pointer;
+    line-height:1;
+  }
+  .chip[aria-pressed="true"]{
+    background:var(--ink-on-cream);
+    color:var(--bg-cream);
+    border-color:var(--ink-on-cream);
+  }
+  .result-count{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    color:var(--ink-on-cream);
+    opacity:.6;
+    white-space:nowrap;
+  }
+  .empty-note{
+    display:none;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12.5px;
+    color:var(--ink-dim);
+    padding:10px 14px;
+    border:1px dashed var(--line);
+    border-radius:4px;
+  }
+  .empty-note.show{ display:block; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding-block:64px 46px;
+    border-bottom:1px solid var(--line);
+  }
+  .kicker{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin:0 0 18px;
+  }
+  .hero h1{
+    font-family:"Anton", sans-serif;
+    font-size:clamp(3.4rem, 14vw, 7rem);
+    line-height:0.86;
+    color:var(--gold);
+    margin:0;
+  }
+  .hero-sub{
+    max-width:54ch;
+    font-size:1.1rem;
+    color:var(--ink-dim);
+    margin:22px 0 0;
+  }
+  .hero-sub em{ font-style:italic; color:var(--ink); }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding-block:50px; position:relative; }
+  section + section{ border-top:1px solid var(--line); }
+  .eyebrow{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:0 0 8px;
+  }
+  h2.title{ font-size:clamp(1.9rem, 5vw, 2.5rem); margin-bottom:18px; }
+  section > .wrap > p.lede, section > .wrap > .lede{
+    max-width:64ch;
+    color:var(--ink-dim);
+    font-size:1.05rem;
+    margin:0 0 28px;
+  }
+
+  /* ---------- ORIENTATION ---------- */
+  .stat-strip{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin-bottom:28px;
+  }
+  .stat{ background:var(--surface); padding:16px 14px; }
+  .stat .n{
+    font-family:"Anton", sans-serif;
+    font-size:1.8rem;
+    color:var(--gold);
+    font-variant-numeric:tabular-nums;
+    line-height:1;
+  }
+  .stat .l{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    margin-top:6px;
+  }
+  .prose p{ margin:0 0 16px; max-width:66ch; }
+  .prose p:last-child{ margin-bottom:0; }
+
+  /* ---------- STATE OF PLAY ---------- */
+  .patch{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:5px;
+    padding:22px 24px;
+    margin-bottom:14px;
+  }
+  .patch .row1{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:8px 14px;
+    margin-bottom:8px;
+  }
+  .patch h3{ font-size:1.2rem; }
+  .patch .pill{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:3px 10px;
+    border-radius:999px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+  }
+  .patch .datestamp{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    color:var(--ink-dim);
+  }
+  .patch p{ margin:0 0 10px; color:var(--ink); font-size:0.98rem; max-width:68ch;}
+  .patch p:last-child{ margin-bottom:0; }
+  .patch ul{ margin:8px 0 0; padding-left:20px; }
+  .patch li{ margin-bottom:5px; }
+
+  /* ---------- FACTIONS ---------- */
+  .faction-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:16px;
+  }
+  .fcard{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-left:5px solid var(--fc, var(--gold));
+    border-radius:4px;
+    padding:18px 20px;
+    box-shadow:var(--shadow);
+  }
+  .fcard h3{ font-size:1.22rem; color:var(--fc, var(--ink)); margin-bottom:8px; }
+  .pilltag{
+    display:inline-block;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--fc);
+    border:1px solid var(--fc);
+    border-radius:999px;
+    padding:3px 10px;
+    margin-bottom:10px;
+  }
+  .fcard p{ margin:0; font-size:0.97rem; color:var(--ink); }
+  .fcard p + p{ margin-top:8px; }
+
+  /* ---------- WORLD ENTRIES ---------- */
+  .world-entry{
+    display:grid;
+    grid-template-columns: 200px 1fr;
+    gap:24px;
+    padding-block:26px;
+    border-top:1px solid var(--line);
+  }
+  .world-entry:first-of-type{ border-top:none; padding-top:0; }
+  .world-id{ font-family:"IBM Plex Mono", monospace; font-size:12px; color:var(--ink-dim); line-height:1.7; }
+  .world-id .sys{ display:block; text-transform:uppercase; letter-spacing:0.08em; color:var(--teal); margin-bottom:6px; }
+  .world-body h3{ font-size:1.55rem; margin-bottom:10px; }
+  .world-body p{ margin:0 0 12px; max-width:64ch; }
+  .world-body p:last-child{ margin-bottom:0; }
+  @media (max-width:600px){ .world-entry{ grid-template-columns:1fr; gap:10px; } }
+
+  /* ---------- FRONTIER ---------- */
+  .frontier-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:14px;
+  }
+  .pcard{ background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:16px 18px; }
+  .pcard .row1{ display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:8px; }
+  .pcard h4{ font-size:1.08rem; letter-spacing:0.01em; }
+  .pcard .sysname{ font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--ink-dim); text-transform:uppercase; white-space:nowrap; }
+  .pcard p{ margin:0; font-size:0.94rem; color:var(--ink-dim); }
+
+  /* ---------- COSMOLOGY ---------- */
+  .cosmo{ background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:30px 30px 8px; }
+  .spoiler-tag{
+    display:inline-block;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--gold-ink);
+    background:var(--gold);
+    padding:3px 9px;
+    border-radius:3px;
+    margin-left:10px;
+    vertical-align:middle;
+  }
+  .cosmo-item{ margin:0 0 22px; }
+  .cosmo dt{ font-family:"Anton", sans-serif; font-size:1.05rem; color:var(--gold); text-transform:uppercase; margin-bottom:4px; }
+  .cosmo dd{ margin:0; max-width:64ch; color:var(--ink); }
+
+  /* ---------- FIELD NOTES ---------- */
+  .notes{ counter-reset:note; }
+  .note{ display:grid; grid-template-columns:34px 1fr; gap:14px; padding-block:14px; border-top:1px solid var(--line); }
+  .note:first-child{ border-top:none; padding-top:0; }
+  .note::before{
+    counter-increment:note;
+    content:counter(note, decimal-leading-zero);
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    color:var(--gold);
+    padding-top:2px;
+  }
+  .note p{ margin:0; }
+  .note b{ color:var(--ink); }
+
+  /* ---------- FURTHER READING ---------- */
+  .link-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    gap:14px;
+  }
+  .linkcard{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:16px 18px;
+    text-decoration:none;
+  }
+  .linkcard .src{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--teal);
+  }
+  .linkcard h4{ font-size:1.05rem; color:var(--ink); }
+  .linkcard p{ margin:0; font-size:0.92rem; color:var(--ink-dim); }
+  .linkcard .go{
+    margin-top:auto;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .linkcard:hover{ border-color:var(--gold); }
+  .linkcard:hover .go{ text-decoration:underline; }
+
+  footer{ padding-block:40px 60px; text-align:center; position:relative; z-index:1;}
+  footer p{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    color:var(--ink-dim);
+    letter-spacing:0.03em;
+    margin:0 0 6px;
+  }
+
+  ::selection{ background:rgba(215,161,60,.35); }
+  [hidden]{ display:none !important; }
+</style>
+</head>
+<body>
+
+<div class="identbar">
+  <div class="wrap">
+    <span class="brandmark"><b>Don't Panic!</b> — Pocket Guide to the Settled Systems</span>
+    <span class="edition mono">ED. 2 · AUTUMN 2026</span>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="wrap wide">
+    <nav class="toolbar-nav">
+      <a href="#orientation">Orientation</a>
+      <a href="#state-of-play">State of Play</a>
+      <a href="#factions">Factions</a>
+      <a href="#core-worlds">Core Worlds</a>
+      <a href="#frontier">Frontier</a>
+      <a href="#cosmology">Cosmology</a>
+      <a href="#field-notes">Field Notes</a>
+      <a href="#further-reading">Further Reading</a>
+    </nav>
+    <div class="toolbar-controls">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" id="q" placeholder="Search the guide… try “Neon” or “pirates”" aria-label="Search the guide">
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filter by faction">
+        <button class="chip" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="constellation" aria-pressed="false">Constellation</button>
+        <button class="chip" data-filter="uc" aria-pressed="false">United Colonies</button>
+        <button class="chip" data-filter="freestar" aria-pressed="false">Freestar</button>
+        <button class="chip" data-filter="crimson" aria-pressed="false">Crimson Fleet</button>
+        <button class="chip" data-filter="ryujin" aria-pressed="false">Ryujin</button>
+        <button class="chip" data-filter="va-ruun" aria-pressed="false">Va'ruun</button>
+        <button class="chip" data-filter="ecliptic" aria-pressed="false">Ecliptic</button>
+        <button class="chip" data-filter="terran-armada" aria-pressed="false">Terran Armada</button>
+        <button class="chip" data-filter="independent" aria-pressed="false">Independent</button>
+      </div>
+      <span class="result-count" id="count"></span>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="ring-deco" style="width:520px;height:520px;right:-180px;top:-220px;"></div>
+  <div class="ring-deco" style="width:280px;height:280px;left:-100px;bottom:-140px;"></div>
+  <div class="wrap">
+    <p class="kicker">The Settled Systems · A Pocket Guide · 2330 CE</p>
+    <h1>Don't Panic</h1>
+    <p class="hero-sub">Printed, as such things traditionally are, in large friendly letters. What follows is a rather less reassuring rundown of the actual galaxy: who runs it, who's shooting at whom, and which planets will simply let you suffocate if you forget to check. <em>Bring a spacesuit. Possibly a towel.</em> Use the search bar above to jump straight to what you need.</p>
+  </div>
+</header>
+
+<section id="orientation">
+  <div class="wrap">
+    <p class="eyebrow">§1</p>
+    <h2 class="title">Orientation</h2>
+
+    <div class="stat-strip">
+      <div class="stat"><div class="n">2330</div><div class="l">Current year</div></div>
+      <div class="stat"><div class="n">120</div><div class="l">Charted star systems</div></div>
+      <div class="stat"><div class="n">~1,700</div><div class="l">Planets &amp; moons catalogued</div></div>
+      <div class="stat"><div class="n">2</div><div class="l">Rival governments</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">Home planet, abandoned</div></div>
+    </div>
+
+    <div class="prose">
+      <p>Humanity did not leave Earth out of ambition. In 2150 scientists confirmed the planet's magnetosphere was failing, and while trying to work out why, they made it worse: gravity-warping experiments meant to unlock deep-space travel instead stripped away what atmosphere Earth had left. The grav drive that resulted is the only reason anyone is reading this in another star system at all. Earth itself was fully evacuated by 2203 and now sits in the Sol system as a cold, irradiated reminder of the trade humanity made — visitable, mineable, and dead.</p>
+      <p>What rebuilt itself out among the stars split cleanly in two. The <b>United Colonies</b> is the closest thing to a proper government: bureaucratic, well-armed, and convinced it's the adult in the room. The <b>Freestar Collective</b> is the frontier answer to that — a looser alliance of independent colonies that would rather handle its own problems, thanks. The two fought a war over it once. They have not entirely stopped disagreeing.</p>
+      <p>Everyone else — explorers, pirates, zealots, and one deeply enthusiastic drinks-and-drugs megacorporation — operates in the gaps between the two. That's most of this guide.</p>
+    </div>
+  </div>
+</section>
+
+<section id="state-of-play">
+  <div class="wrap">
+    <p class="eyebrow">§2</p>
+    <h2 class="title">State of Play</h2>
+    <p class="lede">The galaxy keeps moving even after you've stopped playing. Here's what's changed recently, straight from the official record.</p>
+
+    <div class="patch item">
+      <div class="row1"><h3>Free Lanes</h3><span class="pill">Free update</span><span class="datestamp">7 April 2026</span></div>
+      <p>The biggest free update yet, released alongside the official PlayStation 5 launch. <b>Cruise Mode</b> now lets you walk around your ship while covering huge in-system distances instead of jump-cutting past them. A new material, <b>X-Tech</b>, unlocks higher-tier weapon, gear and ship modifications and lets you reroll legendary effects. Outposts share containers with each other for easier inventory management, and Starborn players can now rank up their powers by collecting <b>Quantum Essence</b> — no New Game Plus required.</p>
+      <ul>
+        <li>New travel hub: <b>Anchorpoint Station</b>, Algorab system (see Frontier)</li>
+        <li>New vehicle: the Moon Jumper</li>
+        <li>A five-million-credit asteroid mansion, if you've been saving</li>
+      </ul>
+    </div>
+
+    <div class="patch item">
+      <div class="row1"><h3>Terran Armada</h3><span class="pill">Story DLC</span><span class="datestamp">7 April 2026</span></div>
+      <p>A new hostile faction: military deserters who've built a robot army with one goal, uniting humanity by force. The story starts with a hijacked luxury liner, the <em>Opulence of the Stars</em>, in the Nirvana system — recommended level 50+. Once triggered, <b>Incursions</b> can break out anywhere: Terran Armada forces storm an existing location and turn it into a live battle, disabling fast travel until you've cleared them out. How often they happen is adjustable in the gameplay options.</p>
+    </div>
+
+    <div class="patch item">
+      <div class="row1"><h3>Shattered Space</h3><span class="pill">Story expansion</span><span class="datestamp">2024 · ongoing</span></div>
+      <p>Starfield's first story expansion, and the deepest the game gets into House Va'ruun. A distress signal leads to Va'ruun'kai itself, where a botched grav-drive experiment has torn a hole in the fabric of spacetime above Dazra. Fifty-plus new locations, zero-gravity Vortex zones, and the Scaled Citadel — the sect's seat of government, now sitting inside an active energy field.</p>
+    </div>
+  </div>
+</section>
+
+<section id="factions">
+  <div class="wrap wide">
+    <p class="eyebrow">§3</p>
+    <h2 class="title">Who's Actually In Charge</h2>
+    <p class="lede">Eight organisations worth knowing before someone starts shooting at you and you'd like to know why.</p>
+
+    <div class="faction-grid">
+      <div class="fcard item" style="--fc:var(--f-co)" data-faction="constellation">
+        <span class="pilltag">Explorers</span>
+        <h3>Constellation</h3>
+        <p>The last of the great explorers' guilds — self-described "NASA-punk" idealists who care more about the unknown than the flag on their ship. Based out of the Lodge in New Atlantis. Not a government, not an army, and frequently at odds with both. You join automatically, one way or another.</p>
+      </div>
+      <div class="fcard item" style="--fc:var(--f-uc)" data-faction="uc">
+        <span class="pilltag">Government</span>
+        <h3>United Colonies</h3>
+        <p>The largest and most powerful government in the settled systems, run from the MAST building in New Atlantis. Order, military structure, and a genuine belief they're holding civilisation together. Its armed wing, UC Vanguard, deals with the things it would rather the public not think about.</p>
+      </div>
+      <div class="fcard item" style="--fc:var(--f-fs)" data-faction="freestar">
+        <span class="pilltag">Confederation</span>
+        <h3>Freestar Collective</h3>
+        <p>Frontier colonies who fought a war rather than answer to the United Colonies, and still run things their own way from Akila City. Law enforcement is handled by the Freestar Rangers — fewer regulations, more boots on the ground.</p>
+      </div>
+      <div class="fcard item" style="--fc:var(--f-cf)" data-faction="crimson">
+        <span class="pilltag">Pirates</span>
+        <h3>Crimson Fleet</h3>
+        <p>Operates out of The Key, a converted former UC military station, and preys on shipping across the frontier. Recruitment runs through undercover UC work, or simply getting caught committing enough crimes to be noticed.</p>
+      </div>
+      <div class="fcard item" style="--fc:var(--f-ry)" data-faction="ryujin">
+        <span class="pilltag">Megacorp</span>
+        <h3>Ryujin Industries</h3>
+        <p>Headquartered in Neon, the city it effectively owns. "Prepared to do anything to boost their profits" is the polite way of putting it. Recruitment is as simple as walking up to a terminal — everyone gets an interview.</p>
+      </div>
+      <div class="fcard item" style="--fc:var(--f-va)" data-faction="va-ruun">
+        <span class="pilltag">Religious sect</span>
+        <h3>House Va'ruun</h3>
+        <p>Zealots who worship an entity called the Great Serpent, after a colony-ship passenger reported an encounter with it during a grav jump generations ago — whether that was contact or breakdown is left deliberately unresolved. Mostly encountered as hostiles from their capital, Dazra.</p>
+      </div>
+      <div class="fcard item" style="--fc:var(--f-ec)" data-faction="ecliptic">
+        <span class="pilltag">Mercenaries</span>
+        <h3>Ecliptic</h3>
+        <p>Private military contractors for hire, found wherever the pay is good and the questions are few — fortified outposts like Vulture's Roost are typical. Not an organisation you join so much as one you keep surviving.</p>
+      </div>
+      <div class="fcard item" style="--fc:var(--f-ta)" data-faction="terran-armada">
+        <span class="pilltag">New · 2026</span>
+        <h3>Terran Armada</h3>
+        <p>The newest and least reasonable arrival: military deserters who've decided the way to unite humanity is a robot army and no debate. First encountered via a hijacked cruise liner in the Nirvana system. Expect Incursions wherever you've just gotten comfortable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="core-worlds">
+  <div class="wrap">
+    <p class="eyebrow">§4</p>
+    <h2 class="title">The Core Worlds</h2>
+    <p class="lede">Four systems where most of civilisation actually lives. Everything else is, to a first approximation, rock.</p>
+
+    <div class="world-entry item" data-faction="uc">
+      <div class="world-id">
+        <span class="sys">Alpha Centauri</span>
+        Planet: Jemison<br>4.3 ly from Sol
+      </div>
+      <div class="world-body">
+        <h3>New Atlantis</h3>
+        <p>The biggest city in the settled systems and the UC capital, built in tiers around the MAST government complex. Immaculate, prosperous, and just self-satisfied enough that you'll understand why the Freestar Collective left. Constellation's headquarters, the Lodge, sits inside it — so this is also where your own story starts, one way or another.</p>
+        <p>Above the planet floats <b>The Eye</b>, an orbital station worth a look for its mission board and passing trade, if nothing else.</p>
+      </div>
+    </div>
+
+    <div class="world-entry item" data-faction="uc">
+      <div class="world-id">
+        <span class="sys">Sol</span>
+        Planets: Earth, Mars<br>Humanity's original address
+      </div>
+      <div class="world-body">
+        <h3>Earth &amp; Cydonia</h3>
+        <p>Earth is still there. It's just not somewhere anyone lives — magnetosphere gone, radiation punishing by day, continents barely visible from orbit under a thin haze. You can land, salvage, and build outposts on the birthplace of the species. Nobody's stopping you. Nobody's helping you either.</p>
+        <p>Mars fares better, in the sense that <b>Cydonia</b> exists: a UC mining settlement sealed entirely underground in a maze of tunnels, because the surface still isn't an option. It's the largest mining operation the UC runs, guarded by its own Marine barracks, and about as far from New Atlantis's polish as the core worlds get.</p>
+      </div>
+    </div>
+
+    <div class="world-entry item" data-faction="freestar">
+      <div class="world-id">
+        <span class="sys">Cheyenne</span>
+        Planet: Akila<br>Frontier capital
+      </div>
+      <div class="world-body">
+        <h3>Akila City</h3>
+        <p>A walled frontier town that happens to be the capital of an interstellar confederation — dusty streets, practical architecture, and a "handle it yourself" attitude baked into every district: Midtown, the Core, the Stretch. Home to the Freestar Rangers and, fittingly, the closest thing the settled systems have to a Wild West.</p>
+      </div>
+    </div>
+
+    <div class="world-entry item" data-faction="ryujin">
+      <div class="world-id">
+        <span class="sys">Volii</span>
+        Planet: Volii Alpha<br>Vice capital
+      </div>
+      <div class="world-body">
+        <h3>Neon</h3>
+        <p>Built on top of an old fishing platform, after someone noticed the local fish produced a rather profitable psychotropic compound. That compound is Aurora, and Neon is the city it built: casinos, corporate towers, and a lot of very bright light hiding a lot of very murky business. Ryujin Industries runs it, more or less openly, from Neon Core.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="frontier">
+  <div class="wrap wide">
+    <p class="eyebrow">§5</p>
+    <h2 class="title">Out on the Frontier</h2>
+    <p class="lede">The other hundred-plus systems are mostly uncharted rock, ice, and gas — but a fair few now have something worth the fuel.</p>
+
+    <div class="frontier-grid" id="frontier-grid">
+      <div class="pcard item" data-faction="independent">
+        <div class="row1"><h4>Vectera &amp; Kreet</h4><span class="sysname">Narion</span></div>
+        <span class="pilltag" style="--fc:var(--f-ind)">Argos Extractors</span>
+        <p>Anselon's two moons, and where it all begins: a mining contract on Vectera, an artifact nobody expected, and a detour past Kreet on the way to New Atlantis.</p>
+      </div>
+      <div class="pcard item" data-faction="crimson">
+        <div class="row1"><h4>The Key</h4><span class="sysname">Kryx</span></div>
+        <span class="pilltag" style="--fc:var(--f-cf)">Crimson Fleet HQ</span>
+        <p>A former UC military base orbiting Suvorov, repurposed as pirate headquarters. Command decks, ship services, and a lot of people who'd rather not see UC colours.</p>
+      </div>
+      <div class="pcard item" data-faction="independent">
+        <div class="row1"><h4>Paradiso &amp; Red Mile</h4><span class="sysname">Porrima</span></div>
+        <span class="pilltag" style="--fc:var(--f-ind)">Resort &amp; blood-sport</span>
+        <p>A luxury resort on Porrima II and, one planet over on Porrima III, the Red Mile — an extreme racing club that treats "extreme" fairly literally.</p>
+      </div>
+      <div class="pcard item" data-faction="va-ruun">
+        <div class="row1"><h4>Dazra</h4><span class="sysname">Kavnyk</span></div>
+        <span class="pilltag" style="--fc:var(--f-va)">Va'ruun capital</span>
+        <p>The sect's seat of power on Va'ruun'kai. Outsiders are not exactly welcomed, and since the events of Shattered Space, part of the sky above it doesn't behave either.</p>
+      </div>
+      <div class="pcard item" data-faction="uc">
+        <div class="row1"><h4>Londinion</h4><span class="sysname">Toliman</span></div>
+        <span class="pilltag" style="--fc:var(--f-uc)">Abandoned settlement</span>
+        <p>A former United Colonies town on Toliman II, left behind and now mostly notable for why nobody came back.</p>
+      </div>
+      <div class="pcard item" data-faction="independent">
+        <div class="row1"><h4>HopeTown</h4><span class="sysname">Valo</span></div>
+        <span class="pilltag" style="--fc:var(--f-ind)">HopeTech</span>
+        <p>A settlement on Polvo built by industrialist Ron Hope, better known for the HopeTech shipyard than the town around it. Also home to the Freestar Rangers' headquarters, if you're after both a ship refit and a badge.</p>
+      </div>
+      <div class="pcard item" data-faction="independent">
+        <div class="row1"><h4>The Den</h4><span class="sysname">Wolf</span></div>
+        <span class="pilltag" style="--fc:var(--f-ind)">Neutral ground</span>
+        <p>No faction runs it, deliberately, and the black market trades accordingly. Bring credits, not questions.</p>
+      </div>
+      <div class="pcard item" data-faction="independent">
+        <div class="row1"><h4>Lair of the Mantis</h4><span class="sysname">Denebola</span></div>
+        <span class="pilltag" style="--fc:var(--f-ind)">Legend, mostly true</span>
+        <p>A hidden base on Denebola I-b belonging to a self-styled masked vigilante. Rumour and armour, in roughly equal parts.</p>
+      </div>
+      <div class="pcard item" data-faction="ecliptic">
+        <div class="row1"><h4>Vulture's Roost</h4><span class="sysname">Jaffa IV</span></div>
+        <span class="pilltag" style="--fc:var(--f-ec)">Ecliptic stronghold</span>
+        <p>A heavily fortified mercenary outpost guarding whatever they've been paid to guard. Exactly as friendly as that sounds — go in expecting a fight, not a chat.</p>
+      </div>
+      <div class="pcard item" data-faction="independent">
+        <div class="row1"><h4>Anchorpoint Station</h4><span class="sysname">Algorab</span></div>
+        <span class="pilltag" style="--fc:var(--f-ind)">New · Free Lanes</span>
+        <p>A newly opened starstation out in the far reaches, added with the Free Lanes update. New vendors, new quests, and reportedly a safe worth cracking if you enjoy a puzzle. Needs a jump range of 27.25 ly or better to reach.</p>
+      </div>
+      <div class="pcard item" data-faction="terran-armada">
+        <div class="row1"><h4>Nirvana</h4><span class="sysname">Nirvana system</span></div>
+        <span class="pilltag" style="--fc:var(--f-ta)">Terran Armada</span>
+        <p>A fair distance out of the central region, and now the opening scene of the Terran Armada story: the hijacked liner <em>Opulence of the Stars</em>. Recommended level 50+. Don't wander in early out of curiosity.</p>
+      </div>
+    </div>
+    <p class="empty-note" id="frontier-empty">Nothing out here matches that. Try clearing the filter.</p>
+  </div>
+</section>
+
+<section id="cosmology">
+  <div class="wrap">
+    <p class="eyebrow">§6</p>
+    <h2 class="title">The Bit Nobody Warns You About <span class="spoiler-tag">spoilers</span></h2>
+    <p class="lede">This is where the pocket guide stops being about geography and starts being about why the universe is bigger than the map suggests.</p>
+
+    <div class="cosmo">
+      <dl>
+        <div class="cosmo-item item">
+          <dt>The Artifacts</dt>
+          <dd>Ancient, alien-adjacent objects scattered across dozens of systems. Recover one and you get a vision, not an explanation — the explanations come later, and cost more.</dd>
+        </div>
+        <div class="cosmo-item item">
+          <dt>The Armillary</dt>
+          <dd>A device built to hold the artifacts together. Complete it, and it doesn't just decode them — it opens a way through.</dd>
+        </div>
+        <div class="cosmo-item item">
+          <dt>The Unity</dt>
+          <dd>What's on the other side: not a place so much as a threshold between parallel versions of the same universe. Nobody, including its makers, is named or explained.</dd>
+        </div>
+        <div class="cosmo-item item">
+          <dt>The Starborn</dt>
+          <dd>People who've crossed through the Unity, sometimes more than once — including, eventually, you. Not a faction, not an ideology: just individuals who've each had the same impossible experience and drawn very different conclusions from it. The Hunter and the Emissary, two of the oldest, disagree pointedly about who deserves to follow. As of the Free Lanes update, you no longer need to start over to grow stronger as one — Quantum Essence, collected in the world, ranks up your powers directly.</dd>
+        </div>
+        <div class="cosmo-item item">
+          <dt>What Happens Next</dt>
+          <dd>You go through. Part of you stays, shaping the universe you leave behind; part of you wakes up in another one, similar but not identical, carrying what you learned. Which is a fairly elaborate way of saying: you get to do it all again, slightly wiser, in a galaxy that's rearranged itself just enough to keep you honest.</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="field-notes">
+  <div class="wrap">
+    <p class="eyebrow">§7</p>
+    <h2 class="title">Field Notes</h2>
+    <div class="notes">
+      <div class="note item"><p><b>Grav jumps follow mapped lanes, not straight lines.</b> You can't point your ship at a star and go — the route has to exist first.</p></div>
+      <div class="note item"><p><b>Oxygen kills faster than damage does.</b> Extreme heat, cold and low pressure drain it before you've noticed you're in trouble. Check the planet's stats before you get out and admire the view.</p></div>
+      <div class="note item"><p><b>Don't fly into a city hot.</b> Contraband scanners at the gates mean anything you're smuggling gets found before you do anything with it.</p></div>
+      <div class="note item"><p><b>Your scanner is doing more than you think.</b> Surveying, resources, outposts — most of the economy runs through the same tool on your wrist.</p></div>
+      <div class="note item"><p><b>Companions have opinions, and they will share them.</b> Whoever you bring along is watching what you do, not just what you say.</p></div>
+      <div class="note item"><p><b>Cruise Mode is worth getting used to.</b> Since Free Lanes, it lets you walk your ship's corridors while covering the distance a loading screen used to hide. Slower, but you stop missing things.</p></div>
+      <div class="note item"><p><b>Keep an eye on your Incursion Chance setting.</b> If Terran Armada turning your favourite outpost into a firefight sounds fun, turn it up. If it doesn't, turn it down — it's in Gameplay Options.</p></div>
+      <div class="note item"><p><b>A towel remains, whatever the century, about the most massively useful thing a traveller can carry.</b> This guide cannot get you one. That's on you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="further-reading">
+  <div class="wrap wide">
+    <p class="eyebrow">§8</p>
+    <h2 class="title">Further Reading</h2>
+    <p class="lede">Everything above is a starting point, not the whole map. These are the places worth going next.</p>
+
+    <div class="link-grid">
+      <a class="linkcard" href="https://bethesda.net/en-GB/game/starfield" target="_blank" rel="noopener noreferrer">
+        <span class="src mono">Official</span>
+        <h4>Bethesda.net — Starfield</h4>
+        <p>Patch notes, DLC announcements, and the first word on anything new before anyone else has written about it.</p>
+        <span class="go mono">Visit →</span>
+      </a>
+      <a class="linkcard" href="https://starfieldwiki.net" target="_blank" rel="noopener noreferrer">
+        <span class="src mono">Reference</span>
+        <h4>Starfield Wiki (UESP)</h4>
+        <p>Run by the same team behind the long-running Elder Scrolls and Fallout wikis — thorough, low on clutter, and usually right.</p>
+        <span class="go mono">Visit →</span>
+      </a>
+      <a class="linkcard" href="https://www.reddit.com/r/Starfield/" target="_blank" rel="noopener noreferrer">
+        <span class="src mono">Community</span>
+        <h4>r/Starfield</h4>
+        <p>Where players actually argue about builds, bugs, and whether the Red Mile is worth the entry fee.</p>
+        <span class="go mono">Visit →</span>
+      </a>
+      <a class="linkcard" href="https://store.steampowered.com/app/1716740/Starfield/" target="_blank" rel="noopener noreferrer">
+        <span class="src mono">Store</span>
+        <h4>Starfield on Steam</h4>
+        <p>Reviews, update history, and the DLC storefront in one place if you're playing on PC.</p>
+        <span class="go mono">Visit →</span>
+      </a>
+      <a class="linkcard" href="https://www.nexusmods.com/starfield" target="_blank" rel="noopener noreferrer">
+        <span class="src mono">Mods</span>
+        <h4>Nexus Mods — Starfield</h4>
+        <p>The actual home of PC modding for the game, from quality-of-life tweaks to entire new star systems.</p>
+        <span class="go mono">Visit →</span>
+      </a>
+      <a class="linkcard" href="https://news.xbox.com/en-us/tag/starfield/" target="_blank" rel="noopener noreferrer">
+        <span class="src mono">Official</span>
+        <h4>Xbox Wire — Starfield</h4>
+        <p>First-party breakdowns of new mechanics, written by the people who shipped them — the Incursions explainer is a good one.</p>
+        <span class="go mono">Visit →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Compiled from the field, cross-checked against the record, and printed — as ever — in large friendly letters.</p>
+    <p>Don't Panic! · A Pocket Guide to the Settled Systems</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var items = Array.prototype.slice.call(document.querySelectorAll('.item'));
+  var countEl = document.getElementById('count');
+  var frontierEmpty = document.getElementById('frontier-empty');
+  var frontierGrid = document.getElementById('frontier-grid');
+  var activeFaction = 'all';
+
+  function apply(){
+    var term = q.value.trim().toLowerCase();
+    var visible = 0;
+    items.forEach(function(el){
+      var faction = el.getAttribute('data-faction');
+      var matchesFaction = activeFaction === 'all' || !faction || faction === activeFaction;
+      var matchesTerm = !term || el.textContent.toLowerCase().indexOf(term) !== -1;
+      var show = matchesFaction && matchesTerm;
+      el.hidden = !show;
+      if (show) visible++;
+    });
+
+    var frontierVisible = frontierGrid.querySelectorAll('.item:not([hidden])').length;
+    frontierEmpty.classList.toggle('show', frontierVisible === 0);
+
+    countEl.textContent = visible + ' / ' + items.length + ' entries shown';
+  }
+
+  q.addEventListener('input', apply);
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.setAttribute('aria-pressed', 'false'); });
+      chip.setAttribute('aria-pressed', 'true');
+      activeFaction = chip.getAttribute('data-filter');
+      apply();
+    });
+  });
+
+  apply();
+})();
+</script>
+
+</body>
+</html>

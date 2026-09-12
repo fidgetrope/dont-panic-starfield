@@ -1,0 +1,125 @@
+[
+  {
+    "id": "constellation",
+    "type": "faction",
+    "name": "Constellation",
+    "pilltag": "Explorers",
+    "color": "--f-co",
+    "system": "Alpha Centauri",
+    "era": "base",
+    "tags": ["explorers", "neutral", "new-atlantis"],
+    "summary": "The last of the great explorers' guilds, chasing the unknown from a lodge in New Atlantis.",
+    "body": [
+      "The last of the great explorers' guilds — self-described \"NASA-punk\" idealists who care more about the unknown than the flag on their ship. Based out of the Lodge in New Atlantis. Not a government, not an army, and frequently at odds with both. You join automatically, one way or another.",
+      "Constellation's founding mission was chasing down the Artifacts — the ancient objects scattered across dozens of systems — long before anyone understood what they were building toward. That search is the reason the guild exists at all."
+    ],
+    "related": ["new-atlantis", "the-artifacts", "the-armillary"]
+  },
+  {
+    "id": "uc",
+    "type": "faction",
+    "name": "United Colonies",
+    "pilltag": "Government",
+    "color": "--f-uc",
+    "system": "Alpha Centauri",
+    "era": "base",
+    "tags": ["government", "military"],
+    "summary": "The largest, most powerful government in the settled systems, run from New Atlantis.",
+    "body": [
+      "The largest and most powerful government in the settled systems, run from the MAST building in New Atlantis. Order, military structure, and a genuine belief they're holding civilisation together. Its armed wing, UC Vanguard, deals with the things it would rather the public not think about.",
+      "The Freestar Collective exists largely in reaction to the UC's idea of order — the two fought a war over it once, and the frontier's independence is the direct result."
+    ],
+    "related": ["new-atlantis", "earth-cydonia", "londinion", "freestar"]
+  },
+  {
+    "id": "freestar",
+    "type": "faction",
+    "name": "Freestar Collective",
+    "pilltag": "Confederation",
+    "color": "--f-fs",
+    "system": "Cheyenne",
+    "era": "base",
+    "tags": ["confederation", "frontier"],
+    "summary": "Frontier colonies who fought the UC rather than answer to it, run from Akila City.",
+    "body": [
+      "Frontier colonies who fought a war rather than answer to the United Colonies, and still run things their own way from Akila City. Law enforcement is handled by the Freestar Rangers — fewer regulations, more boots on the ground.",
+      "\"Handle it yourself\" is less a slogan than the actual governing philosophy — HopeTown's independence and the Rangers' frontier-wide reach both trace back to it."
+    ],
+    "related": ["akila-city", "hopetown", "uc"]
+  },
+  {
+    "id": "crimson",
+    "type": "faction",
+    "name": "Crimson Fleet",
+    "pilltag": "Pirates",
+    "color": "--f-cf",
+    "system": "Kryx",
+    "era": "base",
+    "tags": ["pirates", "hostile"],
+    "summary": "Frontier pirates operating out of a converted former UC military station.",
+    "body": [
+      "Operates out of The Key, a converted former UC military station, and preys on shipping across the frontier. Recruitment runs through undercover UC work, or simply getting caught committing enough crimes to be noticed."
+    ],
+    "related": ["the-key"]
+  },
+  {
+    "id": "ryujin",
+    "type": "faction",
+    "name": "Ryujin Industries",
+    "pilltag": "Megacorp",
+    "color": "--f-ry",
+    "system": "Volii",
+    "era": "base",
+    "tags": ["megacorp", "neon"],
+    "summary": "The megacorporation that effectively owns Neon, and isn't shy about it.",
+    "body": [
+      "Headquartered in Neon, the city it effectively owns. \"Prepared to do anything to boost their profits\" is the polite way of putting it. Recruitment is as simple as walking up to a terminal — everyone gets an interview."
+    ],
+    "related": ["neon"]
+  },
+  {
+    "id": "va-ruun",
+    "type": "faction",
+    "name": "House Va'ruun",
+    "pilltag": "Religious sect",
+    "color": "--f-va",
+    "system": "Kavnyk",
+    "era": "base",
+    "tags": ["religious", "hostile", "isolationist"],
+    "summary": "Zealots who worship the Great Serpent, mostly encountered as hostiles from Dazra.",
+    "body": [
+      "Zealots who worship an entity called the Great Serpent, after a colony-ship passenger reported an encounter with it during a grav jump generations ago — whether that was contact or breakdown is left deliberately unresolved. Mostly encountered as hostiles from their capital, Dazra."
+    ],
+    "related": ["dazra"]
+  },
+  {
+    "id": "ecliptic",
+    "type": "faction",
+    "name": "Ecliptic",
+    "pilltag": "Mercenaries",
+    "color": "--f-ec",
+    "system": null,
+    "era": "base",
+    "tags": ["mercenaries", "hostile"],
+    "summary": "Private military contractors for hire wherever the pay is good.",
+    "body": [
+      "Private military contractors for hire, found wherever the pay is good and the questions are few — fortified outposts like Vulture's Roost are typical. Not an organisation you join so much as one you keep surviving."
+    ],
+    "related": ["vultures-roost"]
+  },
+  {
+    "id": "terran-armada",
+    "type": "faction",
+    "name": "Terran Armada",
+    "pilltag": "New · 2026",
+    "color": "--f-ta",
+    "system": "Nirvana",
+    "era": "terran-armada",
+    "tags": ["hostile", "robots", "new"],
+    "summary": "Military deserters who've decided a robot army will unite humanity, no debate.",
+    "body": [
+      "The newest and least reasonable arrival: military deserters who've decided the way to unite humanity is a robot army and no debate. First encountered via a hijacked cruise liner in the Nirvana system. Expect Incursions wherever you've just gotten comfortable."
+    ],
+    "related": ["nirvana"]
+  }
+]

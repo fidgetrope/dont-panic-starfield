@@ -1,0 +1,8 @@
+[
+  { "id": "link-bethesda", "src": "Official", "title": "Bethesda.net — Starfield", "desc": "Patch notes, DLC announcements, and the first word on anything new before anyone else has written about it.", "url": "https://bethesda.net/en-GB/game/starfield" },
+  { "id": "link-uesp", "src": "Reference", "title": "Starfield Wiki (UESP)", "desc": "Run by the same team behind the long-running Elder Scrolls and Fallout wikis — thorough, low on clutter, and usually right.", "url": "https://starfieldwiki.net" },
+  { "id": "link-reddit", "src": "Community", "title": "r/Starfield", "desc": "Where players actually argue about builds, bugs, and whether the Red Mile is worth the entry fee.", "url": "https://www.reddit.com/r/Starfield/" },
+  { "id": "link-steam", "src": "Store", "title": "Starfield on Steam", "desc": "Reviews, update history, and the DLC storefront in one place if you're playing on PC.", "url": "https://store.steampowered.com/app/1716740/Starfield/" },
+  { "id": "link-nexus", "src": "Mods", "title": "Nexus Mods — Starfield", "desc": "The actual home of PC modding for the game, from quality-of-life tweaks to entire new star systems.", "url": "https://www.nexusmods.com/starfield" },
+  { "id": "link-xbox", "src": "Official", "title": "Xbox Wire — Starfield", "desc": "First-party breakdowns of new mechanics, written by the people who shipped them — the Incursions explainer is a good one.", "url": "https://news.xbox.com/en-us/tag/starfield/" }
+]

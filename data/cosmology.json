@@ -1,0 +1,67 @@
+[
+  {
+    "id": "the-artifacts",
+    "type": "cosmology",
+    "name": "The Artifacts",
+    "era": "base",
+    "spoiler": true,
+    "tags": ["endgame", "constellation"],
+    "summary": "Ancient objects scattered across dozens of systems. Recover one, get a vision — not an explanation.",
+    "body": [
+      "Ancient, alien-adjacent objects scattered across dozens of systems. Recover one and you get a vision, not an explanation — the explanations come later, and cost more."
+    ],
+    "related": ["the-armillary", "constellation"]
+  },
+  {
+    "id": "the-armillary",
+    "type": "cosmology",
+    "name": "The Armillary",
+    "era": "base",
+    "spoiler": true,
+    "tags": ["endgame"],
+    "summary": "A device built to hold the artifacts together — complete it, and it opens a way through.",
+    "body": [
+      "A device built to hold the artifacts together. Complete it, and it doesn't just decode them — it opens a way through."
+    ],
+    "related": ["the-artifacts", "the-unity"]
+  },
+  {
+    "id": "the-unity",
+    "type": "cosmology",
+    "name": "The Unity",
+    "era": "base",
+    "spoiler": true,
+    "tags": ["endgame"],
+    "summary": "What's on the other side of the Armillary: a threshold between parallel versions of the same universe.",
+    "body": [
+      "What's on the other side: not a place so much as a threshold between parallel versions of the same universe. Nobody, including its makers, is named or explained."
+    ],
+    "related": ["the-armillary", "the-starborn"]
+  },
+  {
+    "id": "the-starborn",
+    "type": "cosmology",
+    "name": "The Starborn",
+    "era": "base",
+    "spoiler": true,
+    "tags": ["endgame", "new-game-plus"],
+    "summary": "People who've crossed through the Unity, sometimes more than once — eventually, including you.",
+    "body": [
+      "People who've crossed through the Unity, sometimes more than once — including, eventually, you. Not a faction, not an ideology: just individuals who've each had the same impossible experience and drawn very different conclusions from it. The Hunter and the Emissary, two of the oldest, disagree pointedly about who deserves to follow. As of the Free Lanes update, you no longer need to start over to grow stronger as one — Quantum Essence, collected in the world, ranks up your powers directly."
+    ],
+    "related": ["the-unity", "what-happens-next"]
+  },
+  {
+    "id": "what-happens-next",
+    "type": "cosmology",
+    "name": "What Happens Next",
+    "era": "base",
+    "spoiler": true,
+    "tags": ["endgame", "new-game-plus"],
+    "summary": "You go through. Part of you stays; part of you wakes up in another, similar-but-not-identical universe.",
+    "body": [
+      "You go through. Part of you stays, shaping the universe you leave behind; part of you wakes up in another one, similar but not identical, carrying what you learned. Which is a fairly elaborate way of saying: you get to do it all again, slightly wiser, in a galaxy that's rearranged itself just enough to keep you honest."
+    ],
+    "related": ["the-starborn"]
+  }
+]

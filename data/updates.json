@@ -1,0 +1,36 @@
+[
+  {
+    "id": "free-lanes",
+    "title": "Free Lanes",
+    "pill": "Free update",
+    "date": "2026-04-07",
+    "datestamp": "7 April 2026",
+    "body": "The biggest free update yet, released alongside the official PlayStation 5 launch. Cruise Mode now lets you walk around your ship while covering huge in-system distances instead of jump-cutting past them. A new material, X-Tech, unlocks higher-tier weapon, gear and ship modifications and lets you reroll legendary effects. Outposts share containers with each other for easier inventory management, and Starborn players can now rank up their powers by collecting Quantum Essence — no New Game Plus required.",
+    "bullets": [
+      "New travel hub: Anchorpoint Station, Algorab system (see Frontier)",
+      "New vehicle: the Moon Jumper",
+      "A five-million-credit asteroid mansion, if you've been saving"
+    ],
+    "related": ["anchorpoint-station", "the-starborn"]
+  },
+  {
+    "id": "terran-armada-dlc",
+    "title": "Terran Armada",
+    "pill": "Story DLC",
+    "date": "2026-04-07",
+    "datestamp": "7 April 2026",
+    "body": "A new hostile faction: military deserters who've built a robot army with one goal, uniting humanity by force. The story starts with a hijacked luxury liner, the Opulence of the Stars, in the Nirvana system — recommended level 50+. Once triggered, Incursions can break out anywhere: Terran Armada forces storm an existing location and turn it into a live battle, disabling fast travel until you've cleared them out. How often they happen is adjustable in the gameplay options.",
+    "bullets": [],
+    "related": ["terran-armada", "nirvana"]
+  },
+  {
+    "id": "shattered-space",
+    "title": "Shattered Space",
+    "pill": "Story expansion",
+    "date": "2024-01-01",
+    "datestamp": "2024 · ongoing",
+    "body": "Starfield's first story expansion, and the deepest the game gets into House Va'ruun. A distress signal leads to Va'ruun'kai itself, where a botched grav-drive experiment has torn a hole in the fabric of spacetime above Dazra. Fifty-plus new locations, zero-gravity Vortex zones, and the Scaled Citadel — the sect's seat of government, now sitting inside an active energy field.",
+    "bullets": [],
+    "related": ["va-ruun", "dazra"]
+  }
+]

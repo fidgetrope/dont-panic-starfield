@@ -1,0 +1,244 @@
+[
+  {
+    "id": "new-atlantis",
+    "type": "location",
+    "subtype": "core-world",
+    "name": "New Atlantis",
+    "system": "Alpha Centauri",
+    "planet": "Jemison",
+    "faction": "uc",
+    "era": "base",
+    "tags": ["capital", "city", "constellation-hq"],
+    "summary": "The biggest city in the settled systems and the UC capital, built in tiers around MAST.",
+    "body": [
+      "The biggest city in the settled systems and the UC capital, built in tiers around the MAST government complex. Immaculate, prosperous, and just self-satisfied enough that you'll understand why the Freestar Collective left. Constellation's headquarters, the Lodge, sits inside it — so this is also where your own story starts, one way or another.",
+      "Above the planet floats The Eye, an orbital station worth a look for its mission board and passing trade, if nothing else."
+    ],
+    "related": ["constellation", "uc"]
+  },
+  {
+    "id": "earth-cydonia",
+    "type": "location",
+    "subtype": "core-world",
+    "name": "Earth & Cydonia",
+    "system": "Sol",
+    "planet": "Earth, Mars",
+    "faction": "uc",
+    "era": "base",
+    "tags": ["abandoned", "mining", "sol-system", "origin-world"],
+    "summary": "Humanity's original address — a dead, abandoned Earth, and a UC mining town buried under Mars.",
+    "body": [
+      "Earth is still there. It's just not somewhere anyone lives — magnetosphere gone, radiation punishing by day, continents barely visible from orbit under a thin haze. You can land, salvage, and build outposts on the birthplace of the species. Nobody's stopping you. Nobody's helping you either.",
+      "Mars fares better, in the sense that Cydonia exists: a UC mining settlement sealed entirely underground in a maze of tunnels, because the surface still isn't an option. It's the largest mining operation the UC runs, guarded by its own Marine barracks, and about as far from New Atlantis's polish as the core worlds get."
+    ],
+    "related": ["uc"]
+  },
+  {
+    "id": "akila-city",
+    "type": "location",
+    "subtype": "core-world",
+    "name": "Akila City",
+    "system": "Cheyenne",
+    "planet": "Akila",
+    "faction": "freestar",
+    "era": "base",
+    "tags": ["capital", "city", "frontier"],
+    "summary": "A walled frontier town that happens to be the capital of an interstellar confederation.",
+    "body": [
+      "A walled frontier town that happens to be the capital of an interstellar confederation — dusty streets, practical architecture, and a \"handle it yourself\" attitude baked into every district: Midtown, the Core, the Stretch. Home to the Freestar Rangers and, fittingly, the closest thing the settled systems have to a Wild West."
+    ],
+    "related": ["freestar", "hopetown"]
+  },
+  {
+    "id": "neon",
+    "type": "location",
+    "subtype": "core-world",
+    "name": "Neon",
+    "system": "Volii",
+    "planet": "Volii Alpha",
+    "faction": "ryujin",
+    "era": "base",
+    "tags": ["city", "vice", "corporate"],
+    "summary": "A fishing platform turned drug-money vice capital, run openly by Ryujin Industries.",
+    "body": [
+      "Built on top of an old fishing platform, after someone noticed the local fish produced a rather profitable psychotropic compound. That compound is Aurora, and Neon is the city it built: casinos, corporate towers, and a lot of very bright light hiding a lot of very murky business. Ryujin Industries runs it, more or less openly, from Neon Core."
+    ],
+    "related": ["ryujin"]
+  },
+  {
+    "id": "vectera-kreet",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "Vectera & Kreet",
+    "system": "Narion",
+    "planet": "Anselon's moons",
+    "faction": "independent",
+    "era": "base",
+    "tags": ["mining", "artifact-site", "story-start"],
+    "summary": "Anselon's two moons, and where it all begins: a mining contract, an artifact, a detour to New Atlantis.",
+    "body": [
+      "Anselon's two moons, and where it all begins: a mining contract on Vectera, an artifact nobody expected, and a detour past Kreet on the way to New Atlantis."
+    ],
+    "related": ["new-atlantis", "the-artifacts"]
+  },
+  {
+    "id": "the-key",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "The Key",
+    "system": "Kryx",
+    "planet": "Suvorov (orbital)",
+    "faction": "crimson",
+    "era": "base",
+    "tags": ["pirate-hq", "station"],
+    "summary": "A former UC military base repurposed as Crimson Fleet headquarters.",
+    "body": [
+      "A former UC military base orbiting Suvorov, repurposed as pirate headquarters. Command decks, ship services, and a lot of people who'd rather not see UC colours."
+    ],
+    "related": ["crimson"]
+  },
+  {
+    "id": "paradiso-red-mile",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "Paradiso & Red Mile",
+    "system": "Porrima",
+    "planet": "Porrima II, Porrima III",
+    "faction": "independent",
+    "era": "base",
+    "tags": ["resort", "racing", "blood-sport"],
+    "summary": "A luxury resort, and one planet over, an extreme racing club that means \"extreme\" literally.",
+    "body": [
+      "A luxury resort on Porrima II and, one planet over on Porrima III, the Red Mile — an extreme racing club that treats \"extreme\" fairly literally."
+    ],
+    "related": []
+  },
+  {
+    "id": "dazra",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "Dazra",
+    "system": "Kavnyk",
+    "planet": "Va'ruun'kai",
+    "faction": "va-ruun",
+    "era": "shattered-space",
+    "tags": ["capital", "sealed", "vortex"],
+    "summary": "House Va'ruun's seat of power, now sitting under a hole torn in the sky.",
+    "body": [
+      "The sect's seat of power on Va'ruun'kai. Outsiders are not exactly welcomed, and since the events of Shattered Space, part of the sky above it doesn't behave either."
+    ],
+    "related": ["va-ruun"]
+  },
+  {
+    "id": "londinion",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "Londinion",
+    "system": "Toliman",
+    "planet": "Toliman II",
+    "faction": "uc",
+    "era": "base",
+    "tags": ["abandoned", "mystery"],
+    "summary": "A former United Colonies town, left behind and notable mainly for why.",
+    "body": [
+      "A former United Colonies town on Toliman II, left behind and now mostly notable for why nobody came back."
+    ],
+    "related": ["uc"]
+  },
+  {
+    "id": "hopetown",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "HopeTown",
+    "system": "Valo",
+    "planet": "Polvo",
+    "faction": "independent",
+    "era": "base",
+    "tags": ["shipyard", "rangers-hq"],
+    "summary": "Ron Hope's settlement, better known for its shipyard and the Freestar Rangers' HQ.",
+    "body": [
+      "A settlement on Polvo built by industrialist Ron Hope, better known for the HopeTech shipyard than the town around it. Also home to the Freestar Rangers' headquarters, if you're after both a ship refit and a badge."
+    ],
+    "related": ["freestar"]
+  },
+  {
+    "id": "the-den",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "The Den",
+    "system": "Wolf",
+    "planet": null,
+    "faction": "independent",
+    "era": "base",
+    "tags": ["black-market", "neutral-ground"],
+    "summary": "Neutral ground, deliberately unclaimed, where the black market trades accordingly.",
+    "body": [
+      "No faction runs it, deliberately, and the black market trades accordingly. Bring credits, not questions."
+    ],
+    "related": []
+  },
+  {
+    "id": "lair-of-the-mantis",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "Lair of the Mantis",
+    "system": "Denebola",
+    "planet": "Denebola I-b",
+    "faction": "independent",
+    "era": "base",
+    "tags": ["hidden-base", "vigilante"],
+    "summary": "A hidden base belonging to a self-styled masked vigilante — mostly legend, mostly true.",
+    "body": [
+      "A hidden base on Denebola I-b belonging to a self-styled masked vigilante. Rumour and armour, in roughly equal parts."
+    ],
+    "related": []
+  },
+  {
+    "id": "vultures-roost",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "Vulture's Roost",
+    "system": "Jaffa",
+    "planet": "Jaffa IV",
+    "faction": "ecliptic",
+    "era": "base",
+    "tags": ["mercenary-stronghold", "hostile"],
+    "summary": "A heavily fortified Ecliptic mercenary outpost, exactly as friendly as that sounds.",
+    "body": [
+      "A heavily fortified mercenary outpost guarding whatever they've been paid to guard. Exactly as friendly as that sounds — go in expecting a fight, not a chat."
+    ],
+    "related": ["ecliptic"]
+  },
+  {
+    "id": "anchorpoint-station",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "Anchorpoint Station",
+    "system": "Algorab",
+    "planet": null,
+    "faction": "independent",
+    "era": "terran-armada",
+    "tags": ["new", "station", "free-lanes"],
+    "summary": "A newly opened far-reaches starstation added with the Free Lanes update.",
+    "body": [
+      "A newly opened starstation out in the far reaches, added with the Free Lanes update. New vendors, new quests, and reportedly a safe worth cracking if you enjoy a puzzle. Needs a jump range of 27.25 ly or better to reach."
+    ],
+    "related": []
+  },
+  {
+    "id": "nirvana",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "Nirvana",
+    "system": "Nirvana",
+    "planet": null,
+    "faction": "terran-armada",
+    "era": "terran-armada",
+    "tags": ["new", "high-level", "story-start"],
+    "summary": "A far-out system, now the opening scene of the Terran Armada story.",
+    "body": [
+      "A fair distance out of the central region, and now the opening scene of the Terran Armada story: the hijacked liner Opulence of the Stars. Recommended level 50+. Don't wander in early out of curiosity."
+    ],
+    "related": ["terran-armada"]
+  }
+]

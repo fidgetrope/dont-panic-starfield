@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don't Panic! — A Pocket Guide to the Settled Systems</title>
+<meta name="description" content="An encyclopedic, cross-linked pocket guide to Starfield's factions, worlds, and cosmology.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d101a;
+    --bg-cream:#f3eddc;
+    --ink-on-cream:#17181c;
+    --surface:#161b2b;
+    --surface-2:#1e2438;
+    --ink:#eae6d8;
+    --ink-dim:#9498ab;
+    --gold:#d7a13c;
+    --gold-ink:#1a1206;
+    --teal:#4fb8c4;
+    --line:#2a3149;
+    --line-cream:#ded2a8;
+
+    --f-uc:#6f9bf2;
+    --f-fs:#e2925a;
+    --f-cf:#e2635c;
+    --f-ry:#e874b8;
+    --f-va:#a58bec;
+    --f-ec:#9aa0ac;
+    --f-co:#4fb8c4;
+    --f-ind:#c9b978;
+    --f-ta:#ff6b4a;
+
+    --shadow: 0 1px 0 rgba(0,0,0,0.35), 0 14px 34px -16px rgba(0,0,0,0.6);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    opacity:.5;
+    background-image:
+      radial-gradient(1px 1px at 8% 12%, rgba(234,230,216,.5), transparent 60%),
+      radial-gradient(1px 1px at 22% 68%, rgba(234,230,216,.35), transparent 60%),
+      radial-gradient(1.5px 1.5px at 41% 24%, rgba(234,230,216,.4), transparent 60%),
+      radial-gradient(1px 1px at 58% 82%, rgba(234,230,216,.3), transparent 60%),
+      radial-gradient(1.5px 1.5px at 76% 15%, rgba(234,230,216,.4), transparent 60%),
+      radial-gradient(1px 1px at 88% 55%, rgba(234,230,216,.35), transparent 60%),
+      radial-gradient(1px 1px at 33% 92%, rgba(234,230,216,.3), transparent 60%),
+      radial-gradient(1.5px 1.5px at 65% 40%, rgba(234,230,216,.3), transparent 60%);
+    background-size: 900px 900px;
+  }
+  .ring-deco{
+    position:absolute;
+    border:1px solid rgba(234,230,216,.09);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  h1,h2,h3,h4{
+    font-family:"Barlow", "Arial Narrow", sans-serif;
+    text-transform:uppercase;
+    font-weight:700;
+    text-wrap:balance;
+    margin:0;
+    color:var(--ink);
+    letter-spacing:0.01em;
+  }
+  .display{
+    font-family:"Anton", "Barlow", sans-serif;
+    text-transform:uppercase;
+    font-weight:400;
+    letter-spacing:0.01em;
+  }
+  .mono{ font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; }
+  a{color:var(--teal);}
+  .wrap{ max-width:860px; margin:0 auto; padding-inline:20px; position:relative; z-index:1; }
+  .wide{ max-width:1020px; }
+
+  /* ---------- IDENT BAR ---------- */
+  .identbar{
+    background:#080a10;
+    border-bottom:1px solid var(--line);
+    padding-block:12px;
+  }
+  .identbar .wrap{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .brandmark{
+    font-family:"Barlow", sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+  }
+  .brandmark b{ color:var(--gold); }
+  .identbar .edition{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    color:var(--ink-dim);
+    letter-spacing:0.05em;
+  }
+  .identbar .repolink{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    color:var(--teal);
+    letter-spacing:0.03em;
+    text-decoration:none;
+  }
+  .identbar .repolink:hover{ text-decoration:underline; }
+
+  /* ---------- STICKY TOOLBAR ---------- */
+  .toolbar{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--bg-cream);
+    border-bottom:1px solid var(--line-cream);
+  }
+  .toolbar-nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2px 22px;
+    padding-block:14px 10px;
+  }
+  .toolbar-nav a{
+    font-family:"Barlow", sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-on-cream);
+    text-decoration:none;
+    opacity:.75;
+  }
+  .toolbar-nav a:hover{ opacity:1; color:#8a5a10; }
+  .toolbar-controls{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+    padding-block:0 10px;
+  }
+  .search-box{
+    position:relative;
+    flex:1 1 220px;
+    min-width:180px;
+  }
+  .search-box input{
+    width:100%;
+    font-family:"Source Serif 4", serif;
+    font-size:15px;
+    padding:9px 12px 9px 32px;
+    border:1px solid var(--line-cream);
+    border-radius:3px;
+    background:#fffdf6;
+    color:var(--ink-on-cream);
+  }
+  .search-box input:focus{ outline:2px solid var(--gold); outline-offset:1px; }
+  .search-box svg{
+    position:absolute;
+    left:9px; top:50%;
+    transform:translateY(-50%);
+    width:15px; height:15px;
+    opacity:.5;
+    pointer-events:none;
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    flex:2 1 420px;
+  }
+  .chip{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    padding:6px 10px;
+    border-radius:3px;
+    border:1px solid var(--line-cream);
+    background:transparent;
+    color:var(--ink-on-cream);
+    cursor:pointer;
+    line-height:1;
+  }
+  .chip[aria-pressed="true"]{
+    background:var(--ink-on-cream);
+    color:var(--bg-cream);
+    border-color:var(--ink-on-cream);
+  }
+  .result-count{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    color:var(--ink-on-cream);
+    opacity:.6;
+    white-space:nowrap;
+  }
+  .empty-note{
+    display:none;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12.5px;
+    color:var(--ink-dim);
+    padding:10px 14px;
+    border:1px dashed var(--line);
+    border-radius:4px;
+    margin-top:10px;
+  }
+  .empty-note.show{ display:block; }
+
+  /* ---------- FACET ROW (system / era dropdowns) ---------- */
+  .facet-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+    padding-block:0 14px;
+  }
+  .facet{ position:relative; }
+  .facet-btn{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:6px 10px;
+    border-radius:3px;
+    border:1px solid var(--line-cream);
+    background:#fffdf6;
+    color:var(--ink-on-cream);
+    cursor:pointer;
+  }
+  .facet-btn[data-active="true"]{ border-color:#8a5a10; color:#8a5a10; }
+  .facet-panel{
+    display:none;
+    position:absolute;
+    top:calc(100% + 6px);
+    left:0;
+    z-index:30;
+    background:#fffdf6;
+    border:1px solid var(--line-cream);
+    border-radius:4px;
+    box-shadow:0 10px 26px -12px rgba(0,0,0,.5);
+    padding:10px 12px;
+    max-height:260px;
+    overflow-y:auto;
+    min-width:200px;
+  }
+  .facet-panel.open{ display:block; }
+  .facet-panel label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    color:var(--ink-on-cream);
+    padding:4px 2px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .clear-filters{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--ink-on-cream);
+    opacity:.55;
+    background:none;
+    border:none;
+    cursor:pointer;
+    text-decoration:underline;
+    padding:6px 2px;
+  }
+  .clear-filters:hover{ opacity:1; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding-block:64px 46px;
+    border-bottom:1px solid var(--line);
+  }
+  .kicker{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin:0 0 18px;
+  }
+  .hero h1{
+    font-family:"Anton", sans-serif;
+    font-size:clamp(3.4rem, 14vw, 7rem);
+    line-height:0.86;
+    color:var(--gold);
+    margin:0;
+  }
+  .hero-sub{
+    max-width:54ch;
+    font-size:1.1rem;
+    color:var(--ink-dim);
+    margin:22px 0 0;
+  }
+  .hero-sub em{ font-style:italic; color:var(--ink); }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding-block:50px; position:relative; }
+  section + section{ border-top:1px solid var(--line); }
+  .eyebrow{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:0 0 8px;
+  }
+  h2.title{ font-size:clamp(1.9rem, 5vw, 2.5rem); margin-bottom:18px; }
+  section > .wrap > p.lede, section > .wrap > .lede{
+    max-width:64ch;
+    color:var(--ink-dim);
+    font-size:1.05rem;
+    margin:0 0 28px;
+  }
+
+  /* ---------- ORIENTATION ---------- */
+  .stat-strip{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin-bottom:28px;
+  }
+  .stat{ background:var(--surface); padding:16px 14px; }
+  .stat .n{
+    font-family:"Anton", sans-serif;
+    font-size:1.8rem;
+    color:var(--gold);
+    font-variant-numeric:tabular-nums;
+    line-height:1;
+  }
+  .stat .l{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    margin-top:6px;
+  }
+  .prose p{ margin:0 0 16px; max-width:66ch; }
+  .prose p:last-child{ margin-bottom:0; }
+
+  /* ---------- STATE OF PLAY ---------- */
+  .patch{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:5px;
+    padding:22px 24px;
+    margin-bottom:14px;
+  }
+  .patch .row1{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:8px 14px;
+    margin-bottom:8px;
+  }
+  .patch h3{ font-size:1.2rem; }
+  .patch .pill{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:3px 10px;
+    border-radius:999px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+  }
+  .patch .datestamp{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    color:var(--ink-dim);
+  }
+  .patch p{ margin:0 0 10px; color:var(--ink); font-size:0.98rem; max-width:68ch;}
+  .patch p:last-child{ margin-bottom:0; }
+  .patch ul{ margin:8px 0 0; padding-left:20px; }
+  .patch li{ margin-bottom:5px; }
+
+  /* ---------- FACTIONS ---------- */
+  .faction-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:16px;
+  }
+  .fcard{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-left:5px solid var(--fc, var(--gold));
+    border-radius:4px;
+    padding:18px 20px;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+  }
+  .fcard:hover{ border-color:var(--fc, var(--gold)); }
+  .fcard h3{ font-size:1.22rem; color:var(--fc, var(--ink)); margin-bottom:8px; }
+  .pilltag{
+    display:inline-block;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--fc);
+    border:1px solid var(--fc);
+    border-radius:999px;
+    padding:3px 10px;
+    margin-bottom:10px;
+  }
+  .fcard p{ margin:0; font-size:0.97rem; color:var(--ink); }
+  .fcard p + p{ margin-top:8px; }
+  .card-more{
+    display:inline-block;
+    margin-top:12px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .fcard:hover .card-more, .pcard:hover .card-more, .world-body:hover .card-more, .cosmo-item:hover .card-more{ text-decoration:underline; }
+
+  /* ---------- WORLD ENTRIES ---------- */
+  .world-entry{
+    display:grid;
+    grid-template-columns: 200px 1fr;
+    gap:24px;
+    padding-block:26px;
+    border-top:1px solid var(--line);
+  }
+  .world-entry:first-of-type{ border-top:none; padding-top:0; }
+  .world-id{ font-family:"IBM Plex Mono", monospace; font-size:12px; color:var(--ink-dim); line-height:1.7; }
+  .world-id .sys{ display:block; text-transform:uppercase; letter-spacing:0.08em; color:var(--teal); margin-bottom:6px; }
+  .world-body{ cursor:pointer; }
+  .world-body h3{ font-size:1.55rem; margin-bottom:10px; }
+  .world-body p{ margin:0 0 12px; max-width:64ch; }
+  .world-body p:last-child{ margin-bottom:0; }
+  @media (max-width:600px){ .world-entry{ grid-template-columns:1fr; gap:10px; } }
+
+  /* ---------- FRONTIER ---------- */
+  .frontier-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:14px;
+  }
+  .pcard{ background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:16px 18px; cursor:pointer; }
+  .pcard:hover{ border-color:var(--gold); }
+  .pcard .row1{ display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:8px; }
+  .pcard h4{ font-size:1.08rem; letter-spacing:0.01em; }
+  .pcard .sysname{ font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--ink-dim); text-transform:uppercase; white-space:nowrap; }
+  .pcard p{ margin:0; font-size:0.94rem; color:var(--ink-dim); }
+
+  /* ---------- COSMOLOGY ---------- */
+  .cosmo{ background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:30px 30px 8px; }
+  .spoiler-tag{
+    display:inline-block;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--gold-ink);
+    background:var(--gold);
+    padding:3px 9px;
+    border-radius:3px;
+    margin-left:10px;
+    vertical-align:middle;
+  }
+  .cosmo-item{ margin:0 0 22px; cursor:pointer; }
+  .cosmo dt{ font-family:"Anton", sans-serif; font-size:1.05rem; color:var(--gold); text-transform:uppercase; margin-bottom:4px; }
+  .cosmo dd{ margin:0; max-width:64ch; color:var(--ink); }
+
+  /* ---------- FIELD NOTES ---------- */
+  .notes{ counter-reset:note; }
+  .note{ display:grid; grid-template-columns:34px 1fr; gap:14px; padding-block:14px; border-top:1px solid var(--line); }
+  .note:first-child{ border-top:none; padding-top:0; }
+  .note::before{
+    counter-increment:note;
+    content:counter(note, decimal-leading-zero);
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    color:var(--gold);
+    padding-top:2px;
+  }
+  .note p{ margin:0; }
+  .note b{ color:var(--ink); }
+
+  /* ---------- FURTHER READING ---------- */
+  .link-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    gap:14px;
+  }
+  .linkcard{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:16px 18px;
+    text-decoration:none;
+  }
+  .linkcard .src{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--teal);
+  }
+  .linkcard h4{ font-size:1.05rem; color:var(--ink); }
+  .linkcard p{ margin:0; font-size:0.92rem; color:var(--ink-dim); }
+  .linkcard .go{
+    margin-top:auto;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .linkcard:hover{ border-color:var(--gold); }
+  .linkcard:hover .go{ text-decoration:underline; }
+
+  footer{ padding-block:40px 60px; text-align:center; position:relative; z-index:1;}
+  footer p{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    color:var(--ink-dim);
+    letter-spacing:0.03em;
+    margin:0 0 6px;
+  }
+
+  /* ---------- MODAL (entry detail) ---------- */
+  .modal-backdrop{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:50;
+    background:rgba(6,7,12,.72);
+    padding:24px;
+    overflow-y:auto;
+  }
+  .modal-backdrop.open{ display:block; }
+  .modal{
+    max-width:640px;
+    margin:40px auto;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:30px 32px 32px;
+    box-shadow:0 20px 60px -20px rgba(0,0,0,.7);
+    position:relative;
+  }
+  .modal-close{
+    position:absolute;
+    top:16px; right:16px;
+    background:none;
+    border:1px solid var(--line);
+    color:var(--ink-dim);
+    border-radius:4px;
+    width:30px; height:30px;
+    font-size:16px;
+    line-height:1;
+    cursor:pointer;
+  }
+  .modal-close:hover{ color:var(--ink); border-color:var(--ink-dim); }
+  .modal .pilltag{ margin-bottom:12px; }
+  .modal h3{ font-size:1.7rem; margin-bottom:12px; padding-right:30px; }
+  .modal-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11.5px;
+    color:var(--ink-dim);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    margin-bottom:18px;
+  }
+  .modal-meta b{ color:var(--teal); }
+  .modal-body p{ margin:0 0 14px; color:var(--ink); }
+  .modal-body p:last-child{ margin-bottom:0; }
+  .modal-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:18px; }
+  .modal-tags .tag{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:2px 9px;
+  }
+  .seealso{ margin-top:22px; padding-top:18px; border-top:1px solid var(--line); }
+  .seealso .lbl{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .seealso-chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .seealso-chips button{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11.5px;
+    letter-spacing:0.02em;
+    background:var(--surface);
+    border:1px solid var(--line);
+    color:var(--teal);
+    border-radius:4px;
+    padding:6px 10px;
+    cursor:pointer;
+  }
+  .seealso-chips button:hover{ border-color:var(--teal); }
+
+  ::selection{ background:rgba(215,161,60,.35); }
+  [hidden]{ display:none !important; }
+</style>
+</head>
+<body>
+
+<div class="identbar">
+  <div class="wrap">
+    <span class="brandmark"><b>Don't Panic!</b> — Pocket Guide to the Settled Systems</span>
+    <a class="repolink" href="https://github.com/fidgetrope/dont-panic-starfield" target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a>
+    <span class="edition mono">ED. 3 · AUTUMN 2026</span>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="wrap wide">
+    <nav class="toolbar-nav">
+      <a href="#orientation">Orientation</a>
+      <a href="#state-of-play">State of Play</a>
+      <a href="#factions">Factions</a>
+      <a href="#core-worlds">Core Worlds</a>
+      <a href="#frontier">Frontier</a>
+      <a href="#cosmology">Cosmology</a>
+      <a href="#field-notes">Field Notes</a>
+      <a href="#further-reading">Further Reading</a>
+    </nav>
+    <div class="toolbar-controls">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" id="q" placeholder="Search the guide… try “Neon” or “pirates”" aria-label="Search the guide">
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filter by faction">
+        <button class="chip" data-filter="all" aria-pressed="true">All</button>
+      </div>
+      <span class="result-count" id="count"></span>
+    </div>
+    <div class="facet-row">
+      <div class="facet">
+        <button class="facet-btn" id="systemFacetBtn" aria-haspopup="true" aria-expanded="false">System ▾</button>
+        <div class="facet-panel" id="systemFacetPanel"></div>
+      </div>
+      <div class="facet">
+        <button class="facet-btn" id="eraFacetBtn" aria-haspopup="true" aria-expanded="false">Era ▾</button>
+        <div class="facet-panel" id="eraFacetPanel"></div>
+      </div>
+      <button class="clear-filters" id="clearFilters">Clear filters</button>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="ring-deco" style="width:520px;height:520px;right:-180px;top:-220px;"></div>
+  <div class="ring-deco" style="width:280px;height:280px;left:-100px;bottom:-140px;"></div>
+  <div class="wrap">
+    <p class="kicker">The Settled Systems · A Pocket Guide · 2330 CE</p>
+    <h1>Don't Panic</h1>
+    <p class="hero-sub">Printed, as such things traditionally are, in large friendly letters. What follows is a rather less reassuring rundown of the actual galaxy: who runs it, who's shooting at whom, and which planets will simply let you suffocate if you forget to check. <em>Bring a spacesuit. Possibly a towel.</em> Use the search bar and filters above to jump straight to what you need — click any entry to read the full write-up and follow its cross-references.</p>
+  </div>
+</header>
+
+<section id="orientation">
+  <div class="wrap">
+    <p class="eyebrow">§1</p>
+    <h2 class="title">Orientation</h2>
+
+    <div class="stat-strip">
+      <div class="stat"><div class="n">2330</div><div class="l">Current year</div></div>
+      <div class="stat"><div class="n">120</div><div class="l">Charted star systems</div></div>
+      <div class="stat"><div class="n">~1,700</div><div class="l">Planets &amp; moons catalogued</div></div>
+      <div class="stat"><div class="n">2</div><div class="l">Rival governments</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">Home planet, abandoned</div></div>
+    </div>
+
+    <div class="prose">
+      <p>Humanity did not leave Earth out of ambition. In 2150 scientists confirmed the planet's magnetosphere was failing, and while trying to work out why, they made it worse: gravity-warping experiments meant to unlock deep-space travel instead stripped away what atmosphere Earth had left. The grav drive that resulted is the only reason anyone is reading this in another star system at all. Earth itself was fully evacuated by 2203 and now sits in the Sol system as a cold, irradiated reminder of the trade humanity made — visitable, mineable, and dead.</p>
+      <p>What rebuilt itself out among the stars split cleanly in two. The <b>United Colonies</b> is the closest thing to a proper government: bureaucratic, well-armed, and convinced it's the adult in the room. The <b>Freestar Collective</b> is the frontier answer to that — a looser alliance of independent colonies that would rather handle its own problems, thanks. The two fought a war over it once. They have not entirely stopped disagreeing.</p>
+      <p>Everyone else — explorers, pirates, zealots, and one deeply enthusiastic drinks-and-drugs megacorporation — operates in the gaps between the two. That's most of this guide.</p>
+    </div>
+  </div>
+</section>
+
+<section id="state-of-play">
+  <div class="wrap">
+    <p class="eyebrow">§2</p>
+    <h2 class="title">State of Play</h2>
+    <p class="lede">The galaxy keeps moving even after you've stopped playing. Here's what's changed recently, straight from the official record.</p>
+    <div id="updates-list"></div>
+  </div>
+</section>
+
+<section id="factions">
+  <div class="wrap wide">
+    <p class="eyebrow">§3</p>
+    <h2 class="title">Who's Actually In Charge</h2>
+    <p class="lede">Eight organisations worth knowing before someone starts shooting at you and you'd like to know why.</p>
+    <div class="faction-grid" id="faction-grid"></div>
+    <p class="empty-note" id="faction-empty">Nothing here matches that. Try clearing the filter.</p>
+  </div>
+</section>
+
+<section id="core-worlds">
+  <div class="wrap">
+    <p class="eyebrow">§4</p>
+    <h2 class="title">The Core Worlds</h2>
+    <p class="lede">The systems where most of civilisation actually lives. Everything else is, to a first approximation, rock.</p>
+    <div id="core-worlds-list"></div>
+    <p class="empty-note" id="core-worlds-empty">Nothing here matches that. Try clearing the filter.</p>
+  </div>
+</section>
+
+<section id="frontier">
+  <div class="wrap wide">
+    <p class="eyebrow">§5</p>
+    <h2 class="title">Out on the Frontier</h2>
+    <p class="lede">The other hundred-plus systems are mostly uncharted rock, ice, and gas — but a fair few now have something worth the fuel.</p>
+    <div class="frontier-grid" id="frontier-grid"></div>
+    <p class="empty-note" id="frontier-empty">Nothing out here matches that. Try clearing the filter.</p>
+  </div>
+</section>
+
+<section id="cosmology">
+  <div class="wrap">
+    <p class="eyebrow">§6</p>
+    <h2 class="title">The Bit Nobody Warns You About <span class="spoiler-tag">spoilers</span></h2>
+    <p class="lede">This is where the pocket guide stops being about geography and starts being about why the universe is bigger than the map suggests.</p>
+    <div class="cosmo">
+      <dl id="cosmo-list"></dl>
+    </div>
+    <p class="empty-note" id="cosmology-empty">Nothing here matches that. Try clearing the filter.</p>
+  </div>
+</section>
+
+<section id="field-notes">
+  <div class="wrap">
+    <p class="eyebrow">§7</p>
+    <h2 class="title">Field Notes</h2>
+    <div class="notes" id="notes-list"></div>
+  </div>
+</section>
+
+<section id="further-reading">
+  <div class="wrap wide">
+    <p class="eyebrow">§8</p>
+    <h2 class="title">Further Reading</h2>
+    <p class="lede">Everything above is a starting point, not the whole map. These are the places worth going next.</p>
+    <div class="link-grid" id="link-grid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Compiled from the field, cross-checked against the record, and printed — as ever — in large friendly letters.</p>
+    <p>Don't Panic! · A Pocket Guide to the Settled Systems</p>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var FACTION_LABELS = {
+    "constellation":"Constellation","uc":"United Colonies","freestar":"Freestar",
+    "crimson":"Crimson Fleet","ryujin":"Ryujin","va-ruun":"Va'ruun","ecliptic":"Ecliptic",
+    "terran-armada":"Terran Armada","independent":"Independent"
+  };
+  var ERA_LABELS = {
+    "base":"Base game","shattered-space":"Shattered Space","terran-armada":"Terran Armada"
+  };
+
+  var state = {
+    factions: [], locations: [], cosmology: [], updates: [], notes: [], links: [],
+    byId: {},              // every cross-linkable entry (faction/location/cosmology), by id
+    activeFaction: "all",
+    activeSystems: new Set(),
+    activeEras: new Set(),
+    searchTerm: ""
+  };
+
+  function el(tag, cls, html){
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (html !== undefined) e.innerHTML = html;
+    return e;
+  }
+  function esc(s){
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];
+    });
+  }
+  function paras(arr){ return (arr||[]).map(function(p){ return "<p>"+esc(p)+"</p>"; }).join(""); }
+
+  function fetchJSON(path){
+    return fetch(path).then(function(r){
+      if (!r.ok) throw new Error("Failed to load " + path);
+      return r.json();
+    });
+  }
+
+  Promise.all([
+    fetchJSON("data/factions.json"),
+    fetchJSON("data/locations.json"),
+    fetchJSON("data/cosmology.json"),
+    fetchJSON("data/updates.json"),
+    fetchJSON("data/fieldnotes.json"),
+    fetchJSON("data/links.json")
+  ]).then(function(res){
+    state.factions = res[0];
+    state.locations = res[1];
+    state.cosmology = res[2];
+    state.updates = res[3];
+    state.notes = res[4];
+    state.links = res[5];
+
+    state.factions.concat(state.locations, state.cosmology).forEach(function(e){
+      state.byId[e.id] = e;
+    });
+
+    renderChips();
+    renderFacets();
+    renderUpdates();
+    renderFactions();
+    renderCoreWorlds();
+    renderFrontier();
+    renderCosmology();
+    renderNotes();
+    renderLinks();
+    readStateFromURL();
+    wireControls();
+    applyFilters();
+    maybeOpenFromHash();
+  }).catch(function(err){
+    document.getElementById("faction-grid").innerHTML =
+      "<p class='mono' style='color:var(--ink-dim)'>Couldn't load the guide's data files (" + esc(err.message) + "). If you're opening this file directly from disk, run it through a local server instead — browsers block fetch() over file://.</p>";
+    console.error(err);
+  });
+
+  // ---------- render: chips (faction, single-select) ----------
+  function renderChips(){
+    var wrap = document.getElementById("chips");
+    var seen = {};
+    state.factions.forEach(function(f){
+      if (seen[f.id]) return;
+      seen[f.id] = true;
+      var b = el("button", "chip", esc(f.name));
+      b.setAttribute("data-filter", f.id);
+      b.setAttribute("aria-pressed", "false");
+      wrap.appendChild(b);
+    });
+    var indB = el("button", "chip", "Independent");
+    indB.setAttribute("data-filter", "independent");
+    indB.setAttribute("aria-pressed", "false");
+    wrap.appendChild(indB);
+  }
+
+  // ---------- render: system / era facet panels ----------
+  function renderFacets(){
+    var systems = uniqueSorted(state.factions.concat(state.locations).map(function(e){ return e.system; }));
+    var eraSet = uniqueSorted(allEntries().map(function(e){ return e.era; }));
+
+    var sysPanel = document.getElementById("systemFacetPanel");
+    systems.forEach(function(sys){
+      var id = "sys-" + slug(sys);
+      var label = el("label");
+      label.innerHTML = '<input type="checkbox" data-system="' + esc(sys) + '" id="' + id + '"> ' + esc(sys);
+      sysPanel.appendChild(label);
+    });
+
+    var eraPanel = document.getElementById("eraFacetPanel");
+    eraSet.forEach(function(era){
+      var id = "era-" + slug(era);
+      var label = el("label");
+      label.innerHTML = '<input type="checkbox" data-era="' + esc(era) + '" id="' + id + '"> ' + esc(ERA_LABELS[era] || era);
+      eraPanel.appendChild(label);
+    });
+  }
+
+  function uniqueSorted(arr){
+    var set = {};
+    arr.forEach(function(v){ if (v) set[v] = true; });
+    return Object.keys(set).sort();
+  }
+  function slug(s){ return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-"); }
+  function allEntries(){
+    return state.factions.concat(state.locations, state.cosmology, state.updates.map(function(u){ return {era:"base"}; }));
+  }
+
+  // ---------- render: state of play ----------
+  function renderUpdates(){
+    var list = document.getElementById("updates-list");
+    var sorted = state.updates.slice().sort(function(a,b){ return b.date.localeCompare(a.date); });
+    sorted.forEach(function(u){
+      var card = el("div", "patch item");
+      card.setAttribute("data-faction", "");
+      var bullets = (u.bullets && u.bullets.length)
+        ? "<ul>" + u.bullets.map(function(b){ return "<li>"+esc(b)+"</li>"; }).join("") + "</ul>"
+        : "";
+      card.innerHTML =
+        '<div class="row1"><h3>'+esc(u.title)+'</h3><span class="pill">'+esc(u.pill)+'</span><span class="datestamp">'+esc(u.datestamp)+'</span></div>' +
+        '<p>'+esc(u.body)+'</p>' + bullets;
+      list.appendChild(card);
+    });
+  }
+
+  // ---------- render: factions ----------
+  function renderFactions(){
+    var grid = document.getElementById("faction-grid");
+    state.factions.forEach(function(f){
+      var card = el("div", "fcard item");
+      card.style.setProperty("--fc", "var(" + f.color + ")");
+      card.setAttribute("data-faction", f.id);
+      if (f.system) card.setAttribute("data-system", f.system);
+      card.setAttribute("data-era", f.era || "base");
+      card.setAttribute("data-id", f.id);
+      card.tabIndex = 0;
+      card.innerHTML =
+        '<span class="pilltag">'+esc(f.pilltag)+'</span>' +
+        '<h3>'+esc(f.name)+'</h3>' +
+        '<p>'+esc(f.summary)+'</p>' +
+        '<span class="card-more mono">Read more →</span>';
+      card.addEventListener("click", function(){ openEntry(f.id); });
+      card.addEventListener("keydown", function(e){ if (e.key === "Enter") openEntry(f.id); });
+      grid.appendChild(card);
+    });
+  }
+
+  // ---------- render: core worlds ----------
+  function renderCoreWorlds(){
+    var list = document.getElementById("core-worlds-list");
+    state.locations.filter(function(l){ return l.subtype === "core-world"; }).forEach(function(l){
+      var entry = el("div", "world-entry item");
+      entry.setAttribute("data-faction", l.faction || "");
+      entry.setAttribute("data-system", l.system || "");
+      entry.setAttribute("data-era", l.era || "base");
+      var idBlock = el("div", "world-id");
+      idBlock.innerHTML = '<span class="sys">'+esc(l.system)+'</span>Planet: '+esc(l.planet)+'<br>' + (FACTION_LABELS[l.faction] || "");
+      var body = el("div", "world-body");
+      body.setAttribute("data-id", l.id);
+      body.tabIndex = 0;
+      body.innerHTML = '<h3>'+esc(l.name)+'</h3>' + paras(l.body) + '<span class="card-more mono">Read more →</span>';
+      body.addEventListener("click", function(){ openEntry(l.id); });
+      body.addEventListener("keydown", function(e){ if (e.key === "Enter") openEntry(l.id); });
+      entry.appendChild(idBlock);
+      entry.appendChild(body);
+      list.appendChild(entry);
+    });
+  }
+
+  // ---------- render: frontier ----------
+  function renderFrontier(){
+    var grid = document.getElementById("frontier-grid");
+    state.locations.filter(function(l){ return l.subtype === "frontier"; }).forEach(function(l){
+      var card = el("div", "pcard item");
+      card.setAttribute("data-faction", l.faction || "");
+      card.setAttribute("data-system", l.system || "");
+      card.setAttribute("data-era", l.era || "base");
+      card.setAttribute("data-id", l.id);
+      card.tabIndex = 0;
+      var fcolor = state.factions.filter(function(f){ return f.id === l.faction; })[0];
+      var pillStyle = fcolor ? ' style="--fc:var('+fcolor.color+')"' : ' style="--fc:var(--f-ind)"';
+      card.innerHTML =
+        '<div class="row1"><h4>'+esc(l.name)+'</h4><span class="sysname">'+esc(l.system)+'</span></div>' +
+        '<span class="pilltag"'+pillStyle+'>'+esc(FACTION_LABELS[l.faction] || "Independent")+'</span>' +
+        '<p>'+esc(l.summary)+'</p>';
+      card.addEventListener("click", function(){ openEntry(l.id); });
+      card.addEventListener("keydown", function(e){ if (e.key === "Enter") openEntry(l.id); });
+      grid.appendChild(card);
+    });
+  }
+
+  // ---------- render: cosmology ----------
+  function renderCosmology(){
+    var dl = document.getElementById("cosmo-list");
+    state.cosmology.forEach(function(c){
+      var item = el("div", "cosmo-item item");
+      item.setAttribute("data-faction", "");
+      item.setAttribute("data-era", c.era || "base");
+      item.setAttribute("data-id", c.id);
+      item.tabIndex = 0;
+      item.innerHTML =
+        '<dt>'+esc(c.name)+'</dt>' +
+        '<dd>'+esc(c.summary)+' <span class="card-more mono">Read more →</span></dd>';
+      item.addEventListener("click", function(){ openEntry(c.id); });
+      item.addEventListener("keydown", function(e){ if (e.key === "Enter") openEntry(c.id); });
+      dl.appendChild(item);
+    });
+  }
+
+  // ---------- render: field notes ----------
+  function renderNotes(){
+    var list = document.getElementById("notes-list");
+    state.notes.forEach(function(n){
+      var note = el("div", "note");
+      note.innerHTML = "<p><b>"+esc(n.b)+"</b> "+esc(n.text)+"</p>";
+      list.appendChild(note);
+    });
+  }
+
+  // ---------- render: further reading ----------
+  function renderLinks(){
+    var grid = document.getElementById("link-grid");
+    state.links.forEach(function(l){
+      var a = el("a", "linkcard");
+      a.href = l.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+      a.innerHTML =
+        '<span class="src mono">'+esc(l.src)+'</span>' +
+        '<h4>'+esc(l.title)+'</h4>' +
+        '<p>'+esc(l.desc)+'</p>' +
+        '<span class="go mono">Visit →</span>';
+      grid.appendChild(a);
+    });
+  }
+
+  // ---------- filtering ----------
+  function apply(){
+    var term = state.searchTerm.trim().toLowerCase();
+    var items = Array.prototype.slice.call(document.querySelectorAll(".item"));
+    var visible = 0;
+
+    items.forEach(function(elt){
+      var faction = elt.getAttribute("data-faction");
+      var system = elt.getAttribute("data-system");
+      var era = elt.getAttribute("data-era");
+
+      var matchesFaction = state.activeFaction === "all" || !faction || faction === state.activeFaction;
+      var matchesSystem = state.activeSystems.size === 0 || !system || state.activeSystems.has(system);
+      var matchesEra = state.activeEras.size === 0 || !era || state.activeEras.has(era);
+      var matchesTerm = !term || elt.textContent.toLowerCase().indexOf(term) !== -1;
+
+      var show = matchesFaction && matchesSystem && matchesEra && matchesTerm;
+      elt.hidden = !show;
+      if (show) visible++;
+    });
+
+    ["faction-grid#faction-empty","core-worlds-list#core-worlds-empty","frontier-grid#frontier-empty","cosmo-list#cosmology-empty"]
+      .forEach(function(pair){
+        var parts = pair.split("#");
+        var containerEl = document.getElementById(parts[0]);
+        var emptyEl = document.getElementById(parts[1]);
+        if (!containerEl || !emptyEl) return;
+        var anyVisible = containerEl.querySelectorAll(".item:not([hidden])").length > 0;
+        emptyEl.classList.toggle("show", !anyVisible);
+      });
+
+    var countEl = document.getElementById("count");
+    countEl.textContent = visible + " / " + items.length + " entries shown";
+
+    syncURL();
+  }
+  var applyDebounced = debounce(apply, 120);
+
+  function debounce(fn, ms){
+    var t;
+    return function(){
+      clearTimeout(t);
+      var args = arguments, ctx = this;
+      t = setTimeout(function(){ fn.apply(ctx, args); }, ms);
+    };
+  }
+
+  function applyFilters(){ apply(); }
+
+  // ---------- URL sync ----------
+  function syncURL(){
+    var params = new URLSearchParams();
+    if (state.searchTerm) params.set("q", state.searchTerm);
+    if (state.activeFaction !== "all") params.set("faction", state.activeFaction);
+    if (state.activeSystems.size) params.set("systems", Array.from(state.activeSystems).join(","));
+    if (state.activeEras.size) params.set("eras", Array.from(state.activeEras).join(","));
+    var qs = params.toString();
+    var newUrl = location.pathname + (qs ? "?" + qs : "") + location.hash;
+    history.replaceState(null, "", newUrl);
+  }
+
+  function readStateFromURL(){
+    var params = new URLSearchParams(location.search);
+    if (params.get("q")) {
+      state.searchTerm = params.get("q");
+      document.getElementById("q").value = state.searchTerm;
+    }
+    if (params.get("faction")) state.activeFaction = params.get("faction");
+    if (params.get("systems")) state.activeSystems = new Set(params.get("systems").split(","));
+    if (params.get("eras")) state.activeEras = new Set(params.get("eras").split(","));
+  }
+
+  // ---------- controls ----------
+  function wireControls(){
+    document.getElementById("q").addEventListener("input", function(e){
+      state.searchTerm = e.target.value;
+      applyDebounced();
+    });
+
+    Array.prototype.slice.call(document.querySelectorAll("#chips .chip")).forEach(function(chip){
+      chip.addEventListener("click", function(){
+        Array.prototype.slice.call(document.querySelectorAll("#chips .chip")).forEach(function(c){ c.setAttribute("aria-pressed","false"); });
+        chip.setAttribute("aria-pressed","true");
+        state.activeFaction = chip.getAttribute("data-filter");
+        apply();
+      });
+      if (chip.getAttribute("data-filter") === state.activeFaction) {
+        Array.prototype.slice.call(document.querySelectorAll("#chips .chip")).forEach(function(c){ c.setAttribute("aria-pressed","false"); });
+        chip.setAttribute("aria-pressed","true");
+      }
+    });
+
+    setupFacetDropdown("systemFacetBtn", "systemFacetPanel", "data-system", state.activeSystems);
+    setupFacetDropdown("eraFacetBtn", "eraFacetPanel", "data-era", state.activeEras);
+
+    // reflect URL-restored selections into the checkboxes
+    document.querySelectorAll("#systemFacetPanel input[type=checkbox]").forEach(function(cb){
+      if (state.activeSystems.has(cb.getAttribute("data-system"))) cb.checked = true;
+    });
+    document.querySelectorAll("#eraFacetPanel input[type=checkbox]").forEach(function(cb){
+      if (state.activeEras.has(cb.getAttribute("data-era"))) cb.checked = true;
+    });
+    updateFacetBtnState();
+
+    document.getElementById("clearFilters").addEventListener("click", function(){
+      state.searchTerm = "";
+      state.activeFaction = "all";
+      state.activeSystems = new Set();
+      state.activeEras = new Set();
+      document.getElementById("q").value = "";
+      Array.prototype.slice.call(document.querySelectorAll("#chips .chip")).forEach(function(c){ c.setAttribute("aria-pressed", c.getAttribute("data-filter") === "all"); });
+      document.querySelectorAll(".facet-panel input[type=checkbox]").forEach(function(cb){ cb.checked = false; });
+      updateFacetBtnState();
+      apply();
+    });
+
+    document.addEventListener("click", function(e){
+      document.querySelectorAll(".facet-panel.open").forEach(function(panel){
+        if (!panel.contains(e.target) && e.target.id !== panel.id.replace("Panel","Btn")) {
+          panel.classList.remove("open");
+        }
+      });
+    });
+
+    // modal wiring
+    document.getElementById("modalBackdrop").addEventListener("click", function(e){
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape") closeModal();
+    });
+    window.addEventListener("popstate", maybeOpenFromHash);
+  }
+
+  function setupFacetDropdown(btnId, panelId, attr, activeSet){
+    var btn = document.getElementById(btnId);
+    var panel = document.getElementById(panelId);
+    btn.addEventListener("click", function(e){
+      e.stopPropagation();
+      var willOpen = !panel.classList.contains("open");
+      document.querySelectorAll(".facet-panel").forEach(function(p){ p.classList.remove("open"); });
+      panel.classList.toggle("open", willOpen);
+    });
+    panel.addEventListener("click", function(e){ e.stopPropagation(); });
+    panel.querySelectorAll("input[type=checkbox]").forEach(function(cb){
+      cb.addEventListener("change", function(){
+        var val = cb.getAttribute(attr);
+        if (cb.checked) activeSet.add(val); else activeSet.delete(val);
+        updateFacetBtnState();
+        apply();
+      });
+    });
+  }
+
+  function updateFacetBtnState(){
+    document.getElementById("systemFacetBtn").setAttribute("data-active", state.activeSystems.size > 0);
+    document.getElementById("eraFacetBtn").setAttribute("data-active", state.activeEras.size > 0);
+    document.getElementById("systemFacetBtn").textContent = state.activeSystems.size
+      ? "System (" + state.activeSystems.size + ") ▾" : "System ▾";
+    document.getElementById("eraFacetBtn").textContent = state.activeEras.size
+      ? "Era (" + state.activeEras.size + ") ▾" : "Era ▾";
+  }
+
+  // ---------- modal / entry detail ----------
+  function openEntry(id){
+    var e = state.byId[id];
+    if (!e) return;
+    history.pushState({entry:id}, "", "#entry-" + id);
+    renderModal(e);
+  }
+
+  function renderModal(e){
+    var modal = document.getElementById("modal");
+    var metaBits = [];
+    if (e.system) metaBits.push("<b>System</b> " + esc(e.system));
+    if (e.planet) metaBits.push("<b>World</b> " + esc(e.planet));
+    if (e.faction) metaBits.push("<b>Faction</b> " + esc(FACTION_LABELS[e.faction] || e.faction));
+    if (e.era) metaBits.push("<b>Era</b> " + esc(ERA_LABELS[e.era] || e.era));
+
+    var color = e.color ? "var(" + e.color + ")" : null;
+    var pill = e.pilltag ? '<span class="pilltag" style="' + (color ? "--fc:"+color+";color:"+color+";border-color:"+color : "") + '">' + esc(e.pilltag) + '</span>' : "";
+
+    var tags = (e.tags||[]).map(function(t){ return '<span class="tag">'+esc(t)+'</span>'; }).join("");
+
+    var related = (e.related||[]).map(function(rid){
+      var r = state.byId[rid];
+      if (!r) return "";
+      return '<button data-goto="'+esc(rid)+'">'+esc(r.name)+'</button>';
+    }).join("");
+
+    modal.innerHTML =
+      '<button class="modal-close" aria-label="Close">✕</button>' +
+      pill +
+      '<h3>'+esc(e.name)+ (e.spoiler ? ' <span class="spoiler-tag">spoilers</span>' : '') +'</h3>' +
+      (metaBits.length ? '<div class="modal-meta">'+metaBits.join(" &nbsp;·&nbsp; ")+'</div>' : "") +
+      '<div class="modal-body">'+paras(e.body)+'</div>' +
+      (tags ? '<div class="modal-tags">'+tags+'</div>' : "") +
+      (related ? '<div class="seealso"><div class="lbl mono">See also</div><div class="seealso-chips">'+related+'</div></div>' : "");
+
+    modal.querySelector(".modal-close").addEventListener("click", closeModal);
+    modal.querySelectorAll("[data-goto]").forEach(function(btn){
+      btn.addEventListener("click", function(){ openEntry(btn.getAttribute("data-goto")); });
+    });
+
+    document.getElementById("modalBackdrop").classList.add("open");
+    document.getElementById("modalBackdrop").scrollTop = 0;
+  }
+
+  function closeModal(){
+    var backdrop = document.getElementById("modalBackdrop");
+    if (!backdrop.classList.contains("open")) return;
+    backdrop.classList.remove("open");
+    if (location.hash.indexOf("#entry-") === 0) {
+      history.pushState(null, "", location.pathname + location.search);
+    }
+  }
+
+  function maybeOpenFromHash(){
+    var m = /^#entry-(.+)$/.exec(location.hash);
+    if (m && state.byId[m[1]]) {
+      renderModal(state.byId[m[1]]);
+      document.getElementById("modalBackdrop").classList.add("open");
+    } else {
+      document.getElementById("modalBackdrop").classList.remove("open");
+    }
+  }
+
+})();
+</script>
+
+</body>
+</html>
