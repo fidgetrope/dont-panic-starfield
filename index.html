@@ -293,25 +293,6 @@
     margin-right:2px;
     white-space:nowrap;
   }
-  .chips{ display:flex; flex-wrap:wrap; gap:6px; }
-  .chip{
-    font-family:"IBM Plex Mono", monospace;
-    font-size:11px;
-    letter-spacing:0.03em;
-    text-transform:uppercase;
-    padding:6px 10px;
-    border-radius:3px;
-    border:1px solid var(--line);
-    background:transparent;
-    color:var(--ink);
-    cursor:pointer;
-    line-height:1;
-  }
-  .chip[aria-pressed="true"]{
-    background:var(--gold);
-    color:var(--gold-ink);
-    border-color:var(--gold);
-  }
   .result-count{
     font-family:"IBM Plex Mono", monospace;
     font-size:11px;
@@ -726,10 +707,10 @@
           <input type="search" id="q" placeholder="Search the guide… try “Neon” or “pirates”" aria-label="Search the guide">
         </div>
         <div class="filter-line">
-          <span class="filter-label">Type</span>
-          <div class="chips" id="typeChips" role="group" aria-label="Filter by type"></div>
-        </div>
-        <div class="filter-line">
+          <div class="facet">
+            <button class="facet-btn" id="typeFacetBtn" aria-haspopup="true" aria-expanded="false">Type ▾</button>
+            <div class="facet-panel facet-panel-select" id="typeFacetPanel"></div>
+          </div>
           <div class="facet">
             <button class="facet-btn" id="factionFacetBtn" aria-haspopup="true" aria-expanded="false">Faction ▾</button>
             <div class="facet-panel facet-panel-select" id="factionFacetPanel"></div>
@@ -813,14 +794,15 @@
     "base":"Base game","shattered-space":"Shattered Space","terran-armada":"Terran Armada"
   };
   var TYPE_LABELS = {
-    "faction":"Faction","core-world":"Core World","shipyard":"Shipyard","frontier":"Frontier","cosmology":"Cosmology"
+    "faction":"Faction","core-world":"Core World","shipyard":"Shipyard","frontier":"Frontier","cosmology":"Cosmology",
+    "power":"Power","gear":"Unique Gear","questline":"Questline Ending"
   };
   // A handful of well-known entries to surface right on the Home tab.
   var QUICK_LOOKUP_IDS = ["constellation","uc","new-atlantis","neon","crimson","the-artifacts","dazra"];
 
   var state = {
-    factions: [], locations: [], cosmology: [], updates: [], notes: [], links: [],
-    browsable: [],          // factions + locations + cosmology, in display order
+    factions: [], locations: [], cosmology: [], powers: [], gear: [], questlines: [], updates: [], notes: [], links: [],
+    browsable: [],          // factions + locations + cosmology + powers + gear + questlines, in display order
     byId: {},               // every cross-linkable entry, by id
     activeTab: "home",
     activeType: "all",
@@ -844,8 +826,13 @@
   function paras(arr){ return (arr||[]).map(function(p){ return "<p>"+esc(p)+"</p>"; }).join(""); }
   function entryKind(e){ return e.type === "location" ? e.subtype : e.type; }
 
+  // A fresh cache-busting value per page load - guarantees a returning visitor
+  // always gets the current data files, never a browser-cached copy from
+  // before the last content update. These files are tiny, so there's no real
+  // bandwidth cost to skipping the cache entirely.
+  var LOAD_STAMP = String(Date.now());
   function fetchJSON(path){
-    return fetch(path).then(function(r){
+    return fetch(path + "?v=" + LOAD_STAMP).then(function(r){
       if (!r.ok) throw new Error("Failed to load " + path);
       return r.json();
     });
@@ -855,6 +842,9 @@
     fetchJSON("data/factions.json"),
     fetchJSON("data/locations.json"),
     fetchJSON("data/cosmology.json"),
+    fetchJSON("data/powers.json"),
+    fetchJSON("data/unique-gear.json"),
+    fetchJSON("data/questlines.json"),
     fetchJSON("data/updates.json"),
     fetchJSON("data/fieldnotes.json"),
     fetchJSON("data/links.json")
@@ -862,12 +852,15 @@
     state.factions = res[0];
     state.locations = res[1];
     state.cosmology = res[2];
-    state.updates = res[3];
-    state.notes = res[4];
-    state.links = res[5];
+    state.powers = res[3];
+    state.gear = res[4];
+    state.questlines = res[5];
+    state.updates = res[6];
+    state.notes = res[7];
+    state.links = res[8];
 
-    var kindOrder = { "faction":0, "core-world":1, "shipyard":2, "frontier":3, "cosmology":4 };
-    state.browsable = state.factions.concat(state.locations, state.cosmology).sort(function(a,b){
+    var kindOrder = { "faction":0, "core-world":1, "shipyard":2, "frontier":3, "cosmology":4, "power":5, "gear":6, "questline":7 };
+    state.browsable = state.factions.concat(state.locations, state.cosmology, state.powers, state.gear, state.questlines).sort(function(a,b){
       var ka = kindOrder[entryKind(a)], kb = kindOrder[entryKind(b)];
       if (ka !== kb) return ka - kb;
       return a.name.localeCompare(b.name);
@@ -909,12 +902,12 @@
     });
   }
 
-  // ---------- render: type chips (faction / core-world / frontier / cosmology) ----------
+  // ---------- render: type dropdown (single-select) ----------
   function renderTypeChips(){
-    var wrap = document.getElementById("typeChips");
-    var opts = [["all","All"],["faction","Factions"],["core-world","Core Worlds"],["shipyard","Shipyards"],["frontier","Frontier"],["cosmology","Cosmology"]];
+    var wrap = document.getElementById("typeFacetPanel");
+    var opts = [["all","All types"],["faction","Factions"],["core-world","Core Worlds"],["shipyard","Shipyards"],["frontier","Frontier"],["cosmology","Cosmology"],["power","Powers"],["gear","Unique Gear"],["questline","Questline Endings"]];
     opts.forEach(function(o){
-      var b = el("button", "chip", o[1]);
+      var b = el("button", "", o[1]);
       b.setAttribute("data-filter", o[0]);
       b.setAttribute("aria-pressed", o[0] === "all" ? "true" : "false");
       wrap.appendChild(b);
@@ -1134,8 +1127,7 @@
       applyDebounced();
     });
 
-    wireChipGroup("typeChips", function(val){ state.activeType = val; }, function(){ return state.activeType; });
-
+    setupSingleSelectFacet("typeFacetBtn", "typeFacetPanel", function(val){ state.activeType = val; }, function(){ return state.activeType; });
     setupSingleSelectFacet("factionFacetBtn", "factionFacetPanel", function(val){ state.activeFaction = val; }, function(){ return state.activeFaction; });
     setupFacetDropdown("systemFacetBtn", "systemFacetPanel", "data-system", state.activeSystems);
     setupFacetDropdown("eraFacetBtn", "eraFacetPanel", "data-era", state.activeEras);
@@ -1155,7 +1147,7 @@
       state.activeSystems = new Set();
       state.activeEras = new Set();
       document.getElementById("q").value = "";
-      setChipPressed("typeChips", "all");
+      setSingleSelectPressed("typeFacetPanel", "all");
       setSingleSelectPressed("factionFacetPanel", "all");
       document.querySelectorAll(".facet-panel input[type=checkbox]").forEach(function(cb){ cb.checked = false; });
       updateFacetBtnState();
@@ -1177,25 +1169,6 @@
       if (e.key === "Escape") closeModal();
     });
     window.addEventListener("popstate", routeFromLocation);
-  }
-
-  function wireChipGroup(containerId, setter, getter){
-    var container = document.getElementById(containerId);
-    Array.prototype.slice.call(container.querySelectorAll(".chip")).forEach(function(chip){
-      chip.addEventListener("click", function(){
-        setChipPressed(containerId, chip.getAttribute("data-filter"));
-        setter(chip.getAttribute("data-filter"));
-        apply();
-      });
-    });
-    setChipPressed(containerId, getter());
-  }
-
-  function setChipPressed(containerId, val){
-    var container = document.getElementById(containerId);
-    Array.prototype.slice.call(container.querySelectorAll(".chip")).forEach(function(c){
-      c.setAttribute("aria-pressed", c.getAttribute("data-filter") === val ? "true" : "false");
-    });
   }
 
   function setupFacetDropdown(btnId, panelId, attr, activeSet){
@@ -1247,6 +1220,11 @@
   }
 
   function updateFacetBtnState(){
+    var typeLabel = state.activeType === "all" ? null :
+      (TYPE_LABELS[state.activeType] || state.activeType);
+    document.getElementById("typeFacetBtn").setAttribute("data-active", state.activeType !== "all");
+    document.getElementById("typeFacetBtn").textContent = typeLabel ? typeLabel + " ▾" : "Type ▾";
+
     var factionLabel = state.activeFaction === "all" ? null :
       (FACTION_LABELS[state.activeFaction] || state.activeFaction);
     document.getElementById("factionFacetBtn").setAttribute("data-active", state.activeFaction !== "all");

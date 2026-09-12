@@ -1,0 +1,316 @@
+[
+  {
+    "id": "anti-gravity-field",
+    "type": "power",
+    "name": "Anti-Gravity Field",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "control"],
+    "summary": "Lifts everyone in a zone off their feet and leaves them helpless, hanging in the air.",
+    "body": [
+      "Creates a zone of anti-gravity that lifts enemies caught inside it and leaves them paralysed, floating and defenceless for a few seconds.",
+      "The first power you get, full stop — granted by the mandatory main quest \"Into the Unknown\" rather than the repeatable \"Power from Beyond\" chain everything else runs through. Its temple, Eta, is one of only two in the game with a fixed location (Procyon III) rather than one that reshuffles every universe."
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "alien-reanimation",
+    "type": "power",
+    "name": "Alien Reanimation",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "summon"],
+    "summary": "Raises a dead alien creature to fight at your side for a while.",
+    "body": [
+      "Resurrects a dead alien creature nearby to fight alongside you for a duration — found at Temple Phi via the \"Power from Beyond\" quest chain, like all but two of the powers on this list."
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "create-vacuum",
+    "type": "power",
+    "name": "Create Vacuum",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "offense"],
+    "summary": "Rips the air out of an area, damaging anything caught inside over time.",
+    "body": [
+      "Strips the oxygen from targets in an area, dealing damage over time. Found at Temple Gamma via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "creators-peace",
+    "type": "power",
+    "name": "Creators' Peace",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "control"],
+    "summary": "Disarms and pacifies every enemy in an area — for a moment, nobody's fighting.",
+    "body": [
+      "Pacifies and disarms all enemies in an area for a duration, stopping the fight outright rather than just weakening it. Found at Temple Nu via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "earthbound",
+    "type": "power",
+    "name": "Earthbound",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "control"],
+    "summary": "Snaps local gravity back to Earth-normal — bad news for anything that was flying.",
+    "body": [
+      "Changes local gravity to Earth levels for a duration, which will drop anything airborne or built for low gravity straight to the ground. Found at Temple Epsilon via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "elemental-pull",
+    "type": "power",
+    "name": "Elemental Pull",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "utility"],
+    "summary": "Blasts nearby inorganic resources loose and pulls them straight to you.",
+    "body": [
+      "Yanks nearby inorganic resources toward you — a genuinely useful shortcut for topping up materials without crouching over every deposit by hand. Found at Temple Psi via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "eternal-harvest",
+    "type": "power",
+    "name": "Eternal Harvest",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "utility"],
+    "summary": "Instantly regrows every harvestable plant in a wide area around you.",
+    "body": [
+      "Regrows harvestable flora across a large area immediately, useful for outpost farming or just stripping a research site twice in one visit. Found at Temple Lambda via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "grav-dash",
+    "type": "power",
+    "name": "Grav Dash",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "mobility"],
+    "summary": "A gravity-assisted burst forward that also hits harder for a moment.",
+    "body": [
+      "Propels you forward with a burst of gravity manipulation while briefly boosting the damage you deal — equal parts mobility tool and opener. Found at Temple Zeta via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "gravity-wave",
+    "type": "power",
+    "name": "Gravity Wave",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "offense"],
+    "summary": "A cone-shaped shockwave that staggers and knocks down whatever's in front of you.",
+    "body": [
+      "Launches a cone-shaped gravity pulse that staggers and knocks enemies off their feet — a crowd-control opener more than a damage source. Found at Temple Beta via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "gravity-well",
+    "type": "power",
+    "name": "Gravity Well",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "offense"],
+    "summary": "A localised singularity that pulls everything in and crushes it.",
+    "body": [
+      "Creates a zone of intense gravity that drags in and crushes everything caught inside — the closest thing on this list to a straightforward black hole. Found at Temple Delta via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "inner-demon",
+    "type": "power",
+    "name": "Inner Demon",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "offense"],
+    "summary": "Makes a target fight a hostile copy of themselves.",
+    "body": [
+      "Forces a target enemy to confront a hostile mirror image of themselves, which then attacks them directly — a way to make one enemy do the work of two. Found at Temple Upsilon via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "life-forced",
+    "type": "power",
+    "name": "Life Forced",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "offense"],
+    "summary": "Drains the life out of a living target and hands it straight to you.",
+    "body": [
+      "Drains health from a living target and transfers it to you — a life-steal power in the most literal sense. Found at Temple Pi via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "moon-form",
+    "type": "power",
+    "name": "Moon Form",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "defense"],
+    "summary": "Roots you in place in exchange for shrugging off nearly everything thrown at you.",
+    "body": [
+      "Roots you to the spot while massively boosting your resistance to almost all incoming damage — a defensive power for the moments standing still is the point. Found at Temple Rho via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "parallel-self",
+    "type": "power",
+    "name": "Parallel Self",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "summon"],
+    "summary": "Pulls in a version of you from a parallel universe to fight beside you.",
+    "body": [
+      "Summons a version of yourself from a parallel dimension to fight at your side for a duration. Found at Temple Sigma via \"Power from Beyond\" — conveniently near Barrett's companion quest \"Worlds Apart,\" which some players use as a rough signpost, though reaching it isn't tied to that quest."
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "particle-beam",
+    "type": "power",
+    "name": "Particle Beam",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "offense"],
+    "summary": "Fires a sustained beam of pure particle energy at whatever you're aiming at.",
+    "body": [
+      "Fires a damaging beam of pure particle energy — straightforward offensive firepower, no gimmick attached. Found at Temple Omega via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "personal-atmosphere",
+    "type": "power",
+    "name": "Personal Atmosphere",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "survival"],
+    "summary": "Wraps you in your own pocket of breathable air, wherever you are.",
+    "body": [
+      "Creates a small bubble of breathable oxygen around you for a duration — genuinely handy in airless environments when your suit's own supply is running thin. Found at Temple Alpha via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "phased-time",
+    "type": "power",
+    "name": "Phased Time",
+    "era": "base",
+    "spoiler": true,
+    "tags": ["power", "control", "endgame"],
+    "summary": "Slows the entire world to a crawl around you — the one power that isn't found the way the other 23 are.",
+    "body": [
+      "Phases you outside the normal flow of time, dramatically slowing everything and everyone else for a duration — the strongest crowd-control power in the game, and the odd one out on this whole list.",
+      "Its temple, the Buried Temple, breaks the usual Greek-letter pattern entirely and has a fixed location (Masada III). It only opens through the main story quest \"Revelation\" — the second-to-last main mission — by defeating or persuading a major Starborn antagonist (the Hunter or the Emissary) and claiming Artifact Mu. Reaching it is widely treated as the point of no return toward that playthrough's ending, which is why this is the only power on this list actually worth spoiler-tagging."
+    ],
+    "related": ["the-starborn", "the-unity"]
+  },
+  {
+    "id": "precognition",
+    "type": "power",
+    "name": "Precognition",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "utility"],
+    "summary": "Gives you a preview of what an NPC's about to do — or say.",
+    "body": [
+      "Lets you glimpse an NPC's near-future actions, or how they're likely to react to a dialogue choice before you commit to it. Found at Temple Iota via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "reactive-shield",
+    "type": "power",
+    "name": "Reactive Shield",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "defense"],
+    "summary": "Turns incoming fire back on whoever sent it, while shrugging off some of it yourself.",
+    "body": [
+      "Wraps you in a shield that reflects incoming projectiles back at attackers and boosts your own damage resistance at the same time. Found at Temple Tau via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "sense-star-stuff",
+    "type": "power",
+    "name": "Sense Star Stuff",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "utility"],
+    "summary": "Reveals every living thing nearby, walls or no walls.",
+    "body": [
+      "Reveals all nearby living creatures for a duration — a detect-life effect, useful for clearing a building room by room without surprises. Found at Temple Chi via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "solar-flare",
+    "type": "power",
+    "name": "Solar Flare",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "offense"],
+    "summary": "A burst of solar energy that scorches everything nearby, sometimes literally.",
+    "body": [
+      "Emits a burst of solar energy that damages nearby enemies and can set them alight. Found at Temple Theta via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "sunless-space",
+    "type": "power",
+    "name": "Sunless Space",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "offense"],
+    "summary": "A blast of deep cold that freezes anything living caught in it.",
+    "body": [
+      "Fires a projectile of intense cold that freezes living targets caught in the blast. Found at Temple Kappa via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "supernova",
+    "type": "power",
+    "name": "Supernova",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "offense"],
+    "summary": "Detonates an explosion of energy around you, and it's not subtle about it.",
+    "body": [
+      "Triggers a heavy area-of-effect explosion of energy centred on you — the power to reach for when several things need to stop being a problem at once. Found at Temple Xi via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  },
+  {
+    "id": "void-form",
+    "type": "power",
+    "name": "Void Form",
+    "era": "base",
+    "spoiler": false,
+    "tags": ["power", "stealth"],
+    "summary": "Bends light around you until you're almost invisible.",
+    "body": [
+      "Bends light around your body, rendering you nearly invisible for a duration — the closest thing to a stealth power on this list. Found at Temple Omicron via \"Power from Beyond.\""
+    ],
+    "related": ["the-starborn"]
+  }
+]

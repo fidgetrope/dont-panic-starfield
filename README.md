@@ -36,11 +36,14 @@ All content lives in `data/*.json` — nothing is hand-typed into `index.html` i
 | `factions.json` | `system`, `era` (faction itself is the facet elsewhere) | `color` is a CSS variable name (e.g. `--f-ry`) picked from the palette already defined in `index.html` |
 | `locations.json` | `faction`, `system`, `era` | `subtype` is `"core-world"`, `"shipyard"`, or `"frontier"` — controls which Type filter it falls under |
 | `cosmology.json` | `era` | `spoiler: true` adds the spoiler tag |
+| `powers.json` | `era` | `type: "power"` — Starborn powers; `spoiler` per-entry (most aren't spoilers, a few tied to the main story climax are) |
+| `unique-gear.json` | `faction`, `era` | `type: "gear"` — one-of-a-kind named weapons/armor only, not the random legendary-effect system; `faction` links it to whoever issues/sells it where relevant |
+| `questlines.json` | `faction`, `era` | `type: "questline"` — major storyline resolutions; `spoiler: true` throughout |
 | `updates.json` | — | Rendered newest-first by `date` (ISO `YYYY-MM-DD`) |
 | `fieldnotes.json` | — | Simple numbered list, no cross-linking |
 | `links.json` | — | External further-reading cards |
 
-Ids in `factions.json`, `locations.json`, and `cosmology.json` share one namespace — that's what lets a location's `related` array point at a faction, or a cosmology term point at a location.
+Ids in `factions.json`, `locations.json`, `cosmology.json`, `powers.json`, `unique-gear.json`, and `questlines.json` share one namespace — that's what lets a location's `related` array point at a faction, a piece of gear point at the quest that grants it, or a cosmology term point at a questline ending.
 
 ## Project history
 

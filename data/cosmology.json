@@ -36,7 +36,7 @@
     "body": [
       "What's on the other side: not a place so much as a threshold between parallel versions of the same universe. Nobody, including its makers, is named or explained."
     ],
-    "related": ["the-armillary", "the-starborn"]
+    "related": ["the-armillary", "the-starborn", "the-unity-choice"]
   },
   {
     "id": "the-starborn",
@@ -49,7 +49,35 @@
     "body": [
       "People who've crossed through the Unity, sometimes more than once — including, eventually, you. Not a faction, not an ideology: just individuals who've each had the same impossible experience and drawn very different conclusions from it. The Hunter and the Emissary, two of the oldest, disagree pointedly about who deserves to follow. As of the Free Lanes update, you no longer need to start over to grow stronger as one — Quantum Essence, collected in the world, ranks up your powers directly."
     ],
-    "related": ["the-unity", "what-happens-next"]
+    "related": ["the-unity", "what-happens-next", "the-hunter", "the-emissary"]
+  },
+  {
+    "id": "the-hunter",
+    "type": "cosmology",
+    "name": "The Hunter",
+    "era": "base",
+    "spoiler": true,
+    "tags": ["endgame", "starborn", "antagonist"],
+    "summary": "An alternate-universe Keeper Aquilus, so many cycles through the Unity deep that \"might makes right\" is the only philosophy left.",
+    "body": [
+      "In this universe, Aquilus leads House Va'ruun's religious order. In the Hunter's home universe, he found the Unity instead — and has been through it so many times since that he's become extraordinarily powerful, and extraordinarily set in one belief: the Artifacts belong to whoever is strong enough to take them, full stop.",
+      "He spends the main story hunting the player and Constellation across universes to seize the Artifacts by force, and in most alternate timelines that hunt ends with him killing the player character during an attack on the Lodge or the Eye — which is precisely how the Emissary comes to exist in other timelines instead. He and the Emissary reveal the truth about the Unity to the player together, at Earth, before the player is asked to pick a side."
+    ],
+    "related": ["the-emissary", "the-starborn", "the-unity-choice"]
+  },
+  {
+    "id": "the-emissary",
+    "type": "cosmology",
+    "name": "The Emissary",
+    "era": "base",
+    "spoiler": true,
+    "tags": ["endgame", "starborn"],
+    "summary": "A version of someone the player lost — reborn as an elder Starborn who'd rather vet who's worthy than let the strongest simply take it.",
+    "body": [
+      "The Emissary's real identity is personal: an alternate-universe version of whichever Constellation companion died protecting the player during the Hunter's attack in that timeline's \"High Price to Pay\" — which specific companion varies depending on who was there in the player's own playthrough.",
+      "Having been through the Unity more times than almost anyone, the Emissary has appointed itself its guardian: it would rather judge who deserves to become Starborn than let the Hunter's raw-strength approach decide it. The two reveal the cosmology to the player together at Earth, then are willing to fight each other over which philosophy wins, depending on which one the player backs."
+    ],
+    "related": ["the-hunter", "the-starborn", "the-unity-choice"]
   },
   {
     "id": "what-happens-next",
@@ -62,6 +90,20 @@
     "body": [
       "You go through. Part of you stays, shaping the universe you leave behind; part of you wakes up in another one, similar but not identical, carrying what you learned. Which is a fairly elaborate way of saying: you get to do it all again, slightly wiser, in a galaxy that's rearranged itself just enough to keep you honest."
     ],
-    "related": ["the-starborn"]
+    "related": ["the-starborn", "universe-variants"]
+  },
+  {
+    "id": "universe-variants",
+    "type": "cosmology",
+    "name": "Universe Variants",
+    "era": "base",
+    "spoiler": true,
+    "tags": ["endgame", "new-game-plus"],
+    "summary": "\"Similar but not identical\" covers a lot of ground — companions, faction leadership, even Constellation's own roster can differ between universes.",
+    "body": [
+      "Every New Game Plus cycle reshuffles who's actually in the Lodge and what shape Constellation and other factions are in when you arrive — randomised per cycle, never guaranteed or sequential. Reported variants include: a universe where the Hunter has already killed every Constellation member except Vasco, who hands over the artifacts alone; one where Andreja never joined Constellation at all and instead leads a hostile House Va'ruun takeover of the Lodge; one where an alternate-universe version of you has attacked Constellation yourself, and has to be fought; and one where Walter Stroud holds the artifacts and simply sells them for 100,000 credits instead of helping for free.",
+      "Some variants are pure flavour rather than combat encounters — Sarah Morgan replaced by a desk plant with Constellation \"retired,\" child versions of the usual companions playing at space exploration, or a Lodge full of six Starborn versions of yourself, one for each major faction. None of it is guaranteed to show up in any given cycle — it's part of what makes New Game Plus worth doing more than once."
+    ],
+    "related": ["the-starborn", "what-happens-next"]
   }
 ]
