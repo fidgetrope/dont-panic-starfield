@@ -37,8 +37,6 @@
   }
 
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
 
   body{
     margin:0;
@@ -68,13 +66,6 @@
       radial-gradient(1.5px 1.5px at 65% 40%, rgba(234,230,216,.3), transparent 60%);
     background-size: 900px 900px;
   }
-  .ring-deco{
-    position:absolute;
-    border:1px solid rgba(234,230,216,.09);
-    border-radius:50%;
-    pointer-events:none;
-    z-index:0;
-  }
 
   h1,h2,h3,h4{
     font-family:"Barlow", "Arial Narrow", sans-serif;
@@ -85,29 +76,22 @@
     color:var(--ink);
     letter-spacing:0.01em;
   }
-  .display{
-    font-family:"Anton", "Barlow", sans-serif;
-    text-transform:uppercase;
-    font-weight:400;
-    letter-spacing:0.01em;
-  }
   .mono{ font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; }
   a{color:var(--teal);}
-  .wrap{ max-width:860px; margin:0 auto; padding-inline:20px; position:relative; z-index:1; }
-  .wide{ max-width:1020px; }
+  .wrap{ max-width:1020px; margin:0 auto; padding-inline:20px; position:relative; z-index:1; }
 
   /* ---------- IDENT BAR ---------- */
   .identbar{
     background:#080a10;
     border-bottom:1px solid var(--line);
-    padding-block:12px;
+    padding-block:10px;
   }
   .identbar .wrap{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
   .brandmark{
     font-family:"Barlow", sans-serif;
     font-weight:700;
     font-size:13px;
-    letter-spacing:0.14em;
+    letter-spacing:0.1em;
     text-transform:uppercase;
     color:var(--ink-dim);
   }
@@ -127,52 +111,177 @@
   }
   .identbar .repolink:hover{ text-decoration:underline; }
 
-  /* ---------- STICKY TOOLBAR ---------- */
-  .toolbar{
+  /* ---------- TAB BAR (app navigation, not anchors) ---------- */
+  .tabbar{
     position:sticky;
     top:0;
     z-index:20;
     background:var(--bg-cream);
     border-bottom:1px solid var(--line-cream);
   }
-  .toolbar-nav{
+  .tabs{
     display:flex;
     flex-wrap:wrap;
-    gap:2px 22px;
-    padding-block:14px 10px;
+    gap:2px;
+    padding-block:8px;
   }
-  .toolbar-nav a{
+  .tab-btn{
     font-family:"Barlow", sans-serif;
-    font-weight:600;
+    font-weight:700;
     font-size:13px;
-    letter-spacing:0.08em;
+    letter-spacing:0.06em;
     text-transform:uppercase;
     color:var(--ink-on-cream);
-    text-decoration:none;
-    opacity:.75;
+    background:transparent;
+    border:1px solid transparent;
+    border-radius:4px;
+    padding:9px 14px;
+    cursor:pointer;
+    opacity:.65;
   }
-  .toolbar-nav a:hover{ opacity:1; color:#8a5a10; }
-  .toolbar-controls{
+  .tab-btn:hover{ opacity:1; }
+  .tab-btn[aria-selected="true"]{
+    opacity:1;
+    background:var(--ink-on-cream);
+    color:var(--bg-cream);
+  }
+
+  /* ---------- VIEWS ---------- */
+  .view{ padding-block:34px 60px; min-height:60vh; }
+  .view-head{ margin-bottom:24px; }
+  .eyebrow{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:0 0 8px;
+  }
+  h2.title{ font-size:clamp(1.6rem, 4vw, 2.1rem); margin-bottom:10px; }
+  .lede{
+    max-width:64ch;
+    color:var(--ink-dim);
+    font-size:1.02rem;
+    margin:0;
+  }
+
+  /* ---------- HOME ---------- */
+  .home-banner{
     display:flex;
+    align-items:baseline;
+    gap:18px;
     flex-wrap:wrap;
-    align-items:center;
-    gap:10px;
-    padding-block:0 10px;
+    margin-bottom:6px;
   }
-  .search-box{
-    position:relative;
-    flex:1 1 220px;
-    min-width:180px;
+  .home-banner h1{
+    font-family:"Anton", sans-serif;
+    font-size:clamp(2.1rem, 6vw, 3.2rem);
+    line-height:0.9;
+    color:var(--gold);
   }
+  .kicker{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+  }
+  .home-sub{
+    max-width:62ch;
+    color:var(--ink-dim);
+    font-size:1.02rem;
+    margin:14px 0 26px;
+  }
+  .home-sub em{ font-style:italic; color:var(--ink); }
+
+  .cta-row{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:34px; }
+  .cta{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12.5px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:10px 16px;
+    border-radius:4px;
+    border:1px solid var(--line);
+    background:var(--surface);
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .cta:hover{ border-color:var(--gold); color:var(--gold); }
+  .cta.primary{ background:var(--gold); color:var(--gold-ink); border-color:var(--gold); font-weight:600; }
+  .cta.primary:hover{ opacity:.9; color:var(--gold-ink); }
+
+  .quicklookup{ margin-bottom:34px; }
+  .quicklookup .lbl{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    margin-bottom:10px;
+  }
+  .ql-chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .ql-chips button{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12.5px;
+    background:var(--surface);
+    border:1px solid var(--fc, var(--line));
+    color:var(--fc, var(--teal));
+    border-radius:999px;
+    padding:7px 14px;
+    cursor:pointer;
+  }
+  .ql-chips button:hover{ background:var(--surface-2); }
+
+  .stat-strip{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(130px,1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin-bottom:30px;
+  }
+  .stat{ background:var(--surface); padding:14px 12px; }
+  .stat .n{
+    font-family:"Anton", sans-serif;
+    font-size:1.6rem;
+    color:var(--gold);
+    font-variant-numeric:tabular-nums;
+    line-height:1;
+  }
+  .stat .l{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    margin-top:6px;
+  }
+  .prose p{ margin:0 0 16px; max-width:66ch; color:var(--ink-dim); }
+  .prose p:last-child{ margin-bottom:0; }
+  .prose b{ color:var(--ink); }
+
+  /* ---------- BROWSE CONTROLS ---------- */
+  .browse-controls{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:16px 18px;
+    margin-bottom:22px;
+    position:sticky;
+    top:52px;
+    z-index:10;
+  }
+  .search-box{ position:relative; margin-bottom:12px; }
   .search-box input{
     width:100%;
     font-family:"Source Serif 4", serif;
     font-size:15px;
     padding:9px 12px 9px 32px;
-    border:1px solid var(--line-cream);
+    border:1px solid var(--line);
     border-radius:3px;
-    background:#fffdf6;
-    color:var(--ink-on-cream);
+    background:var(--bg);
+    color:var(--ink);
   }
   .search-box input:focus{ outline:2px solid var(--gold); outline-offset:1px; }
   .search-box svg{
@@ -181,14 +290,27 @@
     transform:translateY(-50%);
     width:15px; height:15px;
     opacity:.5;
+    color:var(--ink-dim);
     pointer-events:none;
   }
-  .chips{
+  .filter-line{
     display:flex;
     flex-wrap:wrap;
-    gap:6px;
-    flex:2 1 420px;
+    align-items:center;
+    gap:8px;
+    margin-bottom:8px;
   }
+  .filter-line:last-child{ margin-bottom:0; }
+  .filter-label{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    margin-right:2px;
+    white-space:nowrap;
+  }
+  .chips{ display:flex; flex-wrap:wrap; gap:6px; }
   .chip{
     font-family:"IBM Plex Mono", monospace;
     font-size:11px;
@@ -196,43 +318,23 @@
     text-transform:uppercase;
     padding:6px 10px;
     border-radius:3px;
-    border:1px solid var(--line-cream);
+    border:1px solid var(--line);
     background:transparent;
-    color:var(--ink-on-cream);
+    color:var(--ink);
     cursor:pointer;
     line-height:1;
   }
   .chip[aria-pressed="true"]{
-    background:var(--ink-on-cream);
-    color:var(--bg-cream);
-    border-color:var(--ink-on-cream);
+    background:var(--gold);
+    color:var(--gold-ink);
+    border-color:var(--gold);
   }
   .result-count{
     font-family:"IBM Plex Mono", monospace;
     font-size:11px;
-    color:var(--ink-on-cream);
-    opacity:.6;
-    white-space:nowrap;
-  }
-  .empty-note{
-    display:none;
-    font-family:"IBM Plex Mono", monospace;
-    font-size:12.5px;
     color:var(--ink-dim);
-    padding:10px 14px;
-    border:1px dashed var(--line);
-    border-radius:4px;
-    margin-top:10px;
-  }
-  .empty-note.show{ display:block; }
-
-  /* ---------- FACET ROW (system / era dropdowns) ---------- */
-  .facet-row{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:8px;
-    padding-block:0 14px;
+    white-space:nowrap;
+    margin-left:auto;
   }
   .facet{ position:relative; }
   .facet-btn{
@@ -242,22 +344,22 @@
     text-transform:uppercase;
     padding:6px 10px;
     border-radius:3px;
-    border:1px solid var(--line-cream);
-    background:#fffdf6;
-    color:var(--ink-on-cream);
+    border:1px solid var(--line);
+    background:var(--bg);
+    color:var(--ink);
     cursor:pointer;
   }
-  .facet-btn[data-active="true"]{ border-color:#8a5a10; color:#8a5a10; }
+  .facet-btn[data-active="true"]{ border-color:var(--gold); color:var(--gold); }
   .facet-panel{
     display:none;
     position:absolute;
     top:calc(100% + 6px);
     left:0;
     z-index:30;
-    background:#fffdf6;
-    border:1px solid var(--line-cream);
+    background:var(--surface-2);
+    border:1px solid var(--line);
     border-radius:4px;
-    box-shadow:0 10px 26px -12px rgba(0,0,0,.5);
+    box-shadow:0 10px 26px -12px rgba(0,0,0,.6);
     padding:10px 12px;
     max-height:260px;
     overflow-y:auto;
@@ -270,7 +372,7 @@
     gap:8px;
     font-family:"IBM Plex Mono", monospace;
     font-size:12px;
-    color:var(--ink-on-cream);
+    color:var(--ink);
     padding:4px 2px;
     cursor:pointer;
     white-space:nowrap;
@@ -280,92 +382,87 @@
     font-size:11px;
     letter-spacing:0.04em;
     text-transform:uppercase;
-    color:var(--ink-on-cream);
-    opacity:.55;
+    color:var(--ink-dim);
     background:none;
     border:none;
     cursor:pointer;
     text-decoration:underline;
     padding:6px 2px;
   }
-  .clear-filters:hover{ opacity:1; }
+  .clear-filters:hover{ color:var(--ink); }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;
-    overflow:hidden;
-    padding-block:64px 46px;
-    border-bottom:1px solid var(--line);
-  }
-  .kicker{
+  .empty-note{
+    display:none;
     font-family:"IBM Plex Mono", monospace;
     font-size:12.5px;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    color:var(--teal);
-    margin:0 0 18px;
-  }
-  .hero h1{
-    font-family:"Anton", sans-serif;
-    font-size:clamp(3.4rem, 14vw, 7rem);
-    line-height:0.86;
-    color:var(--gold);
-    margin:0;
-  }
-  .hero-sub{
-    max-width:54ch;
-    font-size:1.1rem;
     color:var(--ink-dim);
-    margin:22px 0 0;
+    padding:14px 16px;
+    border:1px dashed var(--line);
+    border-radius:4px;
   }
-  .hero-sub em{ font-style:italic; color:var(--ink); }
+  .empty-note.show{ display:block; }
 
-  /* ---------- SECTIONS ---------- */
-  section{ padding-block:50px; position:relative; }
-  section + section{ border-top:1px solid var(--line); }
-  .eyebrow{
-    font-family:"IBM Plex Mono", monospace;
-    font-size:12px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--gold);
-    margin:0 0 8px;
-  }
-  h2.title{ font-size:clamp(1.9rem, 5vw, 2.5rem); margin-bottom:18px; }
-  section > .wrap > p.lede, section > .wrap > .lede{
-    max-width:64ch;
-    color:var(--ink-dim);
-    font-size:1.05rem;
-    margin:0 0 28px;
-  }
-
-  /* ---------- ORIENTATION ---------- */
-  .stat-strip{
+  /* ---------- BROWSE GRID (unified card) ---------- */
+  .browse-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
-    gap:1px;
-    background:var(--line);
+    grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+    gap:14px;
+  }
+  .xcard{
+    background:var(--surface);
     border:1px solid var(--line);
-    margin-bottom:28px;
+    border-left:5px solid var(--fc, var(--line));
+    border-radius:4px;
+    padding:16px 18px;
+    cursor:pointer;
+    transition:border-color .12s, transform .12s, box-shadow .12s;
   }
-  .stat{ background:var(--surface); padding:16px 14px; }
-  .stat .n{
-    font-family:"Anton", sans-serif;
-    font-size:1.8rem;
-    color:var(--gold);
-    font-variant-numeric:tabular-nums;
-    line-height:1;
+  .xcard:hover{
+    border-color:var(--fc, var(--gold));
+    transform:translateY(-2px);
+    box-shadow:var(--shadow);
   }
-  .stat .l{
+  .xcard:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+  .xcard .kind{
     font-family:"IBM Plex Mono", monospace;
-    font-size:11px;
+    font-size:10px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    margin-bottom:6px;
+  }
+  .xcard h3{ font-size:1.12rem; color:var(--fc, var(--ink)); margin-bottom:6px; }
+  .xcard .xmeta{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10.5px;
+    color:var(--ink-dim);
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .xcard p{ margin:0; font-size:0.94rem; color:var(--ink); }
+  .xcard .card-more{
+    display:inline-block;
+    margin-top:10px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10.5px;
     letter-spacing:0.05em;
     text-transform:uppercase;
-    color:var(--ink-dim);
-    margin-top:6px;
+    color:var(--gold);
   }
-  .prose p{ margin:0 0 16px; max-width:66ch; }
-  .prose p:last-child{ margin-bottom:0; }
+  .xcard:hover .card-more{ text-decoration:underline; }
+  .spoiler-tag{
+    display:inline-block;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold-ink);
+    background:var(--gold);
+    padding:2px 8px;
+    border-radius:3px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
 
   /* ---------- STATE OF PLAY ---------- */
   .patch{
@@ -402,97 +499,6 @@
   .patch p:last-child{ margin-bottom:0; }
   .patch ul{ margin:8px 0 0; padding-left:20px; }
   .patch li{ margin-bottom:5px; }
-
-  /* ---------- FACTIONS ---------- */
-  .faction-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
-    gap:16px;
-  }
-  .fcard{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-left:5px solid var(--fc, var(--gold));
-    border-radius:4px;
-    padding:18px 20px;
-    box-shadow:var(--shadow);
-    cursor:pointer;
-  }
-  .fcard:hover{ border-color:var(--fc, var(--gold)); }
-  .fcard h3{ font-size:1.22rem; color:var(--fc, var(--ink)); margin-bottom:8px; }
-  .pilltag{
-    display:inline-block;
-    font-family:"IBM Plex Mono", monospace;
-    font-size:10.5px;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    color:var(--fc);
-    border:1px solid var(--fc);
-    border-radius:999px;
-    padding:3px 10px;
-    margin-bottom:10px;
-  }
-  .fcard p{ margin:0; font-size:0.97rem; color:var(--ink); }
-  .fcard p + p{ margin-top:8px; }
-  .card-more{
-    display:inline-block;
-    margin-top:12px;
-    font-family:"IBM Plex Mono", monospace;
-    font-size:11px;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    color:var(--gold);
-  }
-  .fcard:hover .card-more, .pcard:hover .card-more, .world-body:hover .card-more, .cosmo-item:hover .card-more{ text-decoration:underline; }
-
-  /* ---------- WORLD ENTRIES ---------- */
-  .world-entry{
-    display:grid;
-    grid-template-columns: 200px 1fr;
-    gap:24px;
-    padding-block:26px;
-    border-top:1px solid var(--line);
-  }
-  .world-entry:first-of-type{ border-top:none; padding-top:0; }
-  .world-id{ font-family:"IBM Plex Mono", monospace; font-size:12px; color:var(--ink-dim); line-height:1.7; }
-  .world-id .sys{ display:block; text-transform:uppercase; letter-spacing:0.08em; color:var(--teal); margin-bottom:6px; }
-  .world-body{ cursor:pointer; }
-  .world-body h3{ font-size:1.55rem; margin-bottom:10px; }
-  .world-body p{ margin:0 0 12px; max-width:64ch; }
-  .world-body p:last-child{ margin-bottom:0; }
-  @media (max-width:600px){ .world-entry{ grid-template-columns:1fr; gap:10px; } }
-
-  /* ---------- FRONTIER ---------- */
-  .frontier-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-    gap:14px;
-  }
-  .pcard{ background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:16px 18px; cursor:pointer; }
-  .pcard:hover{ border-color:var(--gold); }
-  .pcard .row1{ display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:8px; }
-  .pcard h4{ font-size:1.08rem; letter-spacing:0.01em; }
-  .pcard .sysname{ font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--ink-dim); text-transform:uppercase; white-space:nowrap; }
-  .pcard p{ margin:0; font-size:0.94rem; color:var(--ink-dim); }
-
-  /* ---------- COSMOLOGY ---------- */
-  .cosmo{ background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:30px 30px 8px; }
-  .spoiler-tag{
-    display:inline-block;
-    font-family:"IBM Plex Mono", monospace;
-    font-size:11px;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--gold-ink);
-    background:var(--gold);
-    padding:3px 9px;
-    border-radius:3px;
-    margin-left:10px;
-    vertical-align:middle;
-  }
-  .cosmo-item{ margin:0 0 22px; cursor:pointer; }
-  .cosmo dt{ font-family:"Anton", sans-serif; font-size:1.05rem; color:var(--gold); text-transform:uppercase; margin-bottom:4px; }
-  .cosmo dd{ margin:0; max-width:64ch; color:var(--ink); }
 
   /* ---------- FIELD NOTES ---------- */
   .notes{ counter-reset:note; }
@@ -545,7 +551,7 @@
   .linkcard:hover{ border-color:var(--gold); }
   .linkcard:hover .go{ text-decoration:underline; }
 
-  footer{ padding-block:40px 60px; text-align:center; position:relative; z-index:1;}
+  footer{ padding-block:34px 50px; text-align:center; position:relative; z-index:1; border-top:1px solid var(--line); }
   footer p{
     font-family:"IBM Plex Mono", monospace;
     font-size:12px;
@@ -588,7 +594,18 @@
     cursor:pointer;
   }
   .modal-close:hover{ color:var(--ink); border-color:var(--ink-dim); }
-  .modal .pilltag{ margin-bottom:12px; }
+  .pilltag{
+    display:inline-block;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--fc);
+    border:1px solid var(--fc);
+    border-radius:999px;
+    padding:3px 10px;
+    margin-bottom:12px;
+  }
   .modal h3{ font-size:1.7rem; margin-bottom:12px; padding-right:30px; }
   .modal-meta{
     display:flex;
@@ -648,144 +665,137 @@
   <div class="wrap">
     <span class="brandmark"><b>Don't Panic!</b> — Pocket Guide to the Settled Systems</span>
     <a class="repolink" href="https://github.com/fidgetrope/dont-panic-starfield" target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a>
-    <span class="edition mono">ED. 3 · AUTUMN 2026</span>
+    <span class="edition mono">ED. 4 · AUTUMN 2026</span>
   </div>
 </div>
 
-<div class="toolbar">
-  <div class="wrap wide">
-    <nav class="toolbar-nav">
-      <a href="#orientation">Orientation</a>
-      <a href="#state-of-play">State of Play</a>
-      <a href="#factions">Factions</a>
-      <a href="#core-worlds">Core Worlds</a>
-      <a href="#frontier">Frontier</a>
-      <a href="#cosmology">Cosmology</a>
-      <a href="#field-notes">Field Notes</a>
-      <a href="#further-reading">Further Reading</a>
+<div class="tabbar">
+  <div class="wrap">
+    <nav class="tabs" role="tablist" aria-label="Guide sections">
+      <button class="tab-btn" data-tab="home" role="tab" aria-selected="true">Home</button>
+      <button class="tab-btn" data-tab="browse" role="tab" aria-selected="false">Browse the Guide</button>
+      <button class="tab-btn" data-tab="updates" role="tab" aria-selected="false">State of Play</button>
+      <button class="tab-btn" data-tab="notes" role="tab" aria-selected="false">Field Notes</button>
+      <button class="tab-btn" data-tab="links" role="tab" aria-selected="false">Further Reading</button>
     </nav>
-    <div class="toolbar-controls">
-      <div class="search-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="search" id="q" placeholder="Search the guide… try “Neon” or “pirates”" aria-label="Search the guide">
-      </div>
-      <div class="chips" id="chips" role="group" aria-label="Filter by faction">
-        <button class="chip" data-filter="all" aria-pressed="true">All</button>
-      </div>
-      <span class="result-count" id="count"></span>
-    </div>
-    <div class="facet-row">
-      <div class="facet">
-        <button class="facet-btn" id="systemFacetBtn" aria-haspopup="true" aria-expanded="false">System ▾</button>
-        <div class="facet-panel" id="systemFacetPanel"></div>
-      </div>
-      <div class="facet">
-        <button class="facet-btn" id="eraFacetBtn" aria-haspopup="true" aria-expanded="false">Era ▾</button>
-        <div class="facet-panel" id="eraFacetPanel"></div>
-      </div>
-      <button class="clear-filters" id="clearFilters">Clear filters</button>
-    </div>
   </div>
 </div>
 
-<header class="hero">
-  <div class="ring-deco" style="width:520px;height:520px;right:-180px;top:-220px;"></div>
-  <div class="ring-deco" style="width:280px;height:280px;left:-100px;bottom:-140px;"></div>
-  <div class="wrap">
-    <p class="kicker">The Settled Systems · A Pocket Guide · 2330 CE</p>
-    <h1>Don't Panic</h1>
-    <p class="hero-sub">Printed, as such things traditionally are, in large friendly letters. What follows is a rather less reassuring rundown of the actual galaxy: who runs it, who's shooting at whom, and which planets will simply let you suffocate if you forget to check. <em>Bring a spacesuit. Possibly a towel.</em> Use the search bar and filters above to jump straight to what you need — click any entry to read the full write-up and follow its cross-references.</p>
-  </div>
-</header>
+<main>
 
-<section id="orientation">
-  <div class="wrap">
-    <p class="eyebrow">§1</p>
-    <h2 class="title">Orientation</h2>
+  <!-- ================= HOME ================= -->
+  <section class="view" data-view="home">
+    <div class="wrap">
+      <div class="home-banner">
+        <h1>Don't Panic</h1>
+        <span class="kicker">The Settled Systems · 2330 CE</span>
+      </div>
+      <p class="home-sub">A rather less reassuring rundown of the actual galaxy: who runs it, who's shooting at whom, and which planets will simply let you suffocate if you forget to check. <em>Bring a spacesuit. Possibly a towel.</em></p>
 
-    <div class="stat-strip">
-      <div class="stat"><div class="n">2330</div><div class="l">Current year</div></div>
-      <div class="stat"><div class="n">120</div><div class="l">Charted star systems</div></div>
-      <div class="stat"><div class="n">~1,700</div><div class="l">Planets &amp; moons catalogued</div></div>
-      <div class="stat"><div class="n">2</div><div class="l">Rival governments</div></div>
-      <div class="stat"><div class="n">1</div><div class="l">Home planet, abandoned</div></div>
+      <div class="cta-row">
+        <button class="cta primary" data-goto-tab="browse">Browse the encyclopedia →</button>
+        <button class="cta" data-goto-tab="updates">What's new</button>
+        <button class="cta" data-goto-tab="notes">Field notes</button>
+        <button class="cta" data-goto-tab="links">Further reading</button>
+      </div>
+
+      <div class="quicklookup">
+        <div class="lbl mono">Quick lookup — click any of these</div>
+        <div class="ql-chips" id="quickLookup"></div>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat"><div class="n">2330</div><div class="l">Current year</div></div>
+        <div class="stat"><div class="n">120</div><div class="l">Charted star systems</div></div>
+        <div class="stat"><div class="n">~1,700</div><div class="l">Planets &amp; moons catalogued</div></div>
+        <div class="stat"><div class="n">2</div><div class="l">Rival governments</div></div>
+        <div class="stat"><div class="n">1</div><div class="l">Home planet, abandoned</div></div>
+      </div>
+
+      <div class="prose">
+        <p>Humanity did not leave Earth out of ambition. In 2150 scientists confirmed the planet's magnetosphere was failing, and while trying to work out why, they made it worse: gravity-warping experiments meant to unlock deep-space travel instead stripped away what atmosphere Earth had left. Earth itself was fully evacuated by 2203 and now sits in the Sol system as a cold, irradiated reminder of the trade humanity made.</p>
+        <p>What rebuilt itself out among the stars split cleanly in two: the <b>United Colonies</b>, bureaucratic and well-armed, and the <b>Freestar Collective</b>, the frontier's looser answer to it. Everyone else — explorers, pirates, zealots, one deeply enthusiastic drinks-and-drugs megacorporation — operates in the gaps between the two. Use <b>Browse the Guide</b> above to look any of it up.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="prose">
-      <p>Humanity did not leave Earth out of ambition. In 2150 scientists confirmed the planet's magnetosphere was failing, and while trying to work out why, they made it worse: gravity-warping experiments meant to unlock deep-space travel instead stripped away what atmosphere Earth had left. The grav drive that resulted is the only reason anyone is reading this in another star system at all. Earth itself was fully evacuated by 2203 and now sits in the Sol system as a cold, irradiated reminder of the trade humanity made — visitable, mineable, and dead.</p>
-      <p>What rebuilt itself out among the stars split cleanly in two. The <b>United Colonies</b> is the closest thing to a proper government: bureaucratic, well-armed, and convinced it's the adult in the room. The <b>Freestar Collective</b> is the frontier answer to that — a looser alliance of independent colonies that would rather handle its own problems, thanks. The two fought a war over it once. They have not entirely stopped disagreeing.</p>
-      <p>Everyone else — explorers, pirates, zealots, and one deeply enthusiastic drinks-and-drugs megacorporation — operates in the gaps between the two. That's most of this guide.</p>
+  <!-- ================= BROWSE ================= -->
+  <section class="view" data-view="browse" hidden>
+    <div class="wrap">
+      <div class="view-head">
+        <p class="eyebrow">Encyclopedia</p>
+        <h2 class="title">Browse the Guide</h2>
+        <p class="lede">Every faction, world, and cosmology term in one searchable, filterable place. Click any card for the full write-up and its cross-references.</p>
+      </div>
+
+      <div class="browse-controls">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="q" placeholder="Search the guide… try “Neon” or “pirates”" aria-label="Search the guide">
+        </div>
+        <div class="filter-line">
+          <span class="filter-label">Type</span>
+          <div class="chips" id="typeChips" role="group" aria-label="Filter by type"></div>
+        </div>
+        <div class="filter-line">
+          <span class="filter-label">Faction</span>
+          <div class="chips" id="chips" role="group" aria-label="Filter by faction"></div>
+        </div>
+        <div class="filter-line">
+          <div class="facet">
+            <button class="facet-btn" id="systemFacetBtn" aria-haspopup="true" aria-expanded="false">System ▾</button>
+            <div class="facet-panel" id="systemFacetPanel"></div>
+          </div>
+          <div class="facet">
+            <button class="facet-btn" id="eraFacetBtn" aria-haspopup="true" aria-expanded="false">Era ▾</button>
+            <div class="facet-panel" id="eraFacetPanel"></div>
+          </div>
+          <button class="clear-filters" id="clearFilters">Clear filters</button>
+          <span class="result-count" id="count"></span>
+        </div>
+      </div>
+
+      <div class="browse-grid" id="browseGrid"></div>
+      <p class="empty-note" id="browseEmpty">Nothing matches that combination. Try clearing a filter.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="state-of-play">
-  <div class="wrap">
-    <p class="eyebrow">§2</p>
-    <h2 class="title">State of Play</h2>
-    <p class="lede">The galaxy keeps moving even after you've stopped playing. Here's what's changed recently, straight from the official record.</p>
-    <div id="updates-list"></div>
-  </div>
-</section>
-
-<section id="factions">
-  <div class="wrap wide">
-    <p class="eyebrow">§3</p>
-    <h2 class="title">Who's Actually In Charge</h2>
-    <p class="lede">Eight organisations worth knowing before someone starts shooting at you and you'd like to know why.</p>
-    <div class="faction-grid" id="faction-grid"></div>
-    <p class="empty-note" id="faction-empty">Nothing here matches that. Try clearing the filter.</p>
-  </div>
-</section>
-
-<section id="core-worlds">
-  <div class="wrap">
-    <p class="eyebrow">§4</p>
-    <h2 class="title">The Core Worlds</h2>
-    <p class="lede">The systems where most of civilisation actually lives. Everything else is, to a first approximation, rock.</p>
-    <div id="core-worlds-list"></div>
-    <p class="empty-note" id="core-worlds-empty">Nothing here matches that. Try clearing the filter.</p>
-  </div>
-</section>
-
-<section id="frontier">
-  <div class="wrap wide">
-    <p class="eyebrow">§5</p>
-    <h2 class="title">Out on the Frontier</h2>
-    <p class="lede">The other hundred-plus systems are mostly uncharted rock, ice, and gas — but a fair few now have something worth the fuel.</p>
-    <div class="frontier-grid" id="frontier-grid"></div>
-    <p class="empty-note" id="frontier-empty">Nothing out here matches that. Try clearing the filter.</p>
-  </div>
-</section>
-
-<section id="cosmology">
-  <div class="wrap">
-    <p class="eyebrow">§6</p>
-    <h2 class="title">The Bit Nobody Warns You About <span class="spoiler-tag">spoilers</span></h2>
-    <p class="lede">This is where the pocket guide stops being about geography and starts being about why the universe is bigger than the map suggests.</p>
-    <div class="cosmo">
-      <dl id="cosmo-list"></dl>
+  <!-- ================= UPDATES ================= -->
+  <section class="view" data-view="updates" hidden>
+    <div class="wrap">
+      <div class="view-head">
+        <p class="eyebrow">State of Play</p>
+        <h2 class="title">What's Changed Recently</h2>
+        <p class="lede">The galaxy keeps moving even after you've stopped playing — straight from the official record, newest first.</p>
+      </div>
+      <div id="updates-list"></div>
     </div>
-    <p class="empty-note" id="cosmology-empty">Nothing here matches that. Try clearing the filter.</p>
-  </div>
-</section>
+  </section>
 
-<section id="field-notes">
-  <div class="wrap">
-    <p class="eyebrow">§7</p>
-    <h2 class="title">Field Notes</h2>
-    <div class="notes" id="notes-list"></div>
-  </div>
-</section>
+  <!-- ================= NOTES ================= -->
+  <section class="view" data-view="notes" hidden>
+    <div class="wrap">
+      <div class="view-head">
+        <p class="eyebrow">Field Notes</p>
+        <h2 class="title">Things You'll Wish You Knew Sooner</h2>
+      </div>
+      <div class="notes" id="notes-list"></div>
+    </div>
+  </section>
 
-<section id="further-reading">
-  <div class="wrap wide">
-    <p class="eyebrow">§8</p>
-    <h2 class="title">Further Reading</h2>
-    <p class="lede">Everything above is a starting point, not the whole map. These are the places worth going next.</p>
-    <div class="link-grid" id="link-grid"></div>
-  </div>
-</section>
+  <!-- ================= LINKS ================= -->
+  <section class="view" data-view="links" hidden>
+    <div class="wrap">
+      <div class="view-head">
+        <p class="eyebrow">Further Reading</p>
+        <h2 class="title">Where To Go Next</h2>
+        <p class="lede">Everything in this guide is a starting point, not the whole map.</p>
+      </div>
+      <div class="link-grid" id="link-grid"></div>
+    </div>
+  </section>
+
+</main>
 
 <footer>
   <div class="wrap">
@@ -810,10 +820,18 @@
   var ERA_LABELS = {
     "base":"Base game","shattered-space":"Shattered Space","terran-armada":"Terran Armada"
   };
+  var TYPE_LABELS = {
+    "faction":"Faction","core-world":"Core World","frontier":"Frontier","cosmology":"Cosmology"
+  };
+  // A handful of well-known entries to surface right on the Home tab.
+  var QUICK_LOOKUP_IDS = ["constellation","uc","new-atlantis","neon","crimson","the-artifacts","dazra"];
 
   var state = {
     factions: [], locations: [], cosmology: [], updates: [], notes: [], links: [],
-    byId: {},              // every cross-linkable entry (faction/location/cosmology), by id
+    browsable: [],          // factions + locations + cosmology, in display order
+    byId: {},               // every cross-linkable entry, by id
+    activeTab: "home",
+    activeType: "all",
     activeFaction: "all",
     activeSystems: new Set(),
     activeEras: new Set(),
@@ -832,6 +850,7 @@
     });
   }
   function paras(arr){ return (arr||[]).map(function(p){ return "<p>"+esc(p)+"</p>"; }).join(""); }
+  function entryKind(e){ return e.type === "location" ? e.subtype : e.type; }
 
   function fetchJSON(path){
     return fetch(path).then(function(r){
@@ -855,36 +874,69 @@
     state.notes = res[4];
     state.links = res[5];
 
-    state.factions.concat(state.locations, state.cosmology).forEach(function(e){
-      state.byId[e.id] = e;
+    var kindOrder = { "faction":0, "core-world":1, "frontier":2, "cosmology":3 };
+    state.browsable = state.factions.concat(state.locations, state.cosmology).sort(function(a,b){
+      var ka = kindOrder[entryKind(a)], kb = kindOrder[entryKind(b)];
+      if (ka !== kb) return ka - kb;
+      return a.name.localeCompare(b.name);
     });
+    state.browsable.forEach(function(e){ state.byId[e.id] = e; });
 
-    renderChips();
+    renderQuickLookup();
+    renderTypeChips();
+    renderFactionChips();
     renderFacets();
+    renderBrowseGrid();
     renderUpdates();
-    renderFactions();
-    renderCoreWorlds();
-    renderFrontier();
-    renderCosmology();
     renderNotes();
     renderLinks();
     readStateFromURL();
     wireControls();
     applyFilters();
-    maybeOpenFromHash();
+    routeFromLocation();
   }).catch(function(err){
-    document.getElementById("faction-grid").innerHTML =
+    document.getElementById("browseGrid").innerHTML =
       "<p class='mono' style='color:var(--ink-dim)'>Couldn't load the guide's data files (" + esc(err.message) + "). If you're opening this file directly from disk, run it through a local server instead — browsers block fetch() over file://.</p>";
     console.error(err);
   });
 
-  // ---------- render: chips (faction, single-select) ----------
-  function renderChips(){
+  // ---------- render: home quick-lookup chips ----------
+  function renderQuickLookup(){
+    var wrap = document.getElementById("quickLookup");
+    QUICK_LOOKUP_IDS.forEach(function(id){
+      var e = state.byId[id];
+      if (!e) return;
+      var b = el("button", "", esc(e.name));
+      if (e.color) b.style.setProperty("--fc", "var(" + e.color + ")");
+      else if (e.faction) {
+        var f = state.byId[e.faction];
+        if (f) b.style.setProperty("--fc", "var(" + f.color + ")");
+      }
+      b.addEventListener("click", function(){ openEntry(id); });
+      wrap.appendChild(b);
+    });
+  }
+
+  // ---------- render: type chips (faction / core-world / frontier / cosmology) ----------
+  function renderTypeChips(){
+    var wrap = document.getElementById("typeChips");
+    var opts = [["all","All"],["faction","Factions"],["core-world","Core Worlds"],["frontier","Frontier"],["cosmology","Cosmology"]];
+    opts.forEach(function(o){
+      var b = el("button", "chip", o[1]);
+      b.setAttribute("data-filter", o[0]);
+      b.setAttribute("aria-pressed", o[0] === "all" ? "true" : "false");
+      wrap.appendChild(b);
+    });
+  }
+
+  // ---------- render: faction chips (single-select) ----------
+  function renderFactionChips(){
     var wrap = document.getElementById("chips");
-    var seen = {};
+    var allB = el("button", "chip", "All");
+    allB.setAttribute("data-filter", "all");
+    allB.setAttribute("aria-pressed", "true");
+    wrap.appendChild(allB);
     state.factions.forEach(function(f){
-      if (seen[f.id]) return;
-      seen[f.id] = true;
       var b = el("button", "chip", esc(f.name));
       b.setAttribute("data-filter", f.id);
       b.setAttribute("aria-pressed", "false");
@@ -898,22 +950,20 @@
 
   // ---------- render: system / era facet panels ----------
   function renderFacets(){
-    var systems = uniqueSorted(state.factions.concat(state.locations).map(function(e){ return e.system; }));
-    var eraSet = uniqueSorted(allEntries().map(function(e){ return e.era; }));
+    var systems = uniqueSorted(state.browsable.map(function(e){ return e.system; }));
+    var eras = uniqueSorted(state.browsable.map(function(e){ return e.era; }));
 
     var sysPanel = document.getElementById("systemFacetPanel");
     systems.forEach(function(sys){
-      var id = "sys-" + slug(sys);
       var label = el("label");
-      label.innerHTML = '<input type="checkbox" data-system="' + esc(sys) + '" id="' + id + '"> ' + esc(sys);
+      label.innerHTML = '<input type="checkbox" data-system="' + esc(sys) + '"> ' + esc(sys);
       sysPanel.appendChild(label);
     });
 
     var eraPanel = document.getElementById("eraFacetPanel");
-    eraSet.forEach(function(era){
-      var id = "era-" + slug(era);
+    eras.forEach(function(era){
       var label = el("label");
-      label.innerHTML = '<input type="checkbox" data-era="' + esc(era) + '" id="' + id + '"> ' + esc(ERA_LABELS[era] || era);
+      label.innerHTML = '<input type="checkbox" data-era="' + esc(era) + '"> ' + esc(ERA_LABELS[era] || era);
       eraPanel.appendChild(label);
     });
   }
@@ -923,18 +973,13 @@
     arr.forEach(function(v){ if (v) set[v] = true; });
     return Object.keys(set).sort();
   }
-  function slug(s){ return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-"); }
-  function allEntries(){
-    return state.factions.concat(state.locations, state.cosmology, state.updates.map(function(u){ return {era:"base"}; }));
-  }
 
   // ---------- render: state of play ----------
   function renderUpdates(){
     var list = document.getElementById("updates-list");
     var sorted = state.updates.slice().sort(function(a,b){ return b.date.localeCompare(a.date); });
     sorted.forEach(function(u){
-      var card = el("div", "patch item");
-      card.setAttribute("data-faction", "");
+      var card = el("div", "patch");
       var bullets = (u.bullets && u.bullets.length)
         ? "<ul>" + u.bullets.map(function(b){ return "<li>"+esc(b)+"</li>"; }).join("") + "</ul>"
         : "";
@@ -945,87 +990,39 @@
     });
   }
 
-  // ---------- render: factions ----------
-  function renderFactions(){
-    var grid = document.getElementById("faction-grid");
-    state.factions.forEach(function(f){
-      var card = el("div", "fcard item");
-      card.style.setProperty("--fc", "var(" + f.color + ")");
-      card.setAttribute("data-faction", f.id);
-      if (f.system) card.setAttribute("data-system", f.system);
-      card.setAttribute("data-era", f.era || "base");
-      card.setAttribute("data-id", f.id);
+  // ---------- render: unified browse grid ----------
+  function renderBrowseGrid(){
+    var grid = document.getElementById("browseGrid");
+    state.browsable.forEach(function(e){
+      var kind = entryKind(e);
+      var card = el("div", "xcard item");
+      card.setAttribute("data-type", kind);
+      card.setAttribute("data-faction", e.type === "faction" ? e.id : (e.faction || ""));
+      if (e.system) card.setAttribute("data-system", e.system);
+      card.setAttribute("data-era", e.era || "base");
+      card.setAttribute("data-id", e.id);
       card.tabIndex = 0;
+
+      var color = e.color ? "var(" + e.color + ")" : (function(){
+        var f = state.byId[e.faction];
+        return f && f.color ? "var(" + f.color + ")" : null;
+      })();
+      if (color) card.style.setProperty("--fc", color);
+
+      var metaBits = [];
+      if (e.system) metaBits.push(esc(e.system));
+      if (e.type !== "faction" && e.faction) metaBits.push(esc(FACTION_LABELS[e.faction] || e.faction));
+
       card.innerHTML =
-        '<span class="pilltag">'+esc(f.pilltag)+'</span>' +
-        '<h3>'+esc(f.name)+'</h3>' +
-        '<p>'+esc(f.summary)+'</p>' +
-        '<span class="card-more mono">Read more →</span>';
-      card.addEventListener("click", function(){ openEntry(f.id); });
-      card.addEventListener("keydown", function(e){ if (e.key === "Enter") openEntry(f.id); });
+        '<div class="kind">'+esc(TYPE_LABELS[kind] || kind)+'</div>' +
+        '<h3>'+esc(e.name)+ (e.spoiler ? ' <span class="spoiler-tag">spoilers</span>' : '') +'</h3>' +
+        (metaBits.length ? '<div class="xmeta">'+metaBits.join(" · ")+'</div>' : "") +
+        '<p>'+esc(e.summary)+'</p>' +
+        '<span class="card-more mono">Details →</span>';
+
+      card.addEventListener("click", function(){ openEntry(e.id); });
+      card.addEventListener("keydown", function(ev){ if (ev.key === "Enter") openEntry(e.id); });
       grid.appendChild(card);
-    });
-  }
-
-  // ---------- render: core worlds ----------
-  function renderCoreWorlds(){
-    var list = document.getElementById("core-worlds-list");
-    state.locations.filter(function(l){ return l.subtype === "core-world"; }).forEach(function(l){
-      var entry = el("div", "world-entry item");
-      entry.setAttribute("data-faction", l.faction || "");
-      entry.setAttribute("data-system", l.system || "");
-      entry.setAttribute("data-era", l.era || "base");
-      var idBlock = el("div", "world-id");
-      idBlock.innerHTML = '<span class="sys">'+esc(l.system)+'</span>Planet: '+esc(l.planet)+'<br>' + (FACTION_LABELS[l.faction] || "");
-      var body = el("div", "world-body");
-      body.setAttribute("data-id", l.id);
-      body.tabIndex = 0;
-      body.innerHTML = '<h3>'+esc(l.name)+'</h3>' + paras(l.body) + '<span class="card-more mono">Read more →</span>';
-      body.addEventListener("click", function(){ openEntry(l.id); });
-      body.addEventListener("keydown", function(e){ if (e.key === "Enter") openEntry(l.id); });
-      entry.appendChild(idBlock);
-      entry.appendChild(body);
-      list.appendChild(entry);
-    });
-  }
-
-  // ---------- render: frontier ----------
-  function renderFrontier(){
-    var grid = document.getElementById("frontier-grid");
-    state.locations.filter(function(l){ return l.subtype === "frontier"; }).forEach(function(l){
-      var card = el("div", "pcard item");
-      card.setAttribute("data-faction", l.faction || "");
-      card.setAttribute("data-system", l.system || "");
-      card.setAttribute("data-era", l.era || "base");
-      card.setAttribute("data-id", l.id);
-      card.tabIndex = 0;
-      var fcolor = state.factions.filter(function(f){ return f.id === l.faction; })[0];
-      var pillStyle = fcolor ? ' style="--fc:var('+fcolor.color+')"' : ' style="--fc:var(--f-ind)"';
-      card.innerHTML =
-        '<div class="row1"><h4>'+esc(l.name)+'</h4><span class="sysname">'+esc(l.system)+'</span></div>' +
-        '<span class="pilltag"'+pillStyle+'>'+esc(FACTION_LABELS[l.faction] || "Independent")+'</span>' +
-        '<p>'+esc(l.summary)+'</p>';
-      card.addEventListener("click", function(){ openEntry(l.id); });
-      card.addEventListener("keydown", function(e){ if (e.key === "Enter") openEntry(l.id); });
-      grid.appendChild(card);
-    });
-  }
-
-  // ---------- render: cosmology ----------
-  function renderCosmology(){
-    var dl = document.getElementById("cosmo-list");
-    state.cosmology.forEach(function(c){
-      var item = el("div", "cosmo-item item");
-      item.setAttribute("data-faction", "");
-      item.setAttribute("data-era", c.era || "base");
-      item.setAttribute("data-id", c.id);
-      item.tabIndex = 0;
-      item.innerHTML =
-        '<dt>'+esc(c.name)+'</dt>' +
-        '<dd>'+esc(c.summary)+' <span class="card-more mono">Read more →</span></dd>';
-      item.addEventListener("click", function(){ openEntry(c.id); });
-      item.addEventListener("keydown", function(e){ if (e.key === "Enter") openEntry(c.id); });
-      dl.appendChild(item);
     });
   }
 
@@ -1054,39 +1051,45 @@
     });
   }
 
-  // ---------- filtering ----------
+  // ---------- tab switching ----------
+  function showTab(name, opts){
+    opts = opts || {};
+    state.activeTab = name;
+    document.querySelectorAll(".view").forEach(function(v){
+      v.hidden = v.getAttribute("data-view") !== name;
+    });
+    document.querySelectorAll(".tab-btn").forEach(function(b){
+      b.setAttribute("aria-selected", b.getAttribute("data-tab") === name ? "true" : "false");
+    });
+    if (!opts.silent) syncURL();
+    if (!opts.noScroll) window.scrollTo(0, 0);
+  }
+
+  // ---------- filtering (Browse tab only) ----------
   function apply(){
     var term = state.searchTerm.trim().toLowerCase();
-    var items = Array.prototype.slice.call(document.querySelectorAll(".item"));
+    var items = Array.prototype.slice.call(document.querySelectorAll("#browseGrid .item"));
     var visible = 0;
 
     items.forEach(function(elt){
+      var type = elt.getAttribute("data-type");
       var faction = elt.getAttribute("data-faction");
       var system = elt.getAttribute("data-system");
       var era = elt.getAttribute("data-era");
 
+      var matchesType = state.activeType === "all" || type === state.activeType;
       var matchesFaction = state.activeFaction === "all" || !faction || faction === state.activeFaction;
       var matchesSystem = state.activeSystems.size === 0 || !system || state.activeSystems.has(system);
       var matchesEra = state.activeEras.size === 0 || !era || state.activeEras.has(era);
       var matchesTerm = !term || elt.textContent.toLowerCase().indexOf(term) !== -1;
 
-      var show = matchesFaction && matchesSystem && matchesEra && matchesTerm;
+      var show = matchesType && matchesFaction && matchesSystem && matchesEra && matchesTerm;
       elt.hidden = !show;
       if (show) visible++;
     });
 
-    ["faction-grid#faction-empty","core-worlds-list#core-worlds-empty","frontier-grid#frontier-empty","cosmo-list#cosmology-empty"]
-      .forEach(function(pair){
-        var parts = pair.split("#");
-        var containerEl = document.getElementById(parts[0]);
-        var emptyEl = document.getElementById(parts[1]);
-        if (!containerEl || !emptyEl) return;
-        var anyVisible = containerEl.querySelectorAll(".item:not([hidden])").length > 0;
-        emptyEl.classList.toggle("show", !anyVisible);
-      });
-
-    var countEl = document.getElementById("count");
-    countEl.textContent = visible + " / " + items.length + " entries shown";
+    document.getElementById("browseEmpty").classList.toggle("show", visible === 0);
+    document.getElementById("count").textContent = visible + " / " + items.length + " entries shown";
 
     syncURL();
   }
@@ -1106,7 +1109,9 @@
   // ---------- URL sync ----------
   function syncURL(){
     var params = new URLSearchParams();
+    if (state.activeTab !== "home") params.set("tab", state.activeTab);
     if (state.searchTerm) params.set("q", state.searchTerm);
+    if (state.activeType !== "all") params.set("type", state.activeType);
     if (state.activeFaction !== "all") params.set("faction", state.activeFaction);
     if (state.activeSystems.size) params.set("systems", Array.from(state.activeSystems).join(","));
     if (state.activeEras.size) params.set("eras", Array.from(state.activeEras).join(","));
@@ -1117,10 +1122,12 @@
 
   function readStateFromURL(){
     var params = new URLSearchParams(location.search);
+    if (params.get("tab")) state.activeTab = params.get("tab");
     if (params.get("q")) {
       state.searchTerm = params.get("q");
       document.getElementById("q").value = state.searchTerm;
     }
+    if (params.get("type")) state.activeType = params.get("type");
     if (params.get("faction")) state.activeFaction = params.get("faction");
     if (params.get("systems")) state.activeSystems = new Set(params.get("systems").split(","));
     if (params.get("eras")) state.activeEras = new Set(params.get("eras").split(","));
@@ -1128,28 +1135,24 @@
 
   // ---------- controls ----------
   function wireControls(){
+    document.querySelectorAll(".tab-btn").forEach(function(btn){
+      btn.addEventListener("click", function(){ showTab(btn.getAttribute("data-tab")); });
+    });
+    document.querySelectorAll("[data-goto-tab]").forEach(function(btn){
+      btn.addEventListener("click", function(){ showTab(btn.getAttribute("data-goto-tab")); });
+    });
+
     document.getElementById("q").addEventListener("input", function(e){
       state.searchTerm = e.target.value;
       applyDebounced();
     });
 
-    Array.prototype.slice.call(document.querySelectorAll("#chips .chip")).forEach(function(chip){
-      chip.addEventListener("click", function(){
-        Array.prototype.slice.call(document.querySelectorAll("#chips .chip")).forEach(function(c){ c.setAttribute("aria-pressed","false"); });
-        chip.setAttribute("aria-pressed","true");
-        state.activeFaction = chip.getAttribute("data-filter");
-        apply();
-      });
-      if (chip.getAttribute("data-filter") === state.activeFaction) {
-        Array.prototype.slice.call(document.querySelectorAll("#chips .chip")).forEach(function(c){ c.setAttribute("aria-pressed","false"); });
-        chip.setAttribute("aria-pressed","true");
-      }
-    });
+    wireChipGroup("typeChips", function(val){ state.activeType = val; }, function(){ return state.activeType; });
+    wireChipGroup("chips", function(val){ state.activeFaction = val; }, function(){ return state.activeFaction; });
 
     setupFacetDropdown("systemFacetBtn", "systemFacetPanel", "data-system", state.activeSystems);
     setupFacetDropdown("eraFacetBtn", "eraFacetPanel", "data-era", state.activeEras);
 
-    // reflect URL-restored selections into the checkboxes
     document.querySelectorAll("#systemFacetPanel input[type=checkbox]").forEach(function(cb){
       if (state.activeSystems.has(cb.getAttribute("data-system"))) cb.checked = true;
     });
@@ -1160,11 +1163,13 @@
 
     document.getElementById("clearFilters").addEventListener("click", function(){
       state.searchTerm = "";
+      state.activeType = "all";
       state.activeFaction = "all";
       state.activeSystems = new Set();
       state.activeEras = new Set();
       document.getElementById("q").value = "";
-      Array.prototype.slice.call(document.querySelectorAll("#chips .chip")).forEach(function(c){ c.setAttribute("aria-pressed", c.getAttribute("data-filter") === "all"); });
+      setChipPressed("typeChips", "all");
+      setChipPressed("chips", "all");
       document.querySelectorAll(".facet-panel input[type=checkbox]").forEach(function(cb){ cb.checked = false; });
       updateFacetBtnState();
       apply();
@@ -1178,14 +1183,32 @@
       });
     });
 
-    // modal wiring
     document.getElementById("modalBackdrop").addEventListener("click", function(e){
       if (e.target === this) closeModal();
     });
     document.addEventListener("keydown", function(e){
       if (e.key === "Escape") closeModal();
     });
-    window.addEventListener("popstate", maybeOpenFromHash);
+    window.addEventListener("popstate", routeFromLocation);
+  }
+
+  function wireChipGroup(containerId, setter, getter){
+    var container = document.getElementById(containerId);
+    Array.prototype.slice.call(container.querySelectorAll(".chip")).forEach(function(chip){
+      chip.addEventListener("click", function(){
+        setChipPressed(containerId, chip.getAttribute("data-filter"));
+        setter(chip.getAttribute("data-filter"));
+        apply();
+      });
+    });
+    setChipPressed(containerId, getter());
+  }
+
+  function setChipPressed(containerId, val){
+    var container = document.getElementById(containerId);
+    Array.prototype.slice.call(container.querySelectorAll(".chip")).forEach(function(c){
+      c.setAttribute("aria-pressed", c.getAttribute("data-filter") === val ? "true" : "false");
+    });
   }
 
   function setupFacetDropdown(btnId, panelId, attr, activeSet){
@@ -1217,7 +1240,7 @@
       ? "Era (" + state.activeEras.size + ") ▾" : "Era ▾";
   }
 
-  // ---------- modal / entry detail ----------
+  // ---------- modal / entry detail (works from any tab) ----------
   function openEntry(id){
     var e = state.byId[id];
     if (!e) return;
@@ -1230,10 +1253,13 @@
     var metaBits = [];
     if (e.system) metaBits.push("<b>System</b> " + esc(e.system));
     if (e.planet) metaBits.push("<b>World</b> " + esc(e.planet));
-    if (e.faction) metaBits.push("<b>Faction</b> " + esc(FACTION_LABELS[e.faction] || e.faction));
+    if (e.type !== "faction" && e.faction) metaBits.push("<b>Faction</b> " + esc(FACTION_LABELS[e.faction] || e.faction));
     if (e.era) metaBits.push("<b>Era</b> " + esc(ERA_LABELS[e.era] || e.era));
 
-    var color = e.color ? "var(" + e.color + ")" : null;
+    var color = e.color ? "var(" + e.color + ")" : (function(){
+      var f = state.byId[e.faction];
+      return f && f.color ? "var(" + f.color + ")" : null;
+    })();
     var pill = e.pilltag ? '<span class="pilltag" style="' + (color ? "--fc:"+color+";color:"+color+";border-color:"+color : "") + '">' + esc(e.pilltag) + '</span>' : "";
 
     var tags = (e.tags||[]).map(function(t){ return '<span class="tag">'+esc(t)+'</span>'; }).join("");
@@ -1271,13 +1297,16 @@
     }
   }
 
-  function maybeOpenFromHash(){
+  // ---------- initial + back/forward routing ----------
+  function routeFromLocation(){
     var m = /^#entry-(.+)$/.exec(location.hash);
     if (m && state.byId[m[1]]) {
+      showTab("browse", { silent:true, noScroll:true });
       renderModal(state.byId[m[1]]);
       document.getElementById("modalBackdrop").classList.add("open");
     } else {
       document.getElementById("modalBackdrop").classList.remove("open");
+      showTab(state.activeTab, { silent:true, noScroll:true });
     }
   }
 
