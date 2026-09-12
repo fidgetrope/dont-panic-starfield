@@ -1,1 +1,425 @@
-[]
+[
+  {
+    "id": "eternitys-gate",
+    "type": "gear",
+    "name": "Eternity's Gate",
+    "era": "base",
+    "faction": null,
+    "spoiler": true,
+    "tags": ["gear", "weapon", "rifle", "endgame"],
+    "summary": "A legendary particle beam rifle taken off the Emissary's own body — one of the two best weapons in the game, and the hardest to get.",
+    "body": [
+      "A particle beam rifle that fires two projectiles every fourth shot, loads volatile high-damage rounds that can occasionally fail, and hits humans 10% harder. Widely considered one of the two best weapons in Starfield — the other being its mirror image, Unmitigated Violence.",
+      "Looted off the Emissary's corpse at the Buried Temple, during the \"Revelation\" finale — which means siding with the Hunter, or with neither Starborn, during \"Unearthed.\" Siding with the Emissary instead means never getting this one."
+    ],
+    "related": ["the-emissary", "the-hunter", "the-unity-choice"]
+  },
+  {
+    "id": "unmitigated-violence",
+    "type": "gear",
+    "name": "Unmitigated Violence",
+    "era": "base",
+    "faction": null,
+    "spoiler": true,
+    "tags": ["gear", "weapon", "rifle", "endgame"],
+    "summary": "The Hunter's own laser rifle — his signature weapon, and the mirror image of the Emissary's Eternity's Gate.",
+    "body": [
+      "A laser rifle that can frenzy targets, deal random radiation damage while demoralising them, and hit full-health enemies for double damage. The Hunter's personal weapon, and every bit Eternity's Gate's equal.",
+      "Looted off the Hunter's corpse at the Buried Temple during \"Revelation\" — which means siding with the Emissary, or with neither Starborn, during \"Unearthed.\" Side with the Hunter instead and you never get this one; side with neither and you get both."
+    ],
+    "related": ["the-hunter", "the-emissary", "the-unity-choice"]
+  },
+  {
+    "id": "deadeye",
+    "type": "gear",
+    "name": "Deadeye",
+    "era": "base",
+    "faction": "freestar",
+    "spoiler": false,
+    "tags": ["gear", "weapon", "pistol"],
+    "summary": "A gold-and-white ornate pistol handed to every new Freestar Ranger deputy, no exceptions.",
+    "body": [
+      "A distinctive gold-and-white variant of the Razorback pistol, with one of the highest base damage figures of any sidearm in the game. Comes pre-modded, straight out of the box.",
+      "Awarded automatically the moment you become a Freestar Rangers deputy, during \"Deputized\" in Akila City — alongside a Ranger Deputy Uniform, hat, and badge."
+    ],
+    "related": ["freestar-rangers", "akila-city"]
+  },
+  {
+    "id": "boom-boom",
+    "type": "gear",
+    "name": "Boom Boom",
+    "era": "base",
+    "faction": null,
+    "spoiler": false,
+    "tags": ["gear", "weapon", "shotgun"],
+    "summary": "A shotgun whose rounds randomly detonate for bonus damage — sold, fittingly, in Neon.",
+    "body": [
+      "Fires ordinary shotgun rounds that have a chance to explode on impact for extra damage. Bought from Frank Renick at Neon Tactical, in Neon's Ikuchi Market."
+    ],
+    "related": ["neon"]
+  },
+  {
+    "id": "brute-force",
+    "type": "gear",
+    "name": "Brute Force",
+    "era": "base",
+    "faction": "independent",
+    "spoiler": false,
+    "tags": ["gear", "weapon", "shotgun"],
+    "summary": "A shotgun that hits twice as hard when you bash someone with it instead of shooting them.",
+    "body": [
+      "Doubles the damage of a melee gun-bash — a shotgun built as much for the follow-up hit as the shot itself. Awarded for completing \"Run the Red Mile\" at the Red Mile racing facility on Porrima III; talk to Mei Devine."
+    ],
+    "related": ["paradiso-red-mile"]
+  },
+  {
+    "id": "elegance",
+    "type": "gear",
+    "name": "Elegance",
+    "era": "base",
+    "faction": "freestar",
+    "spoiler": false,
+    "tags": ["gear", "weapon", "pistol"],
+    "summary": "A pistol built to punch straight through shields and armour, sold in Akila City.",
+    "body": [
+      "Carries the Shattering perk — a large armour-penetration bonus that makes it especially good against heavily shielded or armoured targets. Bought from Belle at Rowland Arms, Akila City."
+    ],
+    "related": ["akila-city"]
+  },
+  {
+    "id": "ashta-tamer",
+    "type": "gear",
+    "name": "Ashta Tamer",
+    "era": "base",
+    "faction": null,
+    "spoiler": false,
+    "tags": ["gear", "weapon", "heavy"],
+    "summary": "An incendiary grenade launcher found in a cave, tucked into one of Sam Coe's companion quests.",
+    "body": [
+      "A unique variant of the Bridger grenade launcher whose rounds randomly deal bonus fire damage. Found inside a weapons case in a cave during \"The Empty Nest,\" a companion quest tied to Sam Coe, in the Akila system."
+    ],
+    "related": []
+  },
+  {
+    "id": "incendiary-nishina-spacesuit",
+    "type": "gear",
+    "name": "Incendiary Experimental Nishina Spacesuit",
+    "era": "base",
+    "faction": null,
+    "spoiler": true,
+    "tags": ["gear", "armor", "spacesuit"],
+    "summary": "Strong environmental armour that can set attackers alight — a reward for a choice with no easy answer.",
+    "body": [
+      "A spacesuit with a 10% chance to ignite anyone who hits you in melee, on top of strong environmental resistances. Given by Director Patel as a reward for siding with him during \"Entangled\" — a quest built entirely around a choice between two competing scientists and the realities they represent, which is why it's flagged as a spoiler here."
+    ],
+    "related": []
+  },
+  {
+    "id": "revenant",
+    "type": "gear",
+    "name": "Revenant",
+    "era": "base",
+    "faction": null,
+    "spoiler": true,
+    "tags": ["gear", "weapon", "rifle"],
+    "summary": "A rifle found beside its former owner's body, deep inside a derelict Crimson Fleet vault ship.",
+    "body": [
+      "Carries double the usual magazine capacity, a chance to inflict bleed, and lighter titanium construction. Found next to a body in the Vault Control Center aboard The Legacy, during the Crimson Fleet's \"Eye of the Storm\" — the mission that sets up Legacy's End."
+    ],
+    "related": ["crimson", "legacys-end"]
+  },
+  {
+    "id": "tempest",
+    "type": "gear",
+    "name": "Tempest",
+    "era": "base",
+    "faction": "uc",
+    "spoiler": true,
+    "tags": ["gear", "weapon", "rifle"],
+    "summary": "Crimson Fleet leader Delgado's own rifle — yours, if you side with UC SysDef at Legacy's End.",
+    "body": [
+      "Loads volatile ammunition that randomly deals massive bonus damage, at the risk of an occasional misfire. Looted from Commander Delgado's body after defeating him in \"Eye of the Storm,\" the point of no return where siding with UC SysDef means assaulting The Key."
+    ],
+    "related": ["legacys-end", "crimson"]
+  },
+  {
+    "id": "unfair-advantage",
+    "type": "gear",
+    "name": "Unfair Advantage",
+    "era": "base",
+    "faction": "crimson",
+    "spoiler": true,
+    "tags": ["gear", "weapon", "pistol"],
+    "summary": "UC SysDef Commander Ikande's own sidearm — yours, if you side with the Crimson Fleet at Legacy's End instead.",
+    "body": [
+      "A unique Razorback that deals random radiation damage and demoralises whoever it hits. Looted from Commander Ikande's body after defeating him aboard the Vigilance, when siding with the Crimson Fleet in Legacy's End."
+    ],
+    "related": ["legacys-end", "uc-sysdef"]
+  },
+  {
+    "id": "unrestrained-vengeance",
+    "type": "gear",
+    "name": "Unrestrained Vengeance",
+    "era": "base",
+    "faction": null,
+    "spoiler": true,
+    "tags": ["gear", "weapon", "rifle"],
+    "summary": "A laser rifle handed over by the Hunter himself, mid-fight, once you've made your point.",
+    "body": [
+      "Deals 15% more damage while aiming down sights. Given directly by the Hunter after knocking him down to roughly half health during the main quest \"A High Price to Pay\" — a rare case of a boss handing over a weapon rather than dropping it."
+    ],
+    "related": ["the-hunter"]
+  },
+  {
+    "id": "the-last-priest",
+    "type": "gear",
+    "name": "The Last Priest",
+    "era": "base",
+    "faction": null,
+    "spoiler": true,
+    "tags": ["gear", "weapon", "melee"],
+    "summary": "A Va'ruun blade that randomly burns, poisons, corrodes or irradiates — a reward only the Hunter's side ever sees.",
+    "body": [
+      "A unique Painblade that procs one of four elemental effects at random on every hit: corrosive, radiation, poison, or fire. Rewarded by the Hunter for completing \"Infinity's End\" — which only becomes available if you sided with the Hunter during \"Unearthed.\""
+    ],
+    "related": ["the-hunter"]
+  },
+  {
+    "id": "fortunes-glory",
+    "type": "gear",
+    "name": "Fortune's Glory",
+    "era": "base",
+    "faction": null,
+    "spoiler": true,
+    "tags": ["gear", "weapon", "melee"],
+    "summary": "A dagger left on an altar somewhere most players only reach deep into the main story.",
+    "body": [
+      "A unique Osmium Dagger with a chance to stagger on hit. Found on an altar behind a scorpion-tailed statue in the Ancient Ruins on Hyla II — a location that only opens up with significant main-quest progress toward the Unity."
+    ],
+    "related": ["the-unity"]
+  },
+  {
+    "id": "syndicate-enforcer",
+    "type": "gear",
+    "name": "Syndicate Enforcer",
+    "era": "base",
+    "faction": "ryujin",
+    "spoiler": false,
+    "tags": ["gear", "weapon", "melee"],
+    "summary": "A Wakizashi that hits hardest when you're wearing the least — found in a Neon back-alley hideout.",
+    "body": [
+      "Deals more damage the less armour you're wearing, and carries a chance to inflict bleed on top. Found in a weapon case inside a Syndicate hideout in Neon — reachable during Ryujin Industries' \"Guilty Parties\" quest, or independently of it."
+    ],
+    "related": ["neon", "ryujin-corporate-endings"]
+  },
+  {
+    "id": "justifier",
+    "type": "gear",
+    "name": "Justifier",
+    "era": "base",
+    "faction": "freestar",
+    "spoiler": false,
+    "tags": ["gear", "weapon", "rifle"],
+    "summary": "A fully kitted-out rifle from Marshal Blake, for finishing the Rangers' corruption case.",
+    "body": [
+      "A unique Lawgiver with no special perk, but it doesn't need one — long barrel, scope, laser sight, and high base accuracy and damage all pre-installed. Given by Marshal Blake for completing \"The Hammer Falls,\" the final mission of the Freestar Rangers questline."
+    ],
+    "related": ["freestar-collective-questline", "freestar-rangers"]
+  },
+  {
+    "id": "acid-rain",
+    "type": "gear",
+    "name": "Acid Rain",
+    "era": "base",
+    "faction": "uc",
+    "spoiler": false,
+    "tags": ["gear", "weapon", "rifle"],
+    "summary": "A corrosive rifle sold in New Atlantis, once its vendor's own supply problem is sorted.",
+    "body": [
+      "A unique Grendel whose rounds randomly deal corrosive damage, wearing down a target's armour over time. Sold by Vicente Salinas at Apex Electronics in The Well, New Atlantis — but only once his own quest, \"A Shipment for Salinas,\" is done."
+    ],
+    "related": ["new-atlantis"]
+  },
+  {
+    "id": "experiment-a7",
+    "type": "gear",
+    "name": "Experiment A-7",
+    "era": "base",
+    "faction": null,
+    "spoiler": false,
+    "tags": ["gear", "weapon", "shotgun"],
+    "summary": "A pre-modded shotgun built for hunting aliens, if you can talk its owner into handing it over.",
+    "body": [
+      "A unique Breach with a 30% damage bonus against alien creatures, and fully modded from the start. Obtained by persuading Ethan to give it up during \"Entangled,\" on Freya III."
+    ],
+    "related": []
+  },
+  {
+    "id": "fiscal-quarter",
+    "type": "gear",
+    "name": "Fiscal Quarter",
+    "era": "base",
+    "faction": "constellation",
+    "spoiler": true,
+    "tags": ["gear", "weapon", "rifle", "endgame"],
+    "summary": "Walter Stroud's reward for the main quest that finally lets Constellation actually afford things.",
+    "body": [
+      "A unique Maelstrom with the Shattering perk and a very high fire rate. Awarded by Walter, Constellation's own financier, for completing the main quest \"All That Money Can Buy\" — the one that solves the Lodge's funding problem for good."
+    ],
+    "related": ["constellation"]
+  },
+  {
+    "id": "peacemaker-armor",
+    "type": "gear",
+    "name": "Peacemaker",
+    "era": "base",
+    "faction": null,
+    "spoiler": false,
+    "tags": ["gear", "armor", "spacesuit-set"],
+    "summary": "A full armour set that turns you nearly invisible the moment you stop moving.",
+    "body": [
+      "A three-piece spacesuit, helmet, and pack set: 10% more rifle damage, 15% less incoming melee damage, 25% thermal resistance, and near-invisibility while standing still or crouched. Earned by finishing the self-contained \"Dead Stop\" questline, which starts at Eleos Retreat in the Ixyll system and runs through \"Ghost Hunt\" and \"Exorcism\" before its finale, \"Peacemaker.\""
+    ],
+    "related": []
+  },
+  {
+    "id": "sentinels-uc-antixeno-spacesuit",
+    "type": "gear",
+    "name": "Sentinel's UC Antixeno Spacesuit",
+    "era": "base",
+    "faction": "uc-vanguard",
+    "spoiler": false,
+    "tags": ["gear", "armor", "spacesuit-set"],
+    "summary": "UC Vanguard's own alien-hunting armour, waiting in an armoury on an abandoned world.",
+    "body": [
+      "A three-piece set built specifically against alien threats: 15% less alien damage, an automatic Med Pack below a quarter health, and a 75% chance to halve incoming damage while standing still. Found laid out in the armoury during the UC Vanguard quest \"Hostile Intelligence,\" at Forward Base 441 on Londinion."
+    ],
+    "related": ["uc-vanguard", "londinion"]
+  },
+  {
+    "id": "ranger-spacesuit-set",
+    "type": "gear",
+    "name": "Ranger Spacesuit",
+    "era": "base",
+    "faction": "freestar",
+    "spoiler": false,
+    "tags": ["gear", "armor", "spacesuit-set"],
+    "summary": "Solid, well-rounded protection for a full Freestar Ranger — no gimmicks, just good stats.",
+    "body": [
+      "No special perk attached, just consistently strong defensive stats across the board. Awarded, along with the Justifier and the Star Eagle-class ship, for completing \"The Hammer Falls\" and becoming a full Freestar Ranger."
+    ],
+    "related": ["freestar-collective-questline", "freestar-rangers"]
+  },
+  {
+    "id": "gran-grans-spacesuit",
+    "type": "gear",
+    "name": "Gran-Gran's Spacesuit",
+    "era": "base",
+    "faction": null,
+    "spoiler": false,
+    "tags": ["gear", "armor", "background-specific"],
+    "summary": "A spacesuit from your own mother — but only if you grew up asking for one.",
+    "body": [
+      "Comes with the Pocketed mod for extra carry capacity, and it's the only unique item on this list tied to a character-creation choice rather than anything found in the world. Given by the player's mother on the third visit to the parents' apartment — but only if you picked the \"Kid Stuff\" background trait when creating your character."
+    ],
+    "related": []
+  },
+  {
+    "id": "ambassador",
+    "type": "gear",
+    "name": "Ambassador",
+    "era": "base",
+    "faction": "uc-vanguard",
+    "spoiler": false,
+    "tags": ["gear", "weapon", "pistol"],
+    "summary": "A pistol you only get by playing dirty with a diplomat.",
+    "body": [
+      "Carries the Shattering perk for extra armour penetration. Awarded for blackmailing — rather than persuading — Ambassador Radcliff during the UC Vanguard quest \"Friends Like These.\""
+    ],
+    "related": ["uc-vanguard"]
+  },
+  {
+    "id": "head-ranger",
+    "type": "gear",
+    "name": "Head Ranger",
+    "era": "base",
+    "faction": "freestar",
+    "spoiler": false,
+    "tags": ["gear", "weapon", "rifle"],
+    "summary": "A fast-firing rifle sold at Akila City's own gun shop.",
+    "body": [
+      "A unique Lawgiver with a 25% attack-speed bonus. Bought from Laredo Firearms in Akila City."
+    ],
+    "related": ["akila-city"]
+  },
+  {
+    "id": "gallows-reach",
+    "type": "gear",
+    "name": "Gallow's Reach",
+    "era": "base",
+    "faction": null,
+    "spoiler": false,
+    "tags": ["gear", "weapon", "rifle"],
+    "summary": "A poison-rigged rifle found hanging in someone's room during a main-quest visit.",
+    "body": [
+      "A unique Old Earth assault rifle whose rounds randomly poison and slow the target. Found hanging in Petrov's room during the main quest \"No Sudden Moves\" — no choice required, just worth remembering to look up."
+    ],
+    "related": []
+  },
+  {
+    "id": "hellers-cutter",
+    "type": "gear",
+    "name": "Heller's Cutter",
+    "era": "base",
+    "faction": "independent",
+    "spoiler": false,
+    "tags": ["gear", "weapon", "heavy"],
+    "summary": "An orange mining cutter with a grudge against robots, found where the whole story begins.",
+    "body": [
+      "A unique, distinctively orange Cutting tool with a 20% damage bonus against robots. Found in a cutter crate at the Argos Extractors Mining Outpost during \"Back to Vectera\" — early enough that most players walk right past it on their first playthrough. Can spawn at either Rare or Legendary rarity."
+    ],
+    "related": ["vectera-kreet"]
+  },
+  {
+    "id": "n67-smartgun",
+    "type": "gear",
+    "name": "N67 Smartgun",
+    "era": "base",
+    "faction": "uc",
+    "spoiler": false,
+    "tags": ["gear", "weapon", "heavy"],
+    "summary": "An armour-shredding minigun, sold out of a New Atlantis shopfront.",
+    "body": [
+      "A unique Microgun with the Shattering perk for heavy armour penetration. Bought from Wen Tseng at UC Distribution, in New Atlantis's Commercial District."
+    ],
+    "related": ["new-atlantis"]
+  },
+  {
+    "id": "the-buzzcut",
+    "type": "gear",
+    "name": "The Buzzcut",
+    "era": "base",
+    "faction": null,
+    "spoiler": false,
+    "tags": ["gear", "weapon", "rifle"],
+    "summary": "A quick-firing rifle from the same Neon vendor who sells Boom Boom.",
+    "body": [
+      "Fires 25% faster than the base weapon it's built on. Bought from Frank Renick at Neon Tactical, Neon."
+    ],
+    "related": ["neon"]
+  },
+  {
+    "id": "despondent-assassin",
+    "type": "gear",
+    "name": "Despondent Assassin",
+    "era": "base",
+    "faction": null,
+    "spoiler": false,
+    "tags": ["gear", "weapon", "rifle"],
+    "summary": "A rifle earned by seeing an Akila City bounty-hunting arc through to its end.",
+    "body": [
+      "A unique Old Earth Hunting Rifle that can demoralise on hit and deals bonus damage against humans while aiming. Awarded for completing Davis Wilson's three-part Akila City questline: \"Defensive Measures,\" \"False Positives,\" and \"Leader of the Pack.\""
+    ],
+    "related": ["akila-city"]
+  }
+]

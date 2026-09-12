@@ -13,7 +13,7 @@
       "The last of the great explorers' guilds — self-described \"NASA-punk\" idealists who care more about the unknown than the flag on their ship. Based out of the Lodge in New Atlantis. Not a government, not an army, and frequently at odds with both. You join automatically, one way or another.",
       "Constellation's founding mission was chasing down the Artifacts — the ancient objects scattered across dozens of systems — long before anyone understood what they were building toward. That search is the reason the guild exists at all."
     ],
-    "related": ["new-atlantis", "the-artifacts", "the-armillary"]
+    "related": ["new-atlantis", "the-artifacts", "the-armillary", "fiscal-quarter"]
   },
   {
     "id": "uc",
@@ -45,7 +45,7 @@
       "The UC's own defenders — part military, part investigators, and the faction that handles the threats the government would rather the public didn't have to think about. Recruits sign up through Commander John Tuala at the MAST in New Atlantis, sit through an orientation on the settled systems' history, and prove themselves in a live combat exercise before getting sent out on real assignments.",
       "Full citizenship is the carrot: put in the time and the UC promises discounts on goods and medical supplies, and the chance to own a place in New Atlantis outright."
     ],
-    "related": ["uc", "new-atlantis"]
+    "related": ["uc", "new-atlantis", "ambassador", "sentinels-uc-antixeno-spacesuit"]
   },
   {
     "id": "uc-sysdef",
@@ -61,7 +61,7 @@
       "Short for UC System Defense — a specialised division of the UC Navy stood up in the 2240s for one job: doing what the regular Navy couldn't and actually breaking the Crimson Fleet. Functionally the settled systems' coast guard, running system-wide security and counter-piracy out of a mobile headquarters, the UC Vigilance, under Commander Kibwe Ikande.",
       "Getting into the Crimson Fleet's inner circle and working for SysDef aren't mutually exclusive for a while — but the arrangement ends at a point of no return, and siding with SysDef there is generally what finishes the Fleet off for good."
     ],
-    "related": ["uc", "crimson"]
+    "related": ["uc", "crimson", "legacys-end", "unfair-advantage"]
   },
   {
     "id": "freestar",
@@ -93,7 +93,7 @@
       "The Collective's answer to a standing police force: an elite protective and investigative unit formed in 2231 by the Council of Governors. The one in charge carries the title Marshal — currently Marshal Daniel Blake, who signs off on new recruits out of Akila City after they've proven themselves on the Job Gone Wrong case.",
       "New Rangers get issued a Deadeye sidearm and a deputy uniform to start; make full Ranger and that upgrades to a custom Justifier, a proper Ranger spacesuit, and a Star Eagle-class patrol ship of your own."
     ],
-    "related": ["freestar", "akila-city"]
+    "related": ["freestar", "akila-city", "deadeye", "justifier", "ranger-spacesuit-set"]
   },
   {
     "id": "trackers-alliance",
@@ -124,7 +124,7 @@
     "body": [
       "Operates out of The Key, a converted former UC military station, and preys on shipping across the frontier. Recruitment runs through undercover UC work, or simply getting caught committing enough crimes to be noticed."
     ],
-    "related": ["the-key"]
+    "related": ["the-key", "legacys-end", "tempest", "revenant"]
   },
   {
     "id": "ryujin",
@@ -139,7 +139,7 @@
     "body": [
       "Headquartered in Neon, the city it effectively owns. \"Prepared to do anything to boost their profits\" is the polite way of putting it. Recruitment is as simple as walking up to a terminal — everyone gets an interview."
     ],
-    "related": ["neon"]
+    "related": ["neon", "ryujin-corporate-endings", "syndicate-enforcer"]
   },
   {
     "id": "va-ruun",

@@ -12,7 +12,7 @@
       "After recovering Kryx's Legacy in \"Eye of the Storm,\" the next quest — Legacy's End — sends the player toward one of two places: The Key (Crimson Fleet HQ) or the UC ship Vigilance. Whichever one is visited first locks that side in and triggers a final assault on the other. There's no neutral option; stalling just delays the choice, and one organisation is always wiped out as a result.",
       "Side with UC SysDef and you assault The Key alongside Commander Ikande, taking down Crimson Fleet leader Delgado (persuade him to surrender and he's imprisoned; kill him instead for the loot) — the Fleet unravels as an organised force, and The Key's vendors, including its contraband fences, are gone for good. Side with the Fleet instead and you assault the Vigilance and take down Ikande, keeping The Key and its mission board but permanently losing access to UC SysDef. Most companions approve more of siding with SysDef."
     ],
-    "related": ["uc-sysdef", "crimson", "the-key"]
+    "related": ["uc-sysdef", "crimson", "the-key", "tempest", "unfair-advantage", "revenant"]
   },
   {
     "id": "ryujin-corporate-endings",
@@ -27,7 +27,7 @@
       "The corporate ladder (\"Back to the Grind\" through \"Executive Level,\" roughly a dozen quests) hinges on \"Guilty Parties\": board member Ularu is framing CEO Masako for a data breach, with employee Imogene caught in the middle. What you do with the evidence decides the ending, resolved in the finale, \"Executive Level.\"",
       "Hand the evidence over and Masako stays CEO with Imogene surviving; sit on it (or worse) and Ularu successfully frames Masako and takes the chair, with Imogene written out of the story for good; vote against Ularu at the final board meeting and the board sides with Masako regardless — though that path still doesn't save Imogene. A separate, unrelated choice along the way is whether to shut down Ryujin's Neuroamp human-testing program via Infinity LTD, or acquire the company instead — most companions disapprove of the acquisition."
     ],
-    "related": ["ryujin", "neon"]
+    "related": ["ryujin", "neon", "syndicate-enforcer"]
   },
   {
     "id": "freestar-collective-questline",
@@ -42,7 +42,7 @@
       "The Rangers' investigative arc (\"Job Gone Wrong\"/\"Deputized\" through \"The Hammer Falls,\" seven or eight quests) uncovers that a mercenary group called The First has been attacking Freestar settlers to seize farmland for an experimental fertiliser scheme — hired, it turns out, by HopeTech's own founder, Ron Hope.",
       "The finale lets you take his bribe for silence, refuse and fight him (only he and his bodyguards turn hostile — the rest of HopeTown doesn't), or resolve it without bloodshed. None of it changes anything faction-wide; the only tracked effect is companion approval (Sarah Morgan disapproves if Hope isn't held accountable). Regardless of the choice, you're promoted from Freestar Deputy to full Ranger and keep the Star Eagle-class ship and gear that comes with it — the Rangers becoming your day job is the actual ending here, not taking over the Collective itself."
     ],
-    "related": ["freestar", "freestar-rangers", "hopetown", "hopetech-shipyard"]
+    "related": ["freestar", "freestar-rangers", "hopetown", "hopetech-shipyard", "justifier", "ranger-spacesuit-set"]
   },
   {
     "id": "shattered-space-ending",
@@ -72,6 +72,6 @@
       "During \"Unearthed,\" on Earth, the Hunter and the Emissary both reveal the truth about the Artifacts and the Unity — and the player picks a side before the finale, \"Revelation,\" at Masada III. Side with the Emissary and it fights alongside you against the Hunter; side with the Hunter and he fights alongside you against the Emissary instead; side with neither and you face both of them alone — the only route that lets you claim both of their signature weapons, Eternity's Gate and Unmitigated Violence.",
       "All three paths converge afterward regardless: the final artifacts are collected and the grav jump into the Unity happens no matter what was chosen. The practical difference is mostly which Starborn ally (if either) helps in that last fight, plus a differently-worded ending narration — not a fork in the wider game."
     ],
-    "related": ["the-hunter", "the-emissary", "the-unity", "the-starborn"]
+    "related": ["the-hunter", "the-emissary", "the-unity", "the-starborn", "eternitys-gate", "unmitigated-violence"]
   }
 ]

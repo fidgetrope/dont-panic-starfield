@@ -36,7 +36,7 @@
     "body": [
       "What's on the other side: not a place so much as a threshold between parallel versions of the same universe. Nobody, including its makers, is named or explained."
     ],
-    "related": ["the-armillary", "the-starborn", "the-unity-choice"]
+    "related": ["the-armillary", "the-starborn", "the-unity-choice", "fortunes-glory"]
   },
   {
     "id": "the-starborn",
@@ -63,7 +63,7 @@
       "In this universe, Aquilus leads House Va'ruun's religious order. In the Hunter's home universe, he found the Unity instead — and has been through it so many times since that he's become extraordinarily powerful, and extraordinarily set in one belief: the Artifacts belong to whoever is strong enough to take them, full stop.",
       "He spends the main story hunting the player and Constellation across universes to seize the Artifacts by force, and in most alternate timelines that hunt ends with him killing the player character during an attack on the Lodge or the Eye — which is precisely how the Emissary comes to exist in other timelines instead. He and the Emissary reveal the truth about the Unity to the player together, at Earth, before the player is asked to pick a side."
     ],
-    "related": ["the-emissary", "the-starborn", "the-unity-choice"]
+    "related": ["the-emissary", "the-starborn", "the-unity-choice", "unmitigated-violence", "unrestrained-vengeance", "the-last-priest"]
   },
   {
     "id": "the-emissary",
@@ -77,7 +77,7 @@
       "The Emissary's real identity is personal: an alternate-universe version of whichever Constellation companion died protecting the player during the Hunter's attack in that timeline's \"High Price to Pay\" — which specific companion varies depending on who was there in the player's own playthrough.",
       "Having been through the Unity more times than almost anyone, the Emissary has appointed itself its guardian: it would rather judge who deserves to become Starborn than let the Hunter's raw-strength approach decide it. The two reveal the cosmology to the player together at Earth, then are willing to fight each other over which philosophy wins, depending on which one the player backs."
     ],
-    "related": ["the-hunter", "the-starborn", "the-unity-choice"]
+    "related": ["the-hunter", "the-starborn", "the-unity-choice", "eternitys-gate"]
   },
   {
     "id": "what-happens-next",

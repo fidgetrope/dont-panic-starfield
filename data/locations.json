@@ -14,7 +14,7 @@
       "The biggest city in the settled systems and the UC capital, built in tiers around the MAST government complex. Immaculate, prosperous, and just self-satisfied enough that you'll understand why the Freestar Collective left. Constellation's headquarters, the Lodge, sits inside it — so this is also where your own story starts, one way or another.",
       "Above the planet floats The Eye, an orbital station worth a look for its mission board and passing trade, if nothing else."
     ],
-    "related": ["constellation", "uc", "the-eye", "trade-authority"]
+    "related": ["constellation", "uc", "the-eye", "trade-authority", "acid-rain", "n67-smartgun"]
   },
   {
     "id": "the-eye",
@@ -114,7 +114,7 @@
     "body": [
       "A walled frontier town that happens to be the capital of an interstellar confederation — dusty streets, practical architecture, and a \"handle it yourself\" attitude baked into every district: Midtown, the Core, the Stretch. Home to the Freestar Rangers and, fittingly, the closest thing the settled systems have to a Wild West."
     ],
-    "related": ["freestar", "hopetown", "freestar-rangers", "trackers-alliance", "trade-authority"]
+    "related": ["freestar", "hopetown", "freestar-rangers", "trackers-alliance", "trade-authority", "elegance", "head-ranger", "despondent-assassin", "deadeye"]
   },
   {
     "id": "neon",
@@ -130,7 +130,7 @@
     "body": [
       "Built on top of an old fishing platform, after someone noticed the local fish produced a rather profitable psychotropic compound. That compound is Aurora, and Neon is the city it built: casinos, corporate towers, and a lot of very bright light hiding a lot of very murky business. Ryujin Industries runs it, more or less openly, from Neon Core."
     ],
-    "related": ["ryujin", "trade-authority", "taiyo-astroneering"]
+    "related": ["ryujin", "trade-authority", "taiyo-astroneering", "boom-boom", "the-buzzcut", "syndicate-enforcer"]
   },
   {
     "id": "taiyo-astroneering",
@@ -163,7 +163,7 @@
     "body": [
       "Anselon's two moons, and where it all begins: a mining contract on Vectera, an artifact nobody expected, and a detour past Kreet on the way to New Atlantis."
     ],
-    "related": ["new-atlantis", "the-artifacts", "stroud-eklund-staryard"]
+    "related": ["new-atlantis", "the-artifacts", "stroud-eklund-staryard", "hellers-cutter"]
   },
   {
     "id": "stroud-eklund-staryard",
@@ -212,7 +212,7 @@
     "body": [
       "A luxury resort on Porrima II and, one planet over on Porrima III, the Red Mile — an extreme racing club that treats \"extreme\" fairly literally."
     ],
-    "related": []
+    "related": ["brute-force"]
   },
   {
     "id": "dazra",
@@ -244,7 +244,7 @@
     "body": [
       "A former United Colonies town on Toliman II, left behind and now mostly notable for why nobody came back."
     ],
-    "related": ["uc"]
+    "related": ["uc", "sentinels-uc-antixeno-spacesuit"]
   },
   {
     "id": "hopetown",
