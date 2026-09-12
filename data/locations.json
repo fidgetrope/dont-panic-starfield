@@ -14,7 +14,24 @@
       "The biggest city in the settled systems and the UC capital, built in tiers around the MAST government complex. Immaculate, prosperous, and just self-satisfied enough that you'll understand why the Freestar Collective left. Constellation's headquarters, the Lodge, sits inside it — so this is also where your own story starts, one way or another.",
       "Above the planet floats The Eye, an orbital station worth a look for its mission board and passing trade, if nothing else."
     ],
-    "related": ["constellation", "uc"]
+    "related": ["constellation", "uc", "the-eye", "trade-authority"]
+  },
+  {
+    "id": "the-eye",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "The Eye",
+    "system": "Alpha Centauri",
+    "planet": "Jemison (orbit)",
+    "faction": "constellation",
+    "era": "base",
+    "tags": ["station", "constellation", "scanner"],
+    "summary": "A Constellation-owned deep-space scanner in orbit above Jemison, watching for Artifacts and Temples.",
+    "body": [
+      "A star station in orbit above Jemison, owned and run by Constellation. Originally a nondescript structure designated LO-868, Constellation bought it in 2328 at founding member Barrett's urging and refitted it into a deep-space scanner array — maintained by Constellation member Vladimir Sall, who keeps it listening for the anomalous signals that give away an Artifact or a Temple.",
+      "Worth the trip for the mission board and passing trade alone, but its actual job is watching the sky for exactly the kind of find Constellation was built to chase."
+    ],
+    "related": ["constellation", "new-atlantis", "the-artifacts"]
   },
   {
     "id": "earth-cydonia",
@@ -31,7 +48,24 @@
       "Earth is still there. It's just not somewhere anyone lives — magnetosphere gone, radiation punishing by day, continents barely visible from orbit under a thin haze. You can land, salvage, and build outposts on the birthplace of the species. Nobody's stopping you. Nobody's helping you either.",
       "Mars fares better, in the sense that Cydonia exists: a UC mining settlement sealed entirely underground in a maze of tunnels, because the surface still isn't an option. It's the largest mining operation the UC runs, guarded by its own Marine barracks, and about as far from New Atlantis's polish as the core worlds get."
     ],
-    "related": ["uc"]
+    "related": ["uc", "deimos-staryard"]
+  },
+  {
+    "id": "deimos-staryard",
+    "type": "location",
+    "subtype": "frontier",
+    "name": "Deimos Staryard",
+    "system": "Sol",
+    "planet": "Deimos (orbit)",
+    "faction": "independent",
+    "era": "base",
+    "tags": ["shipyard", "sol-system", "manufacturer"],
+    "summary": "A civilian-accessible shipyard orbiting Mars's moon Deimos — HQ of the ship manufacturer of the same name.",
+    "body": [
+      "An orbital shipyard around Deimos, the smaller and closer of Mars's two moons, and the headquarters of Deimos Staryards Inc — one of the best-known starship manufacturers in the settled systems, with a product line leaning military and UC-adjacent, though anyone's credits spend the same. Dock and you can buy ships and parts straight from Deimos staff, or pick up local jobs.",
+      "The company's footprint extends down to Cydonia too, where its engineering block, corporate office, and miner quarters sit alongside the rest of Mars's underground sprawl."
+    ],
+    "related": ["earth-cydonia"]
   },
   {
     "id": "akila-city",
@@ -47,7 +81,7 @@
     "body": [
       "A walled frontier town that happens to be the capital of an interstellar confederation — dusty streets, practical architecture, and a \"handle it yourself\" attitude baked into every district: Midtown, the Core, the Stretch. Home to the Freestar Rangers and, fittingly, the closest thing the settled systems have to a Wild West."
     ],
-    "related": ["freestar", "hopetown"]
+    "related": ["freestar", "hopetown", "freestar-rangers", "trackers-alliance", "trade-authority"]
   },
   {
     "id": "neon",
@@ -63,7 +97,7 @@
     "body": [
       "Built on top of an old fishing platform, after someone noticed the local fish produced a rather profitable psychotropic compound. That compound is Aurora, and Neon is the city it built: casinos, corporate towers, and a lot of very bright light hiding a lot of very murky business. Ryujin Industries runs it, more or less openly, from Neon Core."
     ],
-    "related": ["ryujin"]
+    "related": ["ryujin", "trade-authority"]
   },
   {
     "id": "vectera-kreet",
@@ -175,7 +209,7 @@
     "body": [
       "No faction runs it, deliberately, and the black market trades accordingly. Bring credits, not questions."
     ],
-    "related": []
+    "related": ["trade-authority"]
   },
   {
     "id": "lair-of-the-mantis",

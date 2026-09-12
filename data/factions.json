@@ -29,7 +29,39 @@
       "The largest and most powerful government in the settled systems, run from the MAST building in New Atlantis. Order, military structure, and a genuine belief they're holding civilisation together. Its armed wing, UC Vanguard, deals with the things it would rather the public not think about.",
       "The Freestar Collective exists largely in reaction to the UC's idea of order — the two fought a war over it once, and the frontier's independence is the direct result."
     ],
-    "related": ["new-atlantis", "earth-cydonia", "londinion", "freestar"]
+    "related": ["new-atlantis", "earth-cydonia", "londinion", "freestar", "uc-vanguard", "uc-sysdef"]
+  },
+  {
+    "id": "uc-vanguard",
+    "type": "faction",
+    "name": "UC Vanguard",
+    "pilltag": "Sub-faction",
+    "color": "--f-uc",
+    "system": "Alpha Centauri",
+    "era": "base",
+    "tags": ["military", "sub-faction", "new-atlantis"],
+    "summary": "The United Colonies' protective and investigative wing, run out of the MAST in New Atlantis.",
+    "body": [
+      "The UC's own defenders — part military, part investigators, and the faction that handles the threats the government would rather the public didn't have to think about. Recruits sign up through Commander John Tuala at the MAST in New Atlantis, sit through an orientation on the settled systems' history, and prove themselves in a live combat exercise before getting sent out on real assignments.",
+      "Full citizenship is the carrot: put in the time and the UC promises discounts on goods and medical supplies, and the chance to own a place in New Atlantis outright."
+    ],
+    "related": ["uc", "new-atlantis"]
+  },
+  {
+    "id": "uc-sysdef",
+    "type": "faction",
+    "name": "UC SysDef",
+    "pilltag": "Sub-faction",
+    "color": "--f-uc",
+    "system": null,
+    "era": "base",
+    "tags": ["military", "counter-piracy", "sub-faction"],
+    "summary": "The UC's counter-piracy division, formed after the Navy alone couldn't put down the Crimson Fleet.",
+    "body": [
+      "Short for UC System Defense — a specialised division of the UC Navy stood up in the 2240s for one job: doing what the regular Navy couldn't and actually breaking the Crimson Fleet. Functionally the settled systems' coast guard, running system-wide security and counter-piracy out of a mobile headquarters, the UC Vigilance, under Commander Kibwe Ikande.",
+      "Getting into the Crimson Fleet's inner circle and working for SysDef aren't mutually exclusive for a while — but the arrangement ends at a point of no return, and siding with SysDef there is generally what finishes the Fleet off for good."
+    ],
+    "related": ["uc", "crimson"]
   },
   {
     "id": "freestar",
@@ -45,7 +77,39 @@
       "Frontier colonies who fought a war rather than answer to the United Colonies, and still run things their own way from Akila City. Law enforcement is handled by the Freestar Rangers — fewer regulations, more boots on the ground.",
       "\"Handle it yourself\" is less a slogan than the actual governing philosophy — HopeTown's independence and the Rangers' frontier-wide reach both trace back to it."
     ],
-    "related": ["akila-city", "hopetown", "uc"]
+    "related": ["akila-city", "hopetown", "uc", "freestar-rangers", "trackers-alliance"]
+  },
+  {
+    "id": "freestar-rangers",
+    "type": "faction",
+    "name": "Freestar Rangers",
+    "pilltag": "Sub-faction",
+    "color": "--f-fs",
+    "system": "Cheyenne",
+    "era": "base",
+    "tags": ["law-enforcement", "sub-faction", "akila-city"],
+    "summary": "The Freestar Collective's federal law enforcement — formed 2231, run out of Akila City.",
+    "body": [
+      "The Collective's answer to a standing police force: an elite protective and investigative unit formed in 2231 by the Council of Governors. The one in charge carries the title Marshal — currently Marshal Daniel Blake, who signs off on new recruits out of Akila City after they've proven themselves on the Job Gone Wrong case.",
+      "New Rangers get issued a Deadeye sidearm and a deputy uniform to start; make full Ranger and that upgrades to a custom Justifier, a proper Ranger spacesuit, and a Star Eagle-class patrol ship of your own."
+    ],
+    "related": ["freestar", "akila-city"]
+  },
+  {
+    "id": "trackers-alliance",
+    "type": "faction",
+    "name": "Trackers Alliance",
+    "pilltag": "Bounty hunters",
+    "color": "--f-ind",
+    "system": "Cheyenne",
+    "era": "base",
+    "tags": ["bounty-hunters", "neutral", "akila-city"],
+    "summary": "A settled-systems-wide bounty hunting network, run from a headquarters in Akila City.",
+    "body": [
+      "Not tied to either government — a network of scouts, bounty hunters and information brokers who make their money bringing in criminals, dead or alive, for whoever's paying. Headquartered in Akila City and fronted publicly by the mysterious Agent No. 1, who's usually the first and last person a new recruit deals with directly.",
+      "Sign up and you're assigned a callsign rather than using your own name for Alliance business — Raven, Nightstalker, Wraith and the like are typical."
+    ],
+    "related": ["akila-city"]
   },
   {
     "id": "crimson",
@@ -106,6 +170,22 @@
       "Private military contractors for hire, found wherever the pay is good and the questions are few — fortified outposts like Vulture's Roost are typical. Not an organisation you join so much as one you keep surviving."
     ],
     "related": ["vultures-roost"]
+  },
+  {
+    "id": "trade-authority",
+    "type": "faction",
+    "name": "Trade Authority",
+    "pilltag": "Commerce network",
+    "color": "--f-ind",
+    "system": null,
+    "era": "base",
+    "tags": ["commerce", "neutral", "fence"],
+    "summary": "A galaxy-spanning trading company whose kiosks will buy contraband and stolen goods, no questions asked.",
+    "body": [
+      "Not a government or a gang — a commercial network, with offices and kiosks scattered across the settled systems' major spaceports. Their whole business model is buying and selling without getting precious about where the goods came from, which makes a Trade Authority desk the easiest legal-adjacent way to offload contraband or stolen items.",
+      "Branches turn up in New Atlantis, Neon, Akila City, and The Den, among others — the Den's branch in particular is popular precisely because ships entering the Wolf system don't get scanned on the way in."
+    ],
+    "related": ["neon", "the-den", "new-atlantis", "akila-city"]
   },
   {
     "id": "terran-armada",
