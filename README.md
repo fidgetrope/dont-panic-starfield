@@ -1,4 +1,4 @@
-# Don't Panic! — A Pocket Guide to the Settled Systems
+# Don't Panic! — Che's Pocket Guide to the Settled Systems
 
 A cross-linked, filterable encyclopedia of the *Starfield* (Bethesda) universe — factions, worlds, cosmology, and the state of the game itself. Styled to echo bethesda.net/game/starfield.
 
